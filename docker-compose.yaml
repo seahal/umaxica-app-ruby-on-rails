@@ -1,0 +1,184 @@
+name: demo
+services:
+  kafka:
+    container_name: kafka
+    image: confluentinc/cp-kafka:7.7.0
+    ports:
+      - 9092:9092
+    networks:
+      - backend
+    environment:
+      CLUSTER_ID: kafka-docker-cluster-1
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://127.0.0.1:9092
+      KAFKA_BROKER_ID: 1
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@127.0.0.1:9093
+      ALLOW_PLAINTEXT_LISTENER: 'yes'
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: "true"
+      KAFKA_AUTHORIZER_CLASS_NAME: org.apache.kafka.metadata.authorizer.StandardAuthorizer
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.0.0
+    networks:
+      - backend
+    ports:
+      - 9200:9200
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - ELASTIC_PASSWORD=password
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - elasticsearch-data-1:/usr/share/elasticsearch/config/certs
+  db-postgresql:
+    image: postgres:16.2
+    networks:
+      - backend
+    environment:
+      POSTGRES_USER: default
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_volume:/var/lib/postgresql/data
+    restart: always
+    user: root
+  minio:
+    image: minio/minio:RELEASE.2023-07-11T21-29-34Z
+    volumes:
+      - minio-data-1:/data
+    command: server --console-address ":9001" /data
+    ports:
+      - 9000:9000
+      - 9001:9001
+    networks:
+      - backend
+    environment:
+      MINIO_ROOT_USER: default
+      MINIO_ROOT_PASSWORD: password
+      MINIO_DEFAULT_BUCKETS: application
+  redis:
+    image: redis:7.0.15-alpine3.20
+    networks:
+      - backend
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_volume:/data
+  valkey:
+    image: 'valkey/valkey:7.2.6-alpine'
+    volumes:
+      - valkey_volume:/data
+    command: valkey-server
+    networks:
+      - backend
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli ping | grep PONG"]
+      interval: 1s
+      timeout: 3s
+      retries: 5
+    ports:
+      - '6380:6379'
+  ror:
+    build:
+      context: ./ror
+      target: development
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3333 -b '0.0.0.0'"
+    environment:
+      POSTGRES_URI: 'db-postgresql'
+      POSTGRES_USER: default
+      POSTGRES_PASSWORD: password
+      RAILS_URI: 'http://localhost:3333'
+      REMIX_URI: 'http://localhost:5173'
+      REDIS_CACHE_URL: 'redis://redis:6379'
+      REDIS_SESSION_URL: 'redis://valkey:6379'
+    restart: always # コンテナが停止すると常に再起動
+    tty: true # 疑似ターミナル (pseudo-TTY) を割り当て。https://docs.docker.jp/compose/compose-file/index.html#tty
+    stdin_open: true # サービス コンテナに標準入力を割り当てて実行するよう設定(https://docs.docker.jp/compose/compose-file/index.html#stdin-open)。
+    ports:
+      - "3333:3333"
+    volumes:
+      - ./ror:/ror
+    networks:
+      - backend
+    depends_on:
+      - db-postgresql
+      - redis
+      - valkey
+      - minio
+#      - kafka
+#      - elasticsearch
+  remix:
+    build: ./remix
+    command: ash -c "npx vite --host"
+    restart: always # コンテナが停止すると常に再起動
+    tty: true
+    stdin_open: true
+    environment:
+      RAILS_URI: 'http://localhost:3333'
+      REMIX_URI: 'http://localhost:5173'
+    ports:
+      - "5173:5173"
+      - "8002:8002"
+    networks:
+      - backend
+    volumes:
+      - ./remix:/remix
+    depends_on:
+      - ror
+  varnish:
+    image: varnish:stable
+    volumes:
+      - "./varnish/default.vcl:/etc/varnish/default.vcl"
+    ports:
+      - "80:80"
+    tmpfs:
+      - /var/lib/varnish:exec
+    command: "-p default_keep=300"
+    environment:
+      - VARNISH_SIZE=2G
+    networks:
+      - backend
+    depends_on:
+      - ror
+      - remix
+  selenium:
+    image: seleniarm/standalone-chromium
+    restart: always # コンテナが停止すると常に再起動
+    networks:
+      - backend
+      - frontend
+    ports:
+      - "4444:4444"
+      - "5900:5900"
+      - "7900:7900"
+    depends_on:
+      - ror
+      - remix
+  rust:
+    build:
+      context: ./rust
+      target: development
+    networks:
+      - frontend
+    volumes:
+      - ./rust:/rust
+volumes: #
+  postgres_volume:
+  redis_volume:
+  valkey_volume:
+  elasticsearch-data-1:
+  minio-data-1:
+networks:
+  backend:
+  frontend:
