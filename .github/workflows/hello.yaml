@@ -1,5 +1,7 @@
 name: Hello
 on:
+  schedule:
+    - cron: '*/15 * * * *'
   workflow_dispatch:
     inputs:
       greeting:
@@ -13,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
+          date
           ls
           pwd
           echo "hello, world! ${{inputs.greeting}}"
