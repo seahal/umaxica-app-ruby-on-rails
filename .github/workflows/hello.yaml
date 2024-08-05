@@ -20,4 +20,5 @@ jobs:
           ls
           pwd
           echo "hello, world! ${{inputs.greeting}}"
+          exit 2
       - uses: actions/checkout@v4
