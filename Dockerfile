@@ -1,21 +1,18 @@
 ARG RUBY_VERSION=3.3.4
 
-FROM ruby:$RUBY_VERSION-slim-bookworm AS orginal
-
 FROM ruby:$RUBY_VERSION-slim-bookworm AS development
 ENV TZ=UTC
 RUN mkdir /ror
 WORKDIR /ror
 RUN apt-get update -qq && \
     apt-get install -y build-essential postgresql-client libpq-dev graphviz curl && \
-#    rm -rf /var/lib/apt/lists/* /usr/share/doc /usr/share/man && \
     apt-get clean
 ADD Gemfile* /ror/
 RUN bundle install
 ADD ./ /ror
 
 
-FROM ruby:$RUBY_VERSION-slim-bookworm as production
+FROM ruby:$RUBY_VERSION-slim-bookworm AS production
 ENV TZ=UTC
 ENV RAILS_ENV="development" \
     BUNDLE_DEPLOYMENT="1" \
