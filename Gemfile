@@ -52,7 +52,7 @@ gem 'tzinfo-data', platforms: %i[windows jruby]
 gem 'bootsnap', require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-gem "image_processing", "~> 1.2"
+gem 'image_processing', '~> 1.2'
 
 # FIXME: i am wondering that using aws's s3.
 gem 'aws-sdk-s3', require: false
@@ -70,21 +70,22 @@ end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem 'rails_best_practices', '~> 1.23', '>= 1.23.2'
+  gem 'bullet', '~> 7.2'
   gem 'bundler-audit', '~> 0.9.1'
   gem 'churn', '~> 1.0', '>= 1.0.8'
   gem 'flay', '~> 2.13', '>= 2.13.3'
-  gem 'rubocop', require: false
-  gem 'rubocop-rails', require: false
-  gem 'rubocop-performance', require: false
   gem 'guard'
   gem 'guard-brakeman'
   gem 'guard-minitest'
   gem 'guard-rubocop'
+  gem 'rails_best_practices', '~> 1.23', '>= 1.23.2'
   gem 'rails-erd', '~> 1.7', '>= 1.7.2'
   gem 'reek', '~> 6.3'
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-capybara', '~> 2.21', require: false
   gem 'web-console'
-  gem 'bullet', '~> 7.2'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
