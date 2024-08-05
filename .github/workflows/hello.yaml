@@ -1,5 +1,6 @@
 name: Hello
-on: workflow_dispach:
+on:
+  workflow_dispatch:
     inputs:
       greeting:
         type: string
