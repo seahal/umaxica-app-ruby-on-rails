@@ -70,6 +70,7 @@ end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
+     gem 'rubocop', require: false
   gem 'rails_best_practices', '~> 1.23', '>= 1.23.2'
   gem 'bundler-audit', '~> 0.9.1'
   gem 'churn', '~> 1.0', '>= 1.0.8'
@@ -94,7 +95,6 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
-  gem 'cuprite', '~> 0.15.1'
   gem 'selenium-webdriver'
   gem 'simplecov', require: false
 end
