@@ -15,5 +15,9 @@ jobs:
       - run: |
           ls
           pwd
-          echo "hello, world!"
+          echo "hello, world! ${{inputs.greeting}}"
       - uses: actions/checkout@v4
+      - run: |
+          ls
+          pwd
+          echo "hello, world! ${{inputs.greeting}}"
