@@ -1,6 +1,5 @@
 name: Hello
-on: [push, pull_request]
-  workflow_dispach:
+on: workflow_dispach:
     inputs:
       greeting:
         type: string
