@@ -2,6 +2,7 @@ name: Hello
 on: push
 jobs:
   hello:
+    name: 'Hello, World!'
     runs-on: ubuntu-latest
     steps:
       - run: echo "hello, world!"
