@@ -1,5 +1,7 @@
 ARG RUBY_VERSION=3.3.4
 
+FROM ruby:$RUBY_VERSION-slim-bookworm AS orginal
+
 FROM ruby:$RUBY_VERSION-slim-bookworm AS development
 ENV TZ=UTC
 RUN mkdir /ror
