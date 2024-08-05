@@ -1,8 +1,8 @@
 name: Hello
 on:
   push:
-  schedule:
-    - cron: '*/15 * * * *'
+  # schedule:
+  #   - cron: '*/15 * * * *'
   workflow_dispatch:
     inputs:
       greeting:
