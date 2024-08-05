@@ -1,5 +1,12 @@
 name: Hello
 on: [push, pull_request]
+  workflow_dispach:
+    inputs:
+      greeting:
+        type: string
+        default: Hello
+        required: true
+        description: ???
 jobs:
   hello:
     name: 'First Action!'
