@@ -23,5 +23,5 @@ jobs:
           echo "hello, world! ${{inputs.greeting}}"
       - name: "context"
         run: |
-          echo "{{ github.actor }}"
-          echo "{{ env }}"
+          echo "${{ github.actor }}"
+          echo "${{ env }}"
