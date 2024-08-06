@@ -15,9 +15,9 @@ jobs:
     name: 'First Action!'
     runs-on: ubuntu-24.04
     steps:
+      - uses: actions/checkout@v4
       - run: |
           date
           ls
           pwd
           echo "hello, world! ${{inputs.greeting}}"
-        uses: actions/checkout@v4
