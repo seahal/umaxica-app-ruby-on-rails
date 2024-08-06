@@ -23,5 +23,7 @@ jobs:
           echo "hello, world! ${{inputs.greeting}}"
       - name: "context"
         run: |
-          echo "${{ github.actor }}"
-          echo "${{ env }}"
+          echo "env -> ${{ env }}"
+          echo "github.actor -> ${{ github.actor }}"
+          echo "github.action -> ${{ github.action }}"
+          echo "github.job => ${{ github.job }}"
