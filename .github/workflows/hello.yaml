@@ -21,3 +21,6 @@ jobs:
           ls
           pwd
           echo "hello, world! ${{inputs.greeting}}"
+      - name: 'second'
+        run: |
+          echo "{{ github.actor }}"
