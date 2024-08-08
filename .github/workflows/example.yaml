@@ -23,7 +23,10 @@
        run: |
          date
          pwd
-     - name: nextage
-       run: echo "${{ github.actor }} ..."
+     - name: nex
+       run: |
+         echo "${{ github.actor }} ..."
+         echo "${{ github.actoin_path }} ..."
+         echo "${{ github.actoin_repository }} ..."
      # - name: Setup tmate session
      #   uses: mxschmitt/action-tmate@v3
