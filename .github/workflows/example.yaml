@@ -25,6 +25,9 @@
        run: |
          date
          pwd
+     - name: two
+       run: |
+         echo ${{ BRANCH }}
      - name: nex
        run: |
          echo "${{ github.actor }} ..."
