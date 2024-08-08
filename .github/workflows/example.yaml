@@ -1,38 +1,38 @@
- name: Ruby Gem
- on:
-   push:
-     branches: [ "main" ]
-   pull_request:
-     branches: [ "main" ]
- jobs:
-   build:
-     name: Build + Publish
-     runs-on: ubuntu-24.04
-     timeout-minutes: 5
-     env:
-       BRANCH: main
-     permissions:
-       contents: read
-       packages: write
-     steps:
-     - uses: actions/checkout@v4
-     - name: Set up Ruby
-       uses: ruby/setup-ruby@v1
-       with:
-         ruby-version: 3.3.4
-         bundler-cache: true
-     - name: Publish to GPR
-       run: |
-         date
-         pwd
-     - name: two
-       run: |
-         echo ${{ BRANCH }}
-     - name: nex
-       run: |
-         echo "${{ github.actor }} ..."
-         echo "${{ github.actoin_path }} ..."
-         echo "${{ github.actoin_repository }} ..."
-         echo "${{ runner.name }} ... ${{ runner.os }} ... ${{runner.arch}} ${{ runner.too_cache }}"
-     # - name: Setup tmate session
-     #   uses: mxschmitt/action-tmate@v3
+name: Ruby Gem
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+jobs:
+  build:
+    name: Build + Publish
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    env:
+      BRANCH: main
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3.4
+          bundler-cache: true
+      - name: Publish to GPR
+        run: |
+          date
+          pwd
+      - name: two
+        run: |
+          echo ${{ BRANCH }}
+      - name: nex
+        run: |
+          echo "${{ github.actor }} ..."
+          echo "${{ github.actoin_path }} ..."
+          echo "${{ github.actoin_repository }} ..."
+          echo "${{ runner.name }} ... ${{ runner.os }} ... ${{runner.arch}} ${{ runner.too_cache }}"
+    # - name: Setup tmate session
+    #   uses: mxschmitt/action-tmate@v3
