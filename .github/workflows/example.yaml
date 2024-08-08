@@ -35,6 +35,7 @@ jobs:
           echo "${BRANCH} ... ${EXAMPLE}"
           echo "${CI}"
           echo "${ACTOR}"
+          echo "${{ vars.USERNAME }}"
       - name: nex
         run: |
           echo "${{ github.actor }} ..."
