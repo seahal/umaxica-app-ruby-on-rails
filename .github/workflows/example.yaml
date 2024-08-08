@@ -39,7 +39,10 @@ jobs:
           echo "${{ secrets.PASSWORD }}"
       - name: three
         env:
-          LITERAL_NULL: ${{ null}}
+          LITERAL_NULL: ${{ null }}
+          LITERAL_BOOLEAN: ${{ true }}
+          LITERAL_NUMBER: ${{ 1234 }}
+          LITERAL_STRING: world
         run: |
           printenv | grep 'LITERAL_'
       - name: nex
