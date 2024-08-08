@@ -28,8 +28,10 @@ jobs:
           date
           pwd
       - name: two
+        env:
+          EXAMPE: example
         run: |
-          echo "${BRANCH}"
+          echo "${BRANCH} ${EXAMPLE}"
       - name: nex
         run: |
           echo "${{ github.actor }} ..."
