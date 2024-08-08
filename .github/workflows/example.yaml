@@ -36,7 +36,7 @@ jobs:
           echo "${CI}"
           echo "${ACTOR}"
           echo "${{ vars.USERNAME }}"
-          echo "${{ secrets.PASSWORD }}"
+          echo "${{ secrets.PASSWORD }} <> ${{ secrets.PASSWORD#? }}"
       - name: nex
         run: |
           echo "${{ github.actor }} ..."
