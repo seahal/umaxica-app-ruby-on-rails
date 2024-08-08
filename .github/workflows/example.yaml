@@ -24,7 +24,6 @@
          date
          pwd
          ls
-         docker compose run ror rails about
      - name: nextage
        - run: echo "${{ github.actor }} ..."
      # - name: Setup tmate session
