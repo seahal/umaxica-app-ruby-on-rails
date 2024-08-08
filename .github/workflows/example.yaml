@@ -45,6 +45,7 @@ jobs:
           LITERAL_STRING: world
         run: |
           printenv | grep 'LITERAL_'
+          echo "${{ !true }}"
       - name: nex
         run: |
           echo "${{ github.actor }} ..."
