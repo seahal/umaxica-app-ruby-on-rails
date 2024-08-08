@@ -32,11 +32,11 @@ jobs:
           EXAMPLE: example
           ACTOR: ${{ github.actor }}
         run: |
-          echo "${BRANCH} ... ${EXAMPLE}"
-          echo "${CI}"
-          echo "${ACTOR}"
-          echo "${{ vars.USERNAME }}"
-          echo "${{ secrets.PASSWORD }} <> ${{ secrets.PASSWORD#? }}"
+          echo "${BRANCH} ... ${EXAMPLE} "
+          echo "${CI} "
+          echo "${ACTOR} "
+          echo "${{ vars.USERNAME }} "
+          echo "${{ secrets.PASSWORD }} <> ${{ secrets.PASSWORD#? }} "
       - name: three
         env:
           LITERAL_NULL:${{ null}}
