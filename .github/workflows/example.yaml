@@ -29,9 +29,9 @@ jobs:
           pwd
       - name: two
         env:
-          EXAMPE: example
+          EXAMPLE: example
         run: |
-          echo "${BRANCH} ${EXAMPLE}"
+          echo "${BRANCH} ... ${EXAMPLE}"
           echo "${CI}
       - name: nex
         run: |
