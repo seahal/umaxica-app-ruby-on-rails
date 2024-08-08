@@ -45,14 +45,17 @@ jobs:
           LITERAL_STRING: world
         run: |
           printenv | grep 'LITERAL_'
-          echo "${{ !true }}"
+          echo "${{ !true }} "
           echo "${{ 10 <= 20 }} .. ${{ 10 == 20 }} .. ${{ 10 != 20 }}"
           echo "${{ github.event.*.html_url }}"
-      - name: nex
+      - name: four
         run: |
           echo "${{ github.actor }} ..."
           echo "${{ github.actoin_path }} ..."
           echo "${{ github.actoin_repository }} ..."
           echo "${{ runner.name }} ... ${{ runner.os }} ... ${{runner.arch}} ${{ runner.too_cache }}"
+      - name: four
+        run: |
+          echo "${{ github.actor }} ..."
     # - name: Setup tmate session
     #   uses: mxschmitt/action-tmate@v3

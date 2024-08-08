@@ -78,7 +78,7 @@ GEM
     arrayfields (4.9.2)
     ast (2.4.2)
     aws-eventstream (1.3.0)
-    aws-partitions (1.961.0)
+    aws-partitions (1.962.0)
     aws-sdk-core (3.201.3)
       aws-eventstream (~> 1, >= 1.3.0)
       aws-partitions (~> 1, >= 1.651.0)
@@ -167,21 +167,8 @@ GEM
       dry-inflector (~> 1.0)
       dry-logic (~> 1.4)
       zeitwerk (~> 2.6)
-    elastic-transport (8.3.5)
-      faraday (< 3)
-      multi_json
-    elasticsearch (8.14.0)
-      elastic-transport (~> 8.3)
-      elasticsearch-api (= 8.14.0)
-    elasticsearch-api (8.14.0)
-      multi_json
     erubi (1.13.0)
     erubis (2.7.0)
-    faraday (2.10.1)
-      faraday-net_http (>= 2.0, < 3.2)
-      logger
-    faraday-net_http (3.1.1)
-      net-http
     fattr (2.4.0)
     ffi (1.17.0-aarch64-linux-gnu)
     ffi (1.17.0-aarch64-linux-musl)
@@ -241,17 +228,6 @@ GEM
       activesupport (>= 5.0.0)
     jmespath (1.6.2)
     json (2.7.2)
-    karafka (2.4.7)
-      base64 (~> 0.2)
-      karafka-core (>= 2.4.3, < 2.5.0)
-      waterdrop (>= 2.7.3, < 3.0.0)
-      zeitwerk (~> 2.3)
-    karafka-core (2.4.4)
-      karafka-rdkafka (>= 0.15.0, < 0.18.0)
-    karafka-rdkafka (0.17.1)
-      ffi (~> 1.15)
-      mini_portile2 (~> 2.6)
-      rake (> 12)
     kredis (1.7.0)
       activemodel (>= 6.0.0)
       activesupport (>= 6.0.0)
@@ -281,13 +257,9 @@ GEM
     method_source (1.1.0)
     mini_magick (4.13.2)
     mini_mime (1.1.5)
-    mini_portile2 (2.8.7)
     minitest (5.24.1)
     msgpack (1.7.2)
-    multi_json (1.15.0)
     nenv (0.3.0)
-    net-http (0.4.1)
-      uri
     net-imap (0.4.14)
       date
       net-protocol
@@ -314,7 +286,7 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     parallel (1.25.1)
-    parser (3.3.4.0)
+    parser (3.3.4.2)
       ast (~> 2.4.1)
       racc
     path_expander (1.1.2)
@@ -422,7 +394,7 @@ GEM
       rubocop-ast (>= 1.31.1, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 3.0)
-    rubocop-ast (1.31.3)
+    rubocop-ast (1.32.0)
       parser (>= 3.3.1.0)
     rubocop-capybara (2.21.0)
       rubocop (~> 1.41)
@@ -479,12 +451,7 @@ GEM
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.5.0)
     uniform_notifier (1.16.0)
-    uri (0.13.0)
     useragent (0.16.10)
-    waterdrop (2.7.4)
-      karafka-core (>= 2.4.3, < 3.0.0)
-      karafka-rdkafka (>= 0.15.1)
-      zeitwerk (~> 2.3)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -518,7 +485,6 @@ DEPENDENCIES
   churn (~> 1.0, >= 1.0.8)
   debug
   dotenv-rails (~> 3.1, >= 3.1.2)
-  elasticsearch (~> 8.14)
   flay (~> 2.13, >= 2.13.3)
   guard
   guard-brakeman
@@ -528,7 +494,6 @@ DEPENDENCIES
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
-  karafka (~> 2.4, >= 2.4.7)
   kredis
   pg (~> 1.3, >= 1.3.3)
   puma (>= 5.0)
