@@ -32,6 +32,7 @@ jobs:
           EXAMPE: example
         run: |
           echo "${BRANCH} ${EXAMPLE}"
+          echo "${CI}
       - name: nex
         run: |
           echo "${{ github.actor }} ..."
