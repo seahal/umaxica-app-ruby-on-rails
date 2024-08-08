@@ -46,6 +46,9 @@ jobs:
         run: |
           printenv | grep 'LITERAL_'
           echo "${{ !true }}"
+          echo "${{ 10 =< 20 }}"
+          echo "${{ 10 == 20 }}"
+          echo "${{ 10 != 20 }}"
       - name: nex
         run: |
           echo "${{ github.actor }} ..."
