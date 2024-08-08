@@ -46,9 +46,8 @@ jobs:
         run: |
           printenv | grep 'LITERAL_'
           echo "${{ !true }}"
-          echo "${{ 10 <= 20 }}"
-          echo "${{ 10 == 20 }}"
-          echo "${{ 10 != 20 }}"
+          echo "${{ 10 <= 20 }} .. ${{ 10 == 20 }} .. ${{ 10 != 20 }}"
+          echo "${{ github.event.*.html_url }}"
       - name: nex
         run: |
           echo "${{ github.actor }} ..."
