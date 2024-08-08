@@ -37,6 +37,11 @@ jobs:
           echo "${ACTOR}"
           echo "${{ vars.USERNAME }}"
           echo "${{ secrets.PASSWORD }} <> ${{ secrets.PASSWORD#? }}"
+      - name: three
+        env:
+          LITERAL_NULL:${{ null}}
+        run: |
+          printenv | grep 'LITERAL_'
       - name: nex
         run: |
           echo "${{ github.actor }} ..."
