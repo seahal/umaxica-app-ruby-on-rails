@@ -27,7 +27,7 @@ jobs:
           pwd
       - name: two
         run: |
-          echo "${{ BRANCH }}"
+          echo "${ BRANCH }"
       - name: nex
         run: |
           echo "${{ github.actor }} ..."
