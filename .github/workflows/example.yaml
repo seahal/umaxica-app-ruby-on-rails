@@ -30,9 +30,11 @@ jobs:
       - name: two
         env:
           EXAMPLE: example
+          ACTOR: ${{ github.actor }}
         run: |
           echo "${BRANCH} ... ${EXAMPLE}"
           echo "${CI}"
+          echo "${ACTOR}"
       - name: nex
         run: |
           echo "${{ github.actor }} ..."
