@@ -7,19 +7,18 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
-- Just Do It => `ruby -v`
+  - Just Do It => `ruby -v`
 * System dependencies
-
+  - ???
 * Configuration
-
+  - ???
 * Database creation
-- `bin/rails db:create`
+  - `bin/rails db:create`
 * Database initialization
-- `bin/rails db:migrate` => `bin/rails db:seed`
+  - `bin/rails db:migrate` => `bin/rails db:seed`
 * How to run the test suite
-- `bin/rails test:all`
+  - `bin/rails test:all`
 * Services (job queues, cache servers, search engines, etc.)
-
+  - ???
 * Deployment instructions
-
-* ...
+  - ???
