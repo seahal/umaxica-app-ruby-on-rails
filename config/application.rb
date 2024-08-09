@@ -8,6 +8,16 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+if  Rails.env.development? || Rails.env.test?
+  require 'dotenv'
+
+  if File::exist?('/.dockerenv')
+    Dotenv.load '.env'  # <= when you are in docker
+  else
+    Dotenv.load '.env.local' # <= when you are in mac, linux, and so on.
+  end
+end
+
 module Learn
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
