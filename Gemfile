@@ -58,7 +58,7 @@ gem 'image_processing', '~> 1.2'
 gem 'aws-sdk-s3', require: false
 
 # Kafka
-# gem 'karafka', '~> 2.4', '>= 2.4.7'
+gem 'karafka', '~> 2.4', '>= 2.4.7'
 
 # Elasticsearch
 # gem 'elasticsearch', '~> 8.14'
