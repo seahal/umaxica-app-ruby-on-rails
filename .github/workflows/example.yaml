@@ -73,6 +73,7 @@ jobs:
         env:
           HASH: ${{ hashFiles('githb/workflows/*.yaml') }}
         run: echo $HASH
+        if: ${{success()}}
       - name: Eight
         if: ${{ contains(github.run.id, '1') }}
         run: echo $HASH
