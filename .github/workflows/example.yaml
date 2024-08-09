@@ -64,7 +64,7 @@ jobs:
       - name: six
         env:
           CONTAINS_FUNC: ${{ contains('Hello','ell') }}
-          START_WITH_FUNC: ${{ startWith('Hello','He') }}
+          START_WITH_FUNC: ${{ startsWith('Hello','He') }}
           END_WITH_FUNC: ${{ endsWith('Hello','lo') }}
         run: printenv | grep '_FUNC'
     # - name: Setup tmate session
