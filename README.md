@@ -9,9 +9,10 @@ Things you may want to cover:
 * Ruby version
   - Just Do It => `ruby -v`
 * System dependencies
-  - ???
+  - OS X
+  - Ubuntu
 * Configuration
-  - ???
+  - see files.
 * Database creation
   - `bin/rails db:create`
 * Database initialization
