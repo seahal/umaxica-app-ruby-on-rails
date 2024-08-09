@@ -23,7 +23,9 @@ jobs:
         with:
           bundler-cache: true
       - name: Create Env
-        run: bundle install
+        run: |
+          gem install bundler
+          bundle install
 #      - name: Do Test
 #        run: bin/rails test
       - name: two
