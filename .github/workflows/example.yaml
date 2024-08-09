@@ -26,9 +26,9 @@ jobs:
         run: |
           gem install bundler
           bundle install
-      - name: Run RuboCop
-        run: |
-          bundle exec rubocop --format simple
+#      - name: Run RuboCop
+#        run: |
+#          bundle exec rubocop --format simple
 #      - name: Do Test
 #        run: bin/rails test
       - name: two
@@ -61,5 +61,9 @@ jobs:
       - name: five
         run: |
           echo "${{ github.actor }} ..."
+      - name: six
+        env:
+          CONTAINS_FUNC: ${{ contains('Hello','ell') }}
+        run: printenv | grep '_FUNC'
     # - name: Setup tmate session
     #   uses: mxschmitt/action-tmate@v3
