@@ -66,6 +66,7 @@ jobs:
           CONTAINS_FUNC: ${{ contains('Hello','ell') }}
           START_WITH_FUNC: ${{ startsWith('Hello','He') }}
           END_WITH_FUNC: ${{ endsWith('Hello','lo') }}
+          FORMAT_FUNC: ${{ format('{0}, {1}!', 'Hello', 'World') }}
         run: printenv | grep '_FUNC'
     # - name: Setup tmate session
     #   uses: mxschmitt/action-tmate@v3
