@@ -1,5 +1,5 @@
 name: Ruby on Rails at GitHub Actions
-run-name: Run by @${{ github.actior }}
+run-name: Run by @${{ github.actor }}
 on:
   push:
     branches: ["main"]
