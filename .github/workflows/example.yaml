@@ -54,7 +54,7 @@ jobs:
           echo "${{ github.actoin_path }} ..."
           echo "${{ github.actoin_repository }} ..."
           echo "${{ runner.name }} ... ${{ runner.os }} ... ${{runner.arch}} ${{ runner.too_cache }}"
-      - name: four
+      - name: five
         run: |
           echo "${{ github.actor }} ..."
     # - name: Setup tmate session

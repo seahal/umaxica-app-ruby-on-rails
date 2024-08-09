@@ -34,6 +34,7 @@
 /config/master.key
 
 
-# For mac OSX
+# Added by Owner
 .DS_Store
 .idea
+.env.local
