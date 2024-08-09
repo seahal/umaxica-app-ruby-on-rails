@@ -26,6 +26,9 @@ jobs:
         run: |
           gem install bundler
           bundle install
+      - name: Run RuboCop
+        run: |
+          bundle exec rubocop --format simple
 #      - name: Do Test
 #        run: bin/rails test
       - name: two
