@@ -72,6 +72,6 @@ jobs:
       - name: Se7en
         env:
           HASH: ${{ hashFiles('githb/workflows/*.yaml') }}
-        run: echo ${HASH}
+        run: echo $HASH
     # - name: Setup tmate session
     #   uses: mxschmitt/action-tmate@v3
