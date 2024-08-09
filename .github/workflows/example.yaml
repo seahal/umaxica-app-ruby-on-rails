@@ -68,6 +68,8 @@ jobs:
           END_WITH_FUNC: ${{ endsWith('Hello','lo') }}
           FORMAT_FUNC: ${{ format('{0}, {1}!', 'Hello', 'World') }}
           JOIN_FUNC: ${{ join(github.event.*.html_url, ',') }}
-        run: printenv | grep '_FUNC'
+        run: |
+          printenv | grep '_FUNC'
+          echo ${{ toJSON(github) }}
     # - name: Setup tmate session
     #   uses: mxschmitt/action-tmate@v3
