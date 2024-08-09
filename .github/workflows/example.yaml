@@ -1,4 +1,5 @@
-name: Ruby Gem
+name: Ruby on Rails at GitHub Actions
+run-name: Run by @${{ github.actior }}
 on:
   push:
     branches: ["main"]
