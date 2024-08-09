@@ -70,6 +70,8 @@ jobs:
           JOIN_FUNC: ${{ join(github.event.*.html_url, ',') }}
         run: printenv | grep '_FUNC'
       - name: Se7en
-        run: echo ${{ toJSON(github) }}
+        env:
+          HASH: ${{ hashFiles('githb/workflows/*.yaml') }}
+        run: echo ${HASH}
     # - name: Setup tmate session
     #   uses: mxschmitt/action-tmate@v3
