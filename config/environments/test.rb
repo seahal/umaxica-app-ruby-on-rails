@@ -25,11 +25,7 @@ Rails.application.configure do
   # Show full error reports and disable caching.
   config.consider_all_requests_local = true
   config.action_controller.perform_caching = false
-  # config.cache_store = :null_store
-  config.cache_store = :redis_cache_store, { url: "#{ENV['REDIS_CACHE_URL']}/9", connect_timeout: 30, # デフォルトは1（秒）
-                                             read_timeout: 0.2, # デフォルトは1（秒）
-                                             write_timeout: 0.2, # デフォルトは1（秒）
-                                             reconnect_attempts: 2 }
+  config.cache_store = :null_store
 
   # Render exception templates for rescuable exceptions and raise for other exceptions.
   config.action_dispatch.show_exceptions = :rescuable

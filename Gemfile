@@ -58,7 +58,7 @@ gem 'image_processing', '~> 1.2'
 gem 'aws-sdk-s3', require: false
 
 # Kafka
-gem 'karafka', '~> 2.4', '>= 2.4.7'
+gem 'karafka', '~> 2.4'
 
 # Elasticsearch
 # gem 'elasticsearch', '~> 8.14'
@@ -73,8 +73,8 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'bullet', '~> 7.2'
   gem 'bundler-audit', '~> 0.9.1'
-#  gem 'churn', '~> 1.0', '>= 1.0.8'
-#  gem 'flay', '~> 2.13', '>= 2.13.3'
+  #  gem 'churn', '~> 1.0', '>= 1.0.8'
+  #  gem 'flay', '~> 2.13', '>= 2.13.3'
   gem 'guard'
   gem 'guard-brakeman'
   gem 'guard-minitest'

@@ -5,7 +5,7 @@ ENV TZ=UTC
 RUN mkdir /ror
 WORKDIR /ror
 RUN apt-get update -qq && \
-    apt-get install -y build-essential postgresql-client libpq-dev graphviz curl && \
+    apt-get install -y build-essential postgresql-client libpq-dev graphviz curl git && \
     apt-get clean
 ADD Gemfile* /ror/
 RUN bundle install
