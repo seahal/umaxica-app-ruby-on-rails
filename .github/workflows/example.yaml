@@ -30,6 +30,8 @@ jobs:
 #      - name: Run RuboCop
 #        run: |
 #          bundle exec rubocop --format simple
+      - name: Bundler Audit
+        run: bundle audit check --update
 #      - name: Do Test
 #        run: bin/rails test
       - name: two
