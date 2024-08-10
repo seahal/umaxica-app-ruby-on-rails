@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 ruby '3.3.4'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem 'rails', '7.2.0.beta3'
+gem 'rails', '~> 7.2'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
@@ -75,7 +75,7 @@ group :development do
   gem 'bundler-audit', '~> 0.9.1'
 #  gem 'churn', '~> 1.0', '>= 1.0.8'
 #  gem 'flay', '~> 2.13', '>= 2.13.3'
-#  gem 'guard'
+  gem 'guard'
   gem 'guard-brakeman'
   gem 'guard-minitest'
   gem 'guard-rubocop'
