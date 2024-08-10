@@ -22,6 +22,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
+          ref: develop
           bundler-cache: true
       - name: Create Env
         run: |
@@ -30,6 +31,8 @@ jobs:
 #      - name: Run RuboCop
 #        run: |
 #          bundle exec rubocop --format simple
+      - name: Install bundler-audit
+        run: gem install bundler-audit
       - name: Bundler Audit
         run: bundle audit check --update
 #      - name: Do Test
