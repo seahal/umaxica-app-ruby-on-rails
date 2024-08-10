@@ -3,7 +3,7 @@
 class Animal < ApplicationRecord
   attribute :full_name, :string, default: ''
   attribute :description, :text, default: '???'
-  attribute :extinct,:boolean, default: false
+  attribute :extinct, :boolean, default: false
 
   validates :full_name,
             presence: true,

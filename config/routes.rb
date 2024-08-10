@@ -17,7 +17,6 @@ Rails.application.routes.draw do
   get 'study/new_turbo'
   post 'study/create_turbo'
 
-
   # samples of learning
   resources :animals
 end
