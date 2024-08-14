@@ -1,6 +1,6 @@
 ARG RUBY_VERSION=3.3.4
 
-FROM ruby:$RUBY_VERSION-slim-bookworm AS development
+FROM ruby:$RUBY_VERSION-bookworm AS development
 ENV TZ=UTC
 RUN mkdir /ror
 WORKDIR /ror
@@ -12,7 +12,7 @@ RUN bundle install
 ADD ./ /ror
 
 
-FROM ruby:$RUBY_VERSION-slim-bookworm AS production
+FROM ruby:$RUBY_VERSION-bookworm AS production
 ENV TZ=UTC
 ENV RAILS_ENV="development" \
     BUNDLE_DEPLOYMENT="1" \
