@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 PARTITION_SIZE = 255
 
 class CreateAccounts < ActiveRecord::Migration[7.2]
@@ -29,7 +30,7 @@ class CreateAccounts < ActiveRecord::Migration[7.2]
     # FIXME: I'm not quite sure if this size is appropriate.
     (0..PARTITION_SIZE).each do |i|
       execute <<-SQL
-        CREATE TABLE accounts_p#{ sprintf('%02x', i) } PARTITION OF accounts FOR VALUES WITH (MODULUS #{PARTITION_SIZE + 1}, REMAINDER #{i});
+        CREATE TABLE accounts_p#{format('%02x', i)} PARTITION OF accounts FOR VALUES WITH (MODULUS #{PARTITION_SIZE + 1}, REMAINDER #{i});
       SQL
     end
   end
