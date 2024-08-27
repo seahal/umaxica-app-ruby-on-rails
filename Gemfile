@@ -11,7 +11,7 @@ gem 'rails', '~> 7.2'
 gem 'sprockets-rails'
 
 # Use PostgreSQL as the database for Active Record
-gem 'pg', '~> 1.3', '>= 1.3.3'
+gem 'pg', '~> 1.5', '>= 1.5.7'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '>= 5.0'
@@ -67,6 +67,7 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows]
   gem 'dotenv-rails', '~> 3.1', '>= 3.1.2' # OPTIMIZE: .env file must not be included in production.
+  gem 'faker'
 end
 
 group :development do
@@ -76,9 +77,7 @@ group :development do
   #  gem 'churn', '~> 1.0', '>= 1.0.8'
   #  gem 'flay', '~> 2.13', '>= 2.13.3'
   gem 'guard'
-  gem 'guard-brakeman'
   gem 'guard-minitest'
-  gem 'guard-rubocop'
   gem 'rails_best_practices', '~> 1.23', '>= 1.23.2'
   gem 'rails-erd', '~> 1.7', '>= 1.7.2'
   gem 'reek', '~> 6.3'
@@ -87,6 +86,7 @@ group :development do
   gem 'rubocop-rails', require: false
   gem 'rubocop-capybara', '~> 2.21', require: false
   gem 'web-console'
+  gem 'brakeman', :require => false
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
