@@ -8,15 +8,16 @@ class CreateEmails < ActiveRecord::Migration[7.2]
 
     execute <<-SQL
                 CREATE TABLE emails(
-                    id uuid NOT NULL primary key,
+                    id uuid NOT NULL PRIMARY KEY,
+                    address varchar(255) NOT NULL ,
                     type varchar not null,
                     created_at timestamp(6) not null,
-                    updated_at timestamp(6) not null
+                    updated_at timestamp(6) not null,
+                    UNIQUE(id, address)
                 ) PARTITION BY HASH (id);
-
-                alter table emails
-                    owner to "default";
     SQL
+
+    add_index :emails, %i[id address], unique: true
 
     # FIXME: I'm not quite sure if this size is appropriate.
     (0..PARTITION_SIZE).each do |i|

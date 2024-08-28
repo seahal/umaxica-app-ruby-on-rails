@@ -3,8 +3,7 @@
 module Sign
   class InController < ApplicationController
     def new
-      render html: 'now creating'
+      render html: "now creating"
     end
-
   end
 end

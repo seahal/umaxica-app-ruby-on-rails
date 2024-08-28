@@ -44,15 +44,14 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_27_181256) do
   end
 
   create_table "emails", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "address", limit: 255, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email", limit: 255
     t.string "encrypted_password", limit: 255
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
@@ -63,18 +62,19 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_27_181256) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["id", "address"], name: "index_emails_on_id_and_address", unique: true
+    t.unique_constraint ["id", "address"], name: "emails_id_address_key"
   end
 
   create_table "emails_p00", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "address", limit: 255, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email", limit: 255
     t.string "encrypted_password", limit: 255
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
@@ -85,18 +85,19 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_27_181256) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["id", "address"], name: "emails_p00_id_address_idx", unique: true
+    t.unique_constraint ["id", "address"], name: "emails_p00_id_address_key"
   end
 
   create_table "emails_p01", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "address", limit: 255, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email", limit: 255
     t.string "encrypted_password", limit: 255
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
@@ -107,18 +108,19 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_27_181256) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["id", "address"], name: "emails_p01_id_address_idx", unique: true
+    t.unique_constraint ["id", "address"], name: "emails_p01_id_address_key"
   end
 
   create_table "emails_p02", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "address", limit: 255, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email", limit: 255
     t.string "encrypted_password", limit: 255
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
@@ -129,18 +131,19 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_27_181256) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["id", "address"], name: "emails_p02_id_address_idx", unique: true
+    t.unique_constraint ["id", "address"], name: "emails_p02_id_address_key"
   end
 
   create_table "emails_p03", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "address", limit: 255, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email", limit: 255
     t.string "encrypted_password", limit: 255
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
@@ -151,18 +154,19 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_27_181256) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["id", "address"], name: "emails_p03_id_address_idx", unique: true
+    t.unique_constraint ["id", "address"], name: "emails_p03_id_address_key"
   end
 
   create_table "emails_p04", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "address", limit: 255, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email", limit: 255
     t.string "encrypted_password", limit: 255
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
@@ -173,18 +177,19 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_27_181256) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["id", "address"], name: "emails_p04_id_address_idx", unique: true
+    t.unique_constraint ["id", "address"], name: "emails_p04_id_address_key"
   end
 
   create_table "emails_p05", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "address", limit: 255, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email", limit: 255
     t.string "encrypted_password", limit: 255
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
@@ -195,18 +200,19 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_27_181256) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["id", "address"], name: "emails_p05_id_address_idx", unique: true
+    t.unique_constraint ["id", "address"], name: "emails_p05_id_address_key"
   end
 
   create_table "emails_p06", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "address", limit: 255, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email", limit: 255
     t.string "encrypted_password", limit: 255
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
@@ -217,18 +223,19 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_27_181256) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["id", "address"], name: "emails_p06_id_address_idx", unique: true
+    t.unique_constraint ["id", "address"], name: "emails_p06_id_address_key"
   end
 
   create_table "emails_p07", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "address", limit: 255, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email", limit: 255
     t.string "encrypted_password", limit: 255
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
@@ -239,18 +246,19 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_27_181256) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["id", "address"], name: "emails_p07_id_address_idx", unique: true
+    t.unique_constraint ["id", "address"], name: "emails_p07_id_address_key"
   end
 
   create_table "emails_p08", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "address", limit: 255, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email", limit: 255
     t.string "encrypted_password", limit: 255
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
@@ -261,18 +269,19 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_27_181256) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["id", "address"], name: "emails_p08_id_address_idx", unique: true
+    t.unique_constraint ["id", "address"], name: "emails_p08_id_address_key"
   end
 
   create_table "emails_p09", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "address", limit: 255, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email", limit: 255
     t.string "encrypted_password", limit: 255
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
@@ -283,18 +292,19 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_27_181256) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["id", "address"], name: "emails_p09_id_address_idx", unique: true
+    t.unique_constraint ["id", "address"], name: "emails_p09_id_address_key"
   end
 
   create_table "emails_p0a", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "address", limit: 255, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email", limit: 255
     t.string "encrypted_password", limit: 255
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
@@ -305,18 +315,19 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_27_181256) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["id", "address"], name: "emails_p0a_id_address_idx", unique: true
+    t.unique_constraint ["id", "address"], name: "emails_p0a_id_address_key"
   end
 
   create_table "emails_p0b", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "address", limit: 255, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email", limit: 255
     t.string "encrypted_password", limit: 255
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
@@ -327,18 +338,19 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_27_181256) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["id", "address"], name: "emails_p0b_id_address_idx", unique: true
+    t.unique_constraint ["id", "address"], name: "emails_p0b_id_address_key"
   end
 
   create_table "emails_p0c", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "address", limit: 255, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email", limit: 255
     t.string "encrypted_password", limit: 255
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
@@ -349,18 +361,19 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_27_181256) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["id", "address"], name: "emails_p0c_id_address_idx", unique: true
+    t.unique_constraint ["id", "address"], name: "emails_p0c_id_address_key"
   end
 
   create_table "emails_p0d", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "address", limit: 255, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email", limit: 255
     t.string "encrypted_password", limit: 255
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
@@ -371,18 +384,19 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_27_181256) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["id", "address"], name: "emails_p0d_id_address_idx", unique: true
+    t.unique_constraint ["id", "address"], name: "emails_p0d_id_address_key"
   end
 
   create_table "emails_p0e", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "address", limit: 255, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email", limit: 255
     t.string "encrypted_password", limit: 255
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
@@ -393,18 +407,19 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_27_181256) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["id", "address"], name: "emails_p0e_id_address_idx", unique: true
+    t.unique_constraint ["id", "address"], name: "emails_p0e_id_address_key"
   end
 
   create_table "emails_p0f", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "address", limit: 255, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email", limit: 255
     t.string "encrypted_password", limit: 255
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
@@ -415,6 +430,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_27_181256) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["id", "address"], name: "emails_p0f_id_address_idx", unique: true
+    t.unique_constraint ["id", "address"], name: "emails_p0f_id_address_key"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

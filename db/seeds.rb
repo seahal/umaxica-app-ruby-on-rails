@@ -1,3 +1,4 @@
 # frozen_string_literal: true
 
-raise 'DO NOT USE SEED!'
+StaffEmail.find_or_create_by(address: 'first.staff@example.com')
+UserEmail.find_or_create_by(address: 'first.user@example.com')

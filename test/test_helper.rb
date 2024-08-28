@@ -5,11 +5,11 @@
 #   coverage_dir './tmp/coverage'
 # end
 
-ENV['RAILS_ENV'] ||= 'test'
-require_relative '../config/environment'
-require 'rails/test_help'
+ENV["RAILS_ENV"] ||= "test"
+require_relative "../config/environment"
+require "rails/test_help"
 
-REMIX_URL_PREFIX = ENV['REMIX_URL']
+REMIX_URL_PREFIX = ENV["REMIX_URL"]
 
 module ActiveSupport
   class TestCase
