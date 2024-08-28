@@ -29,6 +29,6 @@ class AddColumnAccounts < ActiveRecord::Migration[7.2]
     # add_column :accounts, :current_sign_in_ip, :string, default: nil
     # add_column :accounts, :last_sign_in_ip, :string
 
-
+    change_column_default :accounts, :id, from: nil, to: "gen_random_uuid()"
   end
 end
