@@ -87,6 +87,7 @@ group :development do
   gem 'rubocop-capybara', '~> 2.21', require: false
   gem 'web-console'
   gem 'brakeman', require: false
+  gem 'rubocop-rails-omakase', require: false
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"

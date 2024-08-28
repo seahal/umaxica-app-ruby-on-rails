@@ -34,8 +34,15 @@
 /config/master.key
 
 
+# Ignore vendor files for not to increase repository size huge
+/vendor
+
+
 # Added by Owner
 .DS_Store
 .idea
 .env.local
 /coverage
+.cache
+.irb_history
+/.run
