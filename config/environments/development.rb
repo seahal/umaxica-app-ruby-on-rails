@@ -90,4 +90,5 @@ Rails.application.configure do
   config.hosts << "localhost:3333"
   config.hosts << "localhost:3000"
   config.hosts << "localhost:3210"
+  config.hosts << "lvh.me:3000"
 end

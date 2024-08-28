@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+  # frozen_string_literal: true
 
 
   class SignInController < ApplicationController
@@ -22,4 +22,3 @@
       params.require(:user_email).permit(:address)
     end
   end
-
