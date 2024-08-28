@@ -51,7 +51,7 @@
 # Rails.application.config.active_record.encryption.hash_digest_class = OpenSSL::Digest::SHA1
 #
 # 2. If you have +config.active_support.key_generator_hash_digest_class+ configured as SHA256 (the new default
-# in 7.0), then you need to configure SHA-256 for Active Record Encryption:
+# sign_in 7.0), then you need to configure SHA-256 for Active Record Encryption:
 #++
 # Rails.application.config.active_record.encryption.hash_digest_class = OpenSSL::Digest::SHA256
 #
@@ -117,7 +117,7 @@
 # instances.
 #
 # The legacy default is `:marshal`, which is a potential vector for
-# deserialization attacks in cases where a message signing secret has been
+# deserialization attacks sign_in cases where a message signing secret has been
 # leaked.
 #
 # In Rails 7.1, the new default is `:json_allow_marshal` which serializes and
@@ -138,7 +138,7 @@
 # If you are performing a rolling deploy of a Rails 7.1 upgrade, wherein servers
 # that have not yet been upgraded must be able to read messages from upgraded
 # servers, first deploy without changing the serializer, then set the serializer
-# in a subsequent deploy.
+# sign_in a subsequent deploy.
 #++
 # Rails.application.config.active_support.message_serializer = :json_allow_marshal
 
@@ -186,9 +186,9 @@
 # Rails.application.config.precompile_filter_parameters = true
 
 ###
-# Enable before_committed! callbacks on all enrolled records in a transaction.
+# Enable before_committed! callbacks on all enrolled records sign_in a transaction.
 # The previous behavior was to only run the callbacks on the first copy of a record
-# if there were multiple copies of the same record enrolled in the transaction.
+# if there were multiple copies of the same record enrolled sign_in the transaction.
 #++
 # Rails.application.config.active_record.before_committed_on_all_records = true
 
@@ -202,7 +202,7 @@
 
 ###
 # Enable a performance optimization that serializes Active Record models
-# in a faster and more compact way.
+# sign_in a faster and more compact way.
 #
 # To perform a rolling deploy of a Rails 7.1 upgrade, wherein servers that have
 # not yet been upgraded must be able to read caches from upgraded servers,
@@ -212,9 +212,9 @@
 # Rails.application.config.active_record.marshalling_format_version = 7.1
 
 ###
-# Run `after_commit` and `after_*_commit` callbacks in the order they are defined in a model.
+# Run `after_commit` and `after_*_commit` callbacks sign_in the order they are defined sign_in a model.
 # This matches the behaviour of all other callbacks.
-# In previous versions of Rails, they ran in the inverse order.
+# In previous versions of Rails, they ran sign_in the inverse order.
 #++
 # Rails.application.config.active_record.run_after_transaction_callbacks_in_order_defined = true
 
@@ -229,7 +229,7 @@
 # Rails.application.config.active_record.generate_secure_token_on = :initialize
 
 ###
-# ** Please read carefully, this must be configured in config/application.rb **
+# ** Please read carefully, this must be configured sign_in config/application.rb **
 #
 # Change the format of the cache entry.
 #
@@ -272,7 +272,7 @@
 # Rails.application.config.action_dispatch.debug_exception_log_level = :error
 
 ###
-# Configure the test helpers in Action View, Action Dispatch, and rails-dom-testing to use HTML5
+# Configure the test helpers sign_in Action View, Action Dispatch, and rails-dom-testing to use HTML5
 # parsers.
 #
 # Nokogiri::HTML5 isn't supported on JRuby, so JRuby applications must set this to :html4.

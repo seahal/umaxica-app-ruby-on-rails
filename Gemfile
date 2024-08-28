@@ -28,14 +28,14 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-# Use Redis adapter to run Action Cable in production
+# Use Redis adapter to run Action Cable sign_in production
 gem "hiredis", "~> 0.6.3"
 gem "redis", "~> 5.2"
 
 # For Cache store @ Redis
 gem "redis-actionpack"
 
-# Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
+# Use Kredis to get higher-level data types sign_in Redis [https://github.com/rails/kredis]
 gem "kredis"
 
 # For CORS
@@ -48,7 +48,7 @@ gem "argon2", "~> 2.3"
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[windows jruby]
 
-# Reduces boot times through caching; required in config/boot.rb
+# Reduces boot times through caching; required sign_in config/boot.rb
 gem "bootsnap", require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
@@ -66,7 +66,7 @@ gem "karafka", "~> 2.4"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[mri windows]
-  gem "dotenv-rails", "~> 3.1", ">= 3.1.2" # OPTIMIZE: .env file must not be included in production.
+  gem "dotenv-rails", "~> 3.1", ">= 3.1.2" # OPTIMIZE: .env file must not be included sign_in production.
   gem "faker"
 end
 

@@ -1,0 +1,2 @@
+module Sign::OutHelper
+end

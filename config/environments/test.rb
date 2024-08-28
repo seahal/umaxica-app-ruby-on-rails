@@ -8,14 +8,14 @@ require "active_support/core_ext/integer/time"
 # and recreated between test runs. Don't rely on the data there!
 
 Rails.application.configure do
-  # Settings specified here will take precedence over those in config/application.rb.
+  # Settings specified here will take precedence over those sign_in config/application.rb.
 
   # While tests run files are not watched, reloading is not necessary.
   config.enable_reloading = false
 
   # Eager loading loads your entire application. When running a single test locally,
   # this is usually not necessary, and can slow down your test suite. However, it's
-  # recommended that you enable it in continuous integration systems to ensure eager
+  # recommended that you enable it sign_in continuous integration systems to ensure eager
   # loading is working properly before deploying your code.
   config.eager_load = ENV["CI"].present?
 
@@ -30,10 +30,10 @@ Rails.application.configure do
   # Render exception templates for rescuable exceptions and raise for other exceptions.
   config.action_dispatch.show_exceptions = :rescuable
 
-  # Disable request forgery protection in test environment.
+  # Disable request forgery protection sign_in test environment.
   config.action_controller.allow_forgery_protection = false
 
-  # Store uploaded files on the local file system in a temporary directory.
+  # Store uploaded files on the local file system sign_in a temporary directory.
   config.active_storage.service = :test
 
   # Disable caching for Action Mailer templates even if Action Controller
@@ -41,7 +41,7 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   # Tell Action Mailer not to deliver emails to the real world.
-  # The :test delivery method accumulates sent emails in the
+  # The :test delivery method accumulates sent emails sign_in the
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
 
