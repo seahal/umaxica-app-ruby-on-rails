@@ -27,7 +27,7 @@ class SamplesController < ApplicationController
 
     respond_to do |format|
       if @sample.save
-        format.html { redirect_to sample_url(@sample), notice: 'Sample was successfully created.' }
+        format.html { redirect_to sample_url(@sample), notice: "Sample was successfully created." }
         format.json { render :show, status: :created, location: @sample }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +40,7 @@ class SamplesController < ApplicationController
   def update
     respond_to do |format|
       if @sample.update(sample_params)
-        format.html { redirect_to sample_url(@sample), notice: 'Sample was successfully updated.' }
+        format.html { redirect_to sample_url(@sample), notice: "Sample was successfully updated." }
         format.json { render :show, status: :ok, location: @sample }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,7 +54,7 @@ class SamplesController < ApplicationController
     @sample.destroy!
 
     respond_to do |format|
-      format.html { redirect_to samples_url, notice: 'Sample was successfully destroyed.' }
+      format.html { redirect_to samples_url, notice: "Sample was successfully destroyed." }
       format.json { head :no_content }
     end
   end

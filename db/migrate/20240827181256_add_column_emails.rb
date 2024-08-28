@@ -3,14 +3,13 @@
 class AddColumnEmails < ActiveRecord::Migration[7.2]
   def change
     change_table :emails, bulk: true do |t|
-      t.string :email, limit: 255, default: nil
       t.string :encrypted_password, limit: 255, default: nil
 
       ## Confirmable
       t.string :confirmation_token
       t.datetime :confirmed_at
       t.datetime :confirmation_sent_at
-      t.string :unconfirmed_email # Only if using reconfirmable
+      #   t.string :unconfirmed_email # Only if using reconfirmable
 
       # ## Trackable
       t.integer :sign_in_count, default: 0, null: false, scale: 1

@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
-require_relative 'boot'
+require_relative "boot"
 
-require 'rails/all'
+require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
 if Rails.env.development? || Rails.env.test?
-  require 'dotenv'
+  require "dotenv"
 
-  if File.exist?('/.dockerenv')
-    Dotenv.load '.env' # <= when you are in docker
+  if File.exist?("/.dockerenv")
+    Dotenv.load ".env" # <= when you are in docker
   else
-    Dotenv.load '.env.local' # <= when you are in mac, linux, and so on.
+    Dotenv.load ".env.local" # <= when you are in mac, linux, and so on.
   end
 end
 

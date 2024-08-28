@@ -1,47 +1,47 @@
 # frozen_string_literal: true
 
-require 'application_system_test_case'
+require "application_system_test_case"
 
 class AnimalsTest < ApplicationSystemTestCase
   setup do
     @animal = animals(:one)
   end
 
-  test 'visiting the index' do
+  test "visiting the index" do
     visit animals_url
-    assert_selector 'h1', text: 'Animals'
+    assert_selector "h1", text: "Animals"
   end
 
-  test 'should create animal' do
+  test "should create animal" do
     visit animals_url
-    click_on 'New animal'
+    click_on "New animal"
 
-    fill_in 'Description', with: "#{@animal.description}a"
-    check 'Extinct' if @animal.extinct
-    fill_in 'Full name', with: "#{@animal.full_name}b"
-    click_on 'Create Animal'
+    fill_in "Description", with: "#{@animal.description}a"
+    check "Extinct" if @animal.extinct
+    fill_in "Full name", with: "#{@animal.full_name}b"
+    click_on "Create Animal"
 
-    assert_text 'Animal was successfully created'
-    click_on 'Back'
+    assert_text "Animal was successfully created"
+    click_on "Back"
   end
 
-  test 'should update Animal' do
+  test "should update Animal" do
     visit animal_url(@animal)
-    click_on 'Edit this animal', match: :first
+    click_on "Edit this animal", match: :first
 
-    fill_in 'Description', with: @animal.description
-    check 'Extinct' if @animal.extinct
-    fill_in 'Full name', with: @animal.full_name
-    click_on 'Update Animal'
+    fill_in "Description", with: @animal.description
+    check "Extinct" if @animal.extinct
+    fill_in "Full name", with: @animal.full_name
+    click_on "Update Animal"
 
-    assert_text 'Animal was successfully updated'
-    click_on 'Back'
+    assert_text "Animal was successfully updated"
+    click_on "Back"
   end
 
-  test 'should destroy Animal' do
+  test "should destroy Animal" do
     visit animal_url(@animal)
-    click_on 'Destroy this animal', match: :first
+    click_on "Destroy this animal", match: :first
 
-    assert_text 'Animal was successfully destroyed'
+    assert_text "Animal was successfully destroyed"
   end
 end

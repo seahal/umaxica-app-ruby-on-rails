@@ -45,3 +45,4 @@
 /coverage
 .cache
 .irb_history
+.local/

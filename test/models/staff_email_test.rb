@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-require 'test_helper'
+require "test_helper"
 
 class StaffTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  # Test of staff_email is described at email_test.rb
 end

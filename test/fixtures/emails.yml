@@ -3,6 +3,8 @@
 staff:
   id: '019194e5-ce29-73a7-a6a4-b43659c55f82'
   type: 'Staff'
+  address: 'staff@gmail.com'
 user:
   id: '019194ec-8a27-7dce-ad27-938f22854398'
   type: 'User'
+  address: 'user@gmail.com'
