@@ -17,7 +17,7 @@ class CreateAccounts < ActiveRecord::Migration[7.2]
 
     execute <<-SQL
                 CREATE TABLE accounts(
-                    id uuid NOT NULL DEFAULT NULL primary key,
+                    id uuid NOT NULL primary key,
                     type varchar not null,
                     created_at timestamp(6) not null,
                     updated_at timestamp(6) not null
