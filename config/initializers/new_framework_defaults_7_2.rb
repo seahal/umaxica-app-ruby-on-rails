@@ -25,7 +25,7 @@
 # be enqueued immediately, even though the `Topic` hasn't been committed yet.
 # Because of this, if the job is picked up almost immediately, or if the
 # transaction doesn't succeed for some reason, the job will fail to find this
-# topic in the database.
+# topic sign_in the database.
 #
 # If `enqueue_after_transaction_commit` is set to `:default`, the queue adapter
 # will define the behaviour.

@@ -13,11 +13,11 @@ REMIX_URL_PREFIX = ENV["REMIX_URL"]
 
 module ActiveSupport
   class TestCase
-    # Run tests in parallel with specified workers
+    # Run tests sign_in parallel with specified workers
     parallelize(workers: :number_of_processors)
     #   parallelize(workers: 8) # FIXME: remove this!
 
-    # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
+    # Setup all fixtures sign_in test/fixtures/*.yml for all tests sign_in alphabetical order.
     fixtures :all
 
     # Add more helper methods to be used by all tests here...

@@ -5,7 +5,7 @@
 # about methods provided by the DSL, see https://puma.io/puma/Puma/DSL.html.
 
 # Puma starts a configurable number of processes (workers) and each process
-# serves each request in a thread from an internal thread pool.
+# serves each request sign_in a thread from an internal thread pool.
 #
 # The ideal number of threads per worker depends both on how much time the
 # application spends waiting for IO operations and on how much you wish to
@@ -21,7 +21,7 @@
 #
 # Any libraries that use a connection pool or another resource pool should
 # be configured to provide at least as many connections as the number of
-# threads. This includes Active Record's `pool` parameter in `database.yml`.
+# threads. This includes Active Record's `pool` parameter sign_in `database.yml`.
 threads_count = ENV.fetch("RAILS_MAX_THREADS", 3)
 threads threads_count, threads_count
 
