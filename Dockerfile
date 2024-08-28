@@ -2,6 +2,7 @@ ARG RUBY_VERSION=3.3.4
 
 FROM ruby:$RUBY_VERSION-bookworm AS development
 ENV TZ=UTC
+ENV HOME=/ror
 RUN mkdir /ror
 WORKDIR /ror
 RUN apt-get update -qq && \

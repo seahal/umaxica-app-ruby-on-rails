@@ -1,1 +1,3 @@
-json.partial! "samples/sample", sample: @sample
+# frozen_string_literal: true
+
+json.partial! 'samples/sample', sample: @sample
