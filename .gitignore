@@ -47,3 +47,4 @@
 .irb_history
 .local/
 .psql_history
+.bash_history
