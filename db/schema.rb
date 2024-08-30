@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_08_29_210307) do
+ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -434,13 +434,165 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_29_210307) do
     t.unique_constraint ["id", "address"], name: "emails_p0f_id_address_key"
   end
 
+  create_table "phones", id: :uuid, default: nil, force: :cascade do |t|
+    t.string "number", limit: 127, null: false
+    t.string "type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["id", "number"], name: "index_phones_on_id_and_number", unique: true
+  end
+
+  create_table "phones_p00", id: :uuid, default: nil, force: :cascade do |t|
+    t.string "number", limit: 127, null: false
+    t.string "type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["id", "number"], name: "phones_p00_id_number_idx", unique: true
+  end
+
+  create_table "phones_p01", id: :uuid, default: nil, force: :cascade do |t|
+    t.string "number", limit: 127, null: false
+    t.string "type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["id", "number"], name: "phones_p01_id_number_idx", unique: true
+  end
+
+  create_table "phones_p02", id: :uuid, default: nil, force: :cascade do |t|
+    t.string "number", limit: 127, null: false
+    t.string "type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["id", "number"], name: "phones_p02_id_number_idx", unique: true
+  end
+
+  create_table "phones_p03", id: :uuid, default: nil, force: :cascade do |t|
+    t.string "number", limit: 127, null: false
+    t.string "type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["id", "number"], name: "phones_p03_id_number_idx", unique: true
+  end
+
+  create_table "phones_p04", id: :uuid, default: nil, force: :cascade do |t|
+    t.string "number", limit: 127, null: false
+    t.string "type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["id", "number"], name: "phones_p04_id_number_idx", unique: true
+  end
+
+  create_table "phones_p05", id: :uuid, default: nil, force: :cascade do |t|
+    t.string "number", limit: 127, null: false
+    t.string "type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["id", "number"], name: "phones_p05_id_number_idx", unique: true
+  end
+
+  create_table "phones_p06", id: :uuid, default: nil, force: :cascade do |t|
+    t.string "number", limit: 127, null: false
+    t.string "type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["id", "number"], name: "phones_p06_id_number_idx", unique: true
+  end
+
+  create_table "phones_p07", id: :uuid, default: nil, force: :cascade do |t|
+    t.string "number", limit: 127, null: false
+    t.string "type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["id", "number"], name: "phones_p07_id_number_idx", unique: true
+  end
+
+  create_table "phones_p08", id: :uuid, default: nil, force: :cascade do |t|
+    t.string "number", limit: 127, null: false
+    t.string "type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["id", "number"], name: "phones_p08_id_number_idx", unique: true
+  end
+
+  create_table "phones_p09", id: :uuid, default: nil, force: :cascade do |t|
+    t.string "number", limit: 127, null: false
+    t.string "type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["id", "number"], name: "phones_p09_id_number_idx", unique: true
+  end
+
+  create_table "phones_p0a", id: :uuid, default: nil, force: :cascade do |t|
+    t.string "number", limit: 127, null: false
+    t.string "type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["id", "number"], name: "phones_p0a_id_number_idx", unique: true
+  end
+
+  create_table "phones_p0b", id: :uuid, default: nil, force: :cascade do |t|
+    t.string "number", limit: 127, null: false
+    t.string "type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["id", "number"], name: "phones_p0b_id_number_idx", unique: true
+  end
+
+  create_table "phones_p0c", id: :uuid, default: nil, force: :cascade do |t|
+    t.string "number", limit: 127, null: false
+    t.string "type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["id", "number"], name: "phones_p0c_id_number_idx", unique: true
+  end
+
+  create_table "phones_p0d", id: :uuid, default: nil, force: :cascade do |t|
+    t.string "number", limit: 127, null: false
+    t.string "type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["id", "number"], name: "phones_p0d_id_number_idx", unique: true
+  end
+
+  create_table "phones_p0e", id: :uuid, default: nil, force: :cascade do |t|
+    t.string "number", limit: 127, null: false
+    t.string "type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["id", "number"], name: "phones_p0e_id_number_idx", unique: true
+  end
+
+  create_table "phones_p0f", id: :uuid, default: nil, force: :cascade do |t|
+    t.string "number", limit: 127, null: false
+    t.string "type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["id", "number"], name: "phones_p0f_id_number_idx", unique: true
+  end
+
   create_table "staff_email_staffs", id: false, force: :cascade do |t|
     t.uuid "staff_id", null: false
     t.uuid "email_id", null: false
-    t.index ["email_id"], name: "index_staff_email_staffs_email_id"
+    t.index ["email_id"], name: "index_staff_email_staffs_email_id", unique: true
     t.index ["email_id"], name: "index_staff_email_staffs_on_email_id"
     t.index ["staff_id"], name: "index_staff_email_staffs_on_staff_id"
     t.index ["staff_id"], name: "index_staff_email_staffs_staff_id"
+  end
+
+  create_table "staff_phone_staffs", id: false, force: :cascade do |t|
+    t.uuid "staff_id", null: false
+    t.uuid "phone_id", null: false
+    t.index ["phone_id"], name: "index_staff_phone_staffs_on_phone_id"
+    t.index ["phone_id"], name: "index_staff_phone_staffs_phone_id", unique: true
+    t.index ["staff_id"], name: "index_staff_phone_staffs_on_staff_id"
+    t.index ["staff_id"], name: "index_staff_phone_staffs_staff_id"
+  end
+
+  create_table "staff_sessions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "staff_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["staff_id"], name: "index_staff_sessions_on_staff_id"
   end
 
   create_table "staffs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -450,13 +602,44 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_29_210307) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "user_apple_auths", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "token"
+    t.uuid "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_apple_auths_on_user_id"
+  end
+
   create_table "user_email_users", id: false, force: :cascade do |t|
     t.uuid "user_id", null: false
     t.uuid "email_id", null: false
-    t.index ["email_id"], name: "index_user_email_users_email_id"
-    t.index ["email_id"], name: "index_user_email_users_on_email_id"
-    t.index ["user_id"], name: "index_user_email_users_on_user_id"
+    t.index ["email_id"], name: "index_user_email_users_email_id", unique: true
     t.index ["user_id"], name: "index_user_email_users_user_id"
+  end
+
+  create_table "user_google_auths", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "token"
+    t.uuid "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_google_auths_on_user_id"
+  end
+
+  create_table "user_phone_users", id: false, force: :cascade do |t|
+    t.uuid "user_id", null: false
+    t.uuid "phone_id", null: false
+    t.index ["phone_id"], name: "index_user_phone_users_phone_id", unique: true
+    t.index ["user_id"], name: "index_user_phone_users_user_id"
+  end
+
+  create_table "user_sessions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id", null: false
+    t.string "sessioner_type"
+    t.bigint "sessioner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sessioner_id"], name: "index_user_sessions_on_sessioner_id"
+    t.index ["user_id"], name: "index_user_sessions_on_user_id"
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -486,6 +669,26 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_29_210307) do
   add_foreign_key "staff_email_staffs", "emails_p0e", column: "email_id", name: "staff_email_staffs_email_id_fkey14"
   add_foreign_key "staff_email_staffs", "emails_p0f", column: "email_id", name: "staff_email_staffs_email_id_fkey15"
   add_foreign_key "staff_email_staffs", "staffs"
+  add_foreign_key "staff_phone_staffs", "phones"
+  add_foreign_key "staff_phone_staffs", "phones_p00", column: "phone_id", name: "staff_phone_staffs_phone_id_fkey"
+  add_foreign_key "staff_phone_staffs", "phones_p01", column: "phone_id", name: "staff_phone_staffs_phone_id_fkey1"
+  add_foreign_key "staff_phone_staffs", "phones_p02", column: "phone_id", name: "staff_phone_staffs_phone_id_fkey2"
+  add_foreign_key "staff_phone_staffs", "phones_p03", column: "phone_id", name: "staff_phone_staffs_phone_id_fkey3"
+  add_foreign_key "staff_phone_staffs", "phones_p04", column: "phone_id", name: "staff_phone_staffs_phone_id_fkey4"
+  add_foreign_key "staff_phone_staffs", "phones_p05", column: "phone_id", name: "staff_phone_staffs_phone_id_fkey5"
+  add_foreign_key "staff_phone_staffs", "phones_p06", column: "phone_id", name: "staff_phone_staffs_phone_id_fkey6"
+  add_foreign_key "staff_phone_staffs", "phones_p07", column: "phone_id", name: "staff_phone_staffs_phone_id_fkey7"
+  add_foreign_key "staff_phone_staffs", "phones_p08", column: "phone_id", name: "staff_phone_staffs_phone_id_fkey8"
+  add_foreign_key "staff_phone_staffs", "phones_p09", column: "phone_id", name: "staff_phone_staffs_phone_id_fkey9"
+  add_foreign_key "staff_phone_staffs", "phones_p0a", column: "phone_id", name: "staff_phone_staffs_phone_id_fkey10"
+  add_foreign_key "staff_phone_staffs", "phones_p0b", column: "phone_id", name: "staff_phone_staffs_phone_id_fkey11"
+  add_foreign_key "staff_phone_staffs", "phones_p0c", column: "phone_id", name: "staff_phone_staffs_phone_id_fkey12"
+  add_foreign_key "staff_phone_staffs", "phones_p0d", column: "phone_id", name: "staff_phone_staffs_phone_id_fkey13"
+  add_foreign_key "staff_phone_staffs", "phones_p0e", column: "phone_id", name: "staff_phone_staffs_phone_id_fkey14"
+  add_foreign_key "staff_phone_staffs", "phones_p0f", column: "phone_id", name: "staff_phone_staffs_phone_id_fkey15"
+  add_foreign_key "staff_phone_staffs", "staffs"
+  add_foreign_key "staff_sessions", "staffs"
+  add_foreign_key "user_apple_auths", "users"
   add_foreign_key "user_email_users", "emails"
   add_foreign_key "user_email_users", "emails_p00", column: "email_id", name: "user_email_users_email_id_fkey"
   add_foreign_key "user_email_users", "emails_p01", column: "email_id", name: "user_email_users_email_id_fkey1"
@@ -504,4 +707,24 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_29_210307) do
   add_foreign_key "user_email_users", "emails_p0e", column: "email_id", name: "user_email_users_email_id_fkey14"
   add_foreign_key "user_email_users", "emails_p0f", column: "email_id", name: "user_email_users_email_id_fkey15"
   add_foreign_key "user_email_users", "users"
+  add_foreign_key "user_google_auths", "users"
+  add_foreign_key "user_phone_users", "phones"
+  add_foreign_key "user_phone_users", "phones_p00", column: "phone_id", name: "user_phone_users_phone_id_fkey"
+  add_foreign_key "user_phone_users", "phones_p01", column: "phone_id", name: "user_phone_users_phone_id_fkey1"
+  add_foreign_key "user_phone_users", "phones_p02", column: "phone_id", name: "user_phone_users_phone_id_fkey2"
+  add_foreign_key "user_phone_users", "phones_p03", column: "phone_id", name: "user_phone_users_phone_id_fkey3"
+  add_foreign_key "user_phone_users", "phones_p04", column: "phone_id", name: "user_phone_users_phone_id_fkey4"
+  add_foreign_key "user_phone_users", "phones_p05", column: "phone_id", name: "user_phone_users_phone_id_fkey5"
+  add_foreign_key "user_phone_users", "phones_p06", column: "phone_id", name: "user_phone_users_phone_id_fkey6"
+  add_foreign_key "user_phone_users", "phones_p07", column: "phone_id", name: "user_phone_users_phone_id_fkey7"
+  add_foreign_key "user_phone_users", "phones_p08", column: "phone_id", name: "user_phone_users_phone_id_fkey8"
+  add_foreign_key "user_phone_users", "phones_p09", column: "phone_id", name: "user_phone_users_phone_id_fkey9"
+  add_foreign_key "user_phone_users", "phones_p0a", column: "phone_id", name: "user_phone_users_phone_id_fkey10"
+  add_foreign_key "user_phone_users", "phones_p0b", column: "phone_id", name: "user_phone_users_phone_id_fkey11"
+  add_foreign_key "user_phone_users", "phones_p0c", column: "phone_id", name: "user_phone_users_phone_id_fkey12"
+  add_foreign_key "user_phone_users", "phones_p0d", column: "phone_id", name: "user_phone_users_phone_id_fkey13"
+  add_foreign_key "user_phone_users", "phones_p0e", column: "phone_id", name: "user_phone_users_phone_id_fkey14"
+  add_foreign_key "user_phone_users", "phones_p0f", column: "phone_id", name: "user_phone_users_phone_id_fkey15"
+  add_foreign_key "user_phone_users", "users"
+  add_foreign_key "user_sessions", "users"
 end

@@ -2,6 +2,7 @@
 
 class AddColumnEmails < ActiveRecord::Migration[7.2]
   def change
+    # FIXME: need hashed partition.
     change_table :emails, bulk: true do |t|
       t.string :encrypted_password, limit: 255, default: nil
 

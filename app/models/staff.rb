@@ -1,3 +1,3 @@
 class Staff < ApplicationRecord
-  has_many :staff_emails, foreign_key: "id"
+  has_many :emails, foreign_key: "id"
 end

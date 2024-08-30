@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   constraints ->(req) { req.host == ENV["RAILS_USER_URL"] } do
     namespace :user do
       # TODO: Homepage for users(???.COM)
-      root to: "homepages#show"
+      root to: "homepages#index"
       # TODO: add Health check routing for ???.com
       resource :health, only: :show
       # TODO: Create or Delete membership
@@ -22,7 +22,8 @@ Rails.application.routes.draw do
   constraints ->(req) { req.host == ENV["RAILS_STAFF_URL"] } do
     namespace :staff do
       # TODO: Homepage for users(???.COM)
-      root to: "homepages#show"
+      root to: "staff/homepages#index"
+      get "/" => "homepages#index"
       # TODO: add Health check routing for ???.com
       resource :health, only: :show
       # TODO: Create or Delete membership

@@ -1,5 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-#staff_email_staffs_one:
-#  staff: staff_one
-#  email: staff_emails_one
+#one:
+#  user: one
+
+#two:
+#  user: two

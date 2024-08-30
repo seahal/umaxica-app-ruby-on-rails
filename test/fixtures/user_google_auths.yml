@@ -1,5 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-#staff_email_staffs_one:
-#  staff: staff_one
-#  email: staff_emails_one
+#one:
+#  token: MyString
+#  user: one
+
+#two:
+#  token: MyString
+#  user: two
