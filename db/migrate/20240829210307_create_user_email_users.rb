@@ -8,8 +8,8 @@ class CreateUserEmailUsers < ActiveRecord::Migration[7.2]
 
 
       # need index. this is because i do not want to set id.
-      t.index ["user_id"], name: "index_user_email_users_user_id"
-      t.index ["email_id"], name: "index_user_email_users_email_id"
+      t.index [ "user_id" ], name: "index_user_email_users_user_id"
+      t.index [ "email_id" ], name: "index_user_email_users_email_id"
     end
   end
 end
