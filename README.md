@@ -12,14 +12,14 @@ Things you may want to cover:
   - OS X
   - Ubuntu
 * Configuration
-  - see files.
+  - Edit hosts files to separate .com or .net.
 * Database creation
   - `bin/rails db:create`
 * Database initialization
   - `bin/rails db:migrate` => `bin/rails db:seed`
 * How to run the test suite
-  - `bin/rails test:all`
+  - `bin/rails test`
 * Services (job queues, cache servers, search engines, etc.)
   - ???
 * Deployment instructions
-  - ???
+  - When you are free, look at 'bin/rails notes'
