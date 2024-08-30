@@ -44,7 +44,7 @@
 .env.local
 /coverage
 .cache
-.irb_history
 .local/
+.irb_history
 .psql_history
 .bash_history

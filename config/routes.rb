@@ -1,13 +1,17 @@
 # frozen_string_literal: true
 
-
 # TODO: You should get real 4 Domains for this projects.
+
+if Rails.env.test?
+  ENV["RAILS_USER_URL"] =  ENV["RAILS_STAFF_URL"] = 'www.example.com'
+end
+
 Rails.application.routes.draw do
-  # For User
-  constraints ->(req) { req.host == ENV["RAILS_USER_URL"] } do
+  # For User's pages (???.COM)
+  constraints host: ENV["RAILS_USER_URL"] do
+    # No homepage for user's page. This is because I would like to create user's homepage for remix.
+
     namespace :user do
-      # TODO: Homepage for users(???.COM)
-      root to: "homepages#index"
       # TODO: add Health check routing for ???.com
       resource :health, only: :show
       # TODO: Create or Delete membership
@@ -18,12 +22,12 @@ Rails.application.routes.draw do
   end
 
 
-  # For Staff
-  constraints ->(req) { req.host == ENV["RAILS_STAFF_URL"] } do
+  # For Staff's webpages (???.NET)
+  constraints host: ENV["RAILS_STAFF_URL"] do
+    # Homepage
+    get '/' => "staff/homepages#index", as: :staff_root
+
     namespace :staff do
-      # TODO: Homepage for users(???.COM)
-      root to: "staff/homepages#index"
-      get "/" => "homepages#index"
       # TODO: add Health check routing for ???.com
       resource :health, only: :show
       # TODO: Create or Delete membership
