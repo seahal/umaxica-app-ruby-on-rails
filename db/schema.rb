@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_08_27_181256) do
+ActiveRecord::Schema[7.2].define(version: 2024_08_29_210307) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -434,6 +434,74 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_27_181256) do
     t.unique_constraint ["id", "address"], name: "emails_p0f_id_address_key"
   end
 
+  create_table "staff_email_staffs", id: false, force: :cascade do |t|
+    t.uuid "staff_id", null: false
+    t.uuid "email_id", null: false
+    t.index ["email_id"], name: "index_staff_email_staffs_email_id"
+    t.index ["email_id"], name: "index_staff_email_staffs_on_email_id"
+    t.index ["staff_id"], name: "index_staff_email_staffs_on_staff_id"
+    t.index ["staff_id"], name: "index_staff_email_staffs_staff_id"
+  end
+
+  create_table "staffs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_email_users", id: false, force: :cascade do |t|
+    t.uuid "user_id", null: false
+    t.uuid "email_id", null: false
+    t.index ["email_id"], name: "index_user_email_users_email_id"
+    t.index ["email_id"], name: "index_user_email_users_on_email_id"
+    t.index ["user_id"], name: "index_user_email_users_on_user_id"
+    t.index ["user_id"], name: "index_user_email_users_user_id"
+  end
+
+  create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "staff_email_staffs", "emails"
+  add_foreign_key "staff_email_staffs", "emails_p00", column: "email_id", name: "staff_email_staffs_email_id_fkey"
+  add_foreign_key "staff_email_staffs", "emails_p01", column: "email_id", name: "staff_email_staffs_email_id_fkey1"
+  add_foreign_key "staff_email_staffs", "emails_p02", column: "email_id", name: "staff_email_staffs_email_id_fkey2"
+  add_foreign_key "staff_email_staffs", "emails_p03", column: "email_id", name: "staff_email_staffs_email_id_fkey3"
+  add_foreign_key "staff_email_staffs", "emails_p04", column: "email_id", name: "staff_email_staffs_email_id_fkey4"
+  add_foreign_key "staff_email_staffs", "emails_p05", column: "email_id", name: "staff_email_staffs_email_id_fkey5"
+  add_foreign_key "staff_email_staffs", "emails_p06", column: "email_id", name: "staff_email_staffs_email_id_fkey6"
+  add_foreign_key "staff_email_staffs", "emails_p07", column: "email_id", name: "staff_email_staffs_email_id_fkey7"
+  add_foreign_key "staff_email_staffs", "emails_p08", column: "email_id", name: "staff_email_staffs_email_id_fkey8"
+  add_foreign_key "staff_email_staffs", "emails_p09", column: "email_id", name: "staff_email_staffs_email_id_fkey9"
+  add_foreign_key "staff_email_staffs", "emails_p0a", column: "email_id", name: "staff_email_staffs_email_id_fkey10"
+  add_foreign_key "staff_email_staffs", "emails_p0b", column: "email_id", name: "staff_email_staffs_email_id_fkey11"
+  add_foreign_key "staff_email_staffs", "emails_p0c", column: "email_id", name: "staff_email_staffs_email_id_fkey12"
+  add_foreign_key "staff_email_staffs", "emails_p0d", column: "email_id", name: "staff_email_staffs_email_id_fkey13"
+  add_foreign_key "staff_email_staffs", "emails_p0e", column: "email_id", name: "staff_email_staffs_email_id_fkey14"
+  add_foreign_key "staff_email_staffs", "emails_p0f", column: "email_id", name: "staff_email_staffs_email_id_fkey15"
+  add_foreign_key "staff_email_staffs", "staffs"
+  add_foreign_key "user_email_users", "emails"
+  add_foreign_key "user_email_users", "emails_p00", column: "email_id", name: "user_email_users_email_id_fkey"
+  add_foreign_key "user_email_users", "emails_p01", column: "email_id", name: "user_email_users_email_id_fkey1"
+  add_foreign_key "user_email_users", "emails_p02", column: "email_id", name: "user_email_users_email_id_fkey2"
+  add_foreign_key "user_email_users", "emails_p03", column: "email_id", name: "user_email_users_email_id_fkey3"
+  add_foreign_key "user_email_users", "emails_p04", column: "email_id", name: "user_email_users_email_id_fkey4"
+  add_foreign_key "user_email_users", "emails_p05", column: "email_id", name: "user_email_users_email_id_fkey5"
+  add_foreign_key "user_email_users", "emails_p06", column: "email_id", name: "user_email_users_email_id_fkey6"
+  add_foreign_key "user_email_users", "emails_p07", column: "email_id", name: "user_email_users_email_id_fkey7"
+  add_foreign_key "user_email_users", "emails_p08", column: "email_id", name: "user_email_users_email_id_fkey8"
+  add_foreign_key "user_email_users", "emails_p09", column: "email_id", name: "user_email_users_email_id_fkey9"
+  add_foreign_key "user_email_users", "emails_p0a", column: "email_id", name: "user_email_users_email_id_fkey10"
+  add_foreign_key "user_email_users", "emails_p0b", column: "email_id", name: "user_email_users_email_id_fkey11"
+  add_foreign_key "user_email_users", "emails_p0c", column: "email_id", name: "user_email_users_email_id_fkey12"
+  add_foreign_key "user_email_users", "emails_p0d", column: "email_id", name: "user_email_users_email_id_fkey13"
+  add_foreign_key "user_email_users", "emails_p0e", column: "email_id", name: "user_email_users_email_id_fkey14"
+  add_foreign_key "user_email_users", "emails_p0f", column: "email_id", name: "user_email_users_email_id_fkey15"
+  add_foreign_key "user_email_users", "users"
 end

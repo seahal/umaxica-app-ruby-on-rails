@@ -1,13 +1,13 @@
-  # frozen_string_literal: true
+# frozen_string_literal: true
 
-
-  class SignInController < ApplicationController
+module Sign
+  class InController < ApplicationController
     def new
       @user_email = UserEmail.new
     end
 
     def create
-      @user_email = UserEmail.new()
+      @user_email = UserEmail.new(set_email_user)
     end
 
     private
@@ -22,3 +22,4 @@
       params.require(:user_email).permit(:address)
     end
   end
+end

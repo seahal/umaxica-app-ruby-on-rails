@@ -46,3 +46,4 @@
 .cache
 .irb_history
 .local/
+.psql_history

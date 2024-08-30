@@ -6,6 +6,7 @@ class CreateEmails < ActiveRecord::Migration[7.2]
   def up
     enable_extension 'pgcrypto' unless extension_enabled?('pgcrypto')
 
+    # I want to table emails as uniqueness of email address.
     execute <<-SQL
                 CREATE TABLE emails(
                     id uuid NOT NULL PRIMARY KEY,
