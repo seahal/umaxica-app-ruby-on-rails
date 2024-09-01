@@ -184,6 +184,9 @@ GEM
     guard-minitest (2.4.6)
       guard-compat (~> 1.2)
       minitest (>= 3.0)
+    guard-rubocop (1.5.0)
+      guard (~> 2.0)
+      rubocop (< 2.0)
     hiredis (0.6.3)
     i18n (1.14.5)
       concurrent-ruby (~> 1.0)
@@ -463,12 +466,14 @@ DEPENDENCIES
   faker
   guard
   guard-minitest
+  guard-rubocop
   hiredis (~> 0.6.3)
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
   karafka (~> 2.4)
   kredis
+  notiffany
   pg (~> 1.5, >= 1.5.7)
   puma (>= 5.0)
   rack-cors
