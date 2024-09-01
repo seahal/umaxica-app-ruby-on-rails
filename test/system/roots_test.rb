@@ -6,8 +6,8 @@ class RootsTest < ApplicationSystemTestCase
   setup do
   end
 
-  test "should watch homepage" do
-    # visit staff_root_url
-    # assert false
+  test "should watch staff's homepage" do
+    visit staff_root_url
+    assert_element 'h1'
   end
 end

@@ -2,19 +2,11 @@
 
 # TODO: You should get real 4 Domains for this projects.
 Rails.application.routes.draw do
-  namespace :user do
-    get "healths/show"
-  end
-  namespace :staff do
-    get "healths/show"
-    get "session/new"
-    get "session/index"
-  end
   # For User's pages (???.COM)
   constraints host: ENV["RAILS_USER_URL"] do
     scope module: :user, as: :user do
       # Homepage only behaves redirect page.. This is because I would like to create user's homepage for remix.
-      root to: "roots#index"
+      root to: redirect(ENV["REMIX_URL"])
       # TODO: add Health check routing for ???.com
       resource :health, only: :show
       # TODO: Create or Delete membership
