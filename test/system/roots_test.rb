@@ -7,7 +7,7 @@ class RootsTest < ApplicationSystemTestCase
   end
 
   test "should watch homepage" do
-    visit "/"
+    visit staff_root_url
     assert_text "Roots"
   end
 end
