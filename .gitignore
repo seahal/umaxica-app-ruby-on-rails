@@ -48,3 +48,5 @@
 .irb_history
 .psql_history
 .bash_history
+.guard_history
+.run/

@@ -77,6 +77,8 @@ group :development do
   #  gem 'churn', '~> 1.0', '>= 1.0.8'
   #  gem 'flay', '~> 2.13', '>= 2.13.3'
   gem "guard"
+  gem "notiffany"
+  gem "guard-rubocop"
   gem "guard-minitest"
   gem "rails_best_practices", "~> 1.23", ">= 1.23.2"
   gem "rails-erd", "~> 1.7", ">= 1.7.2"
@@ -91,6 +93,7 @@ group :development do
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
+
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"

@@ -10,6 +10,6 @@ class User::HealthsControllerTest < ActionDispatch::IntegrationTest
     get user_healths_show_url, as: :json
     assert_response :success
     json = JSON.parse(response.body)
-    assert_equal "OK", json['status']
+    assert_equal "OK", json["status"]
   end
 end
