@@ -17,11 +17,6 @@
 #
 # and, you'll have to watch "config/Guardfile" instead of "Guardfile"
 
-guard :rubocop, cli: '-A' do
-  watch(%r{.+\.rb$})
-  watch(%r{(?:.+/)?\.rubocop(?:_todo)?\.yml$}) { |m| File.dirname(m[0]) }
-end
-
 guard :minitest do
   # with Minitest::Unit
   watch(%r{^test/(.*)/?test_(.*)\.rb$})
@@ -29,10 +24,13 @@ guard :minitest do
   watch(%r{^test/test_helper\.rb$})      { 'test' }
 end
 
+# guard :rubocop, cli: '-A' do
+#   watch(%r{.+\.rb$})
+#   watch(%r{(?:.+/)?\.rubocop(?:_todo)?\.yml$}) { |m| File.dirname(m[0]) }
+# end
+
 notification :tmux,
              display_message: true,
              color_location: "status-left-bg",
              display_message: true,
-             timeout: 15
-
-# use this command in shell. =>  bundle exec guard --no-interactions
+             timeout: 30
