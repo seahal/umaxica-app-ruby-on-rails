@@ -24,13 +24,6 @@ guard :minitest do
   watch(%r{^test/test_helper\.rb$})      { 'test' }
 end
 
-guard :rubocop, cli: '-A' do
-  watch(%r{.+\.rb$})
-  watch(%r{(?:.+/)?\.rubocop(?:_todo)?\.yml$}) { |m| File.dirname(m[0]) }
-end
-
 notification :tmux,
-             display_message: true,
-             color_location: "status-left-bg",
              display_message: true,
              timeout: 30

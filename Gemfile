@@ -74,15 +74,9 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "bullet", "~> 7.2"
   gem "bundler-audit", "~> 0.9.1"
-  #  gem 'churn', '~> 1.0', '>= 1.0.8'
-  #  gem 'flay', '~> 2.13', '>= 2.13.3'
   gem "guard"
-  gem "notiffany"
-  gem "guard-rubocop"
   gem "guard-minitest"
-  gem "rails_best_practices", "~> 1.23", ">= 1.23.2"
   gem "rails-erd", "~> 1.7", ">= 1.7.2"
-  gem "reek", "~> 6.3"
   gem "rubocop", require: false
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
