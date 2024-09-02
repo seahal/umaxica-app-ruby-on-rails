@@ -1,8 +1,0 @@
-{
-  "name": "Ruby on Rails DevContainer",
-  "dockerComposeFile": [
-    "../docker-compose.yaml"
-  ],
-  "service": "ror",
-  "workspaceFolder": "/ror"
-}

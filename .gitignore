@@ -49,4 +49,4 @@
 .psql_history
 .bash_history
 .guard_history
-.run/
+.run/coverage

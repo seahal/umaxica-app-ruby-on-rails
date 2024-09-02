@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-# require 'simplecov'
-# SimpleCov.start 'rails' do
-#   coverage_dir './tmp/coverage'
-# end
+require 'simplecov'
+SimpleCov.start 'rails' do
+  coverage_dir './tmp/coverage'
+end
 
 ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
