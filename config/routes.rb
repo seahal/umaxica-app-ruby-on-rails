@@ -5,17 +5,19 @@ Rails.application.routes.draw do
   # For User's pages (???.COM)
   constraints host: ENV["RAILS_USER_URL"] do
     scope module: :user, as: :user do
-      # Homepage only behaves redirect page.. This is because I would like to create user's homepage for remix.
+      # Homepage only behaves redirect page. This is because I would like to create user's homepage for remix.
       root to: redirect(ENV["REMIX_URL"])
       # TODO: add Health check routing for ???.com
       resource :health, only: :show
       # TODO: Create or Delete membership
-      resources :memberships # FIXME: scope out this resource
+      resource :membership, only: :new do # FIXME: scope out this resource
+        resources :emails, only: :create, controller: "membership_emails"
+        resources :phones, only: :create, controller: "membership_phones"
+      end
       # TODO: Login or Logout
       resources :session # FIXME: scope out this resource
     end
   end
-
 
   # For Staff's webpages (???.NET)
   constraints host: ENV["RAILS_STAFF_URL"] do
@@ -24,6 +26,8 @@ Rails.application.routes.draw do
       root to: "roots#index"
       # TODO: add Health check routing for ???.com
       resource :health, only: :show
+      # TODO: Owner's lounge
+      resource :owner, only: :show
       # TODO: Create or Delete membership
       resources :memberships # FIXME: scope out this resource
       # TODO: Login or Logout
