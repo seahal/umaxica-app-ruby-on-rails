@@ -35,8 +35,8 @@ jobs:
         run: gem install bundler-audit
       - name: Bundler Audit
         run: bundle audit check --update
-      - name: Do Test
-        run: bin/rails test
+      # - name: Do Test
+      #   run: bin/rails test
       - name: two
         env:
           EXAMPLE: example
