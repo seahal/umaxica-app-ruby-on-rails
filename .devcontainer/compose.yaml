@@ -1,7 +1,7 @@
 name: "learn"
 
 services:
-  rails-app:
+  ror:
     build:
       context: ..
       dockerfile: .devcontainer/Dockerfile
