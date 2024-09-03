@@ -48,7 +48,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "encrypted_password", limit: 255
+    t.datetime "expires_in", default: "2024-09-03 04:49:21"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -62,6 +62,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["expires_in"], name: "index_emails_on_expires_in"
     t.index ["id", "address"], name: "index_emails_on_id_and_address", unique: true
     t.unique_constraint ["id", "address"], name: "emails_id_address_key"
   end
@@ -71,7 +72,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "encrypted_password", limit: 255
+    t.datetime "expires_in", default: "2024-09-03 04:49:21"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -85,6 +86,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["expires_in"], name: "emails_p00_expires_in_idx"
     t.index ["id", "address"], name: "emails_p00_id_address_idx", unique: true
     t.unique_constraint ["id", "address"], name: "emails_p00_id_address_key"
   end
@@ -94,7 +96,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "encrypted_password", limit: 255
+    t.datetime "expires_in", default: "2024-09-03 04:49:21"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -108,6 +110,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["expires_in"], name: "emails_p01_expires_in_idx"
     t.index ["id", "address"], name: "emails_p01_id_address_idx", unique: true
     t.unique_constraint ["id", "address"], name: "emails_p01_id_address_key"
   end
@@ -117,7 +120,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "encrypted_password", limit: 255
+    t.datetime "expires_in", default: "2024-09-03 04:49:21"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -131,6 +134,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["expires_in"], name: "emails_p02_expires_in_idx"
     t.index ["id", "address"], name: "emails_p02_id_address_idx", unique: true
     t.unique_constraint ["id", "address"], name: "emails_p02_id_address_key"
   end
@@ -140,7 +144,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "encrypted_password", limit: 255
+    t.datetime "expires_in", default: "2024-09-03 04:49:21"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -154,6 +158,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["expires_in"], name: "emails_p03_expires_in_idx"
     t.index ["id", "address"], name: "emails_p03_id_address_idx", unique: true
     t.unique_constraint ["id", "address"], name: "emails_p03_id_address_key"
   end
@@ -163,7 +168,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "encrypted_password", limit: 255
+    t.datetime "expires_in", default: "2024-09-03 04:49:21"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -177,6 +182,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["expires_in"], name: "emails_p04_expires_in_idx"
     t.index ["id", "address"], name: "emails_p04_id_address_idx", unique: true
     t.unique_constraint ["id", "address"], name: "emails_p04_id_address_key"
   end
@@ -186,7 +192,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "encrypted_password", limit: 255
+    t.datetime "expires_in", default: "2024-09-03 04:49:21"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -200,6 +206,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["expires_in"], name: "emails_p05_expires_in_idx"
     t.index ["id", "address"], name: "emails_p05_id_address_idx", unique: true
     t.unique_constraint ["id", "address"], name: "emails_p05_id_address_key"
   end
@@ -209,7 +216,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "encrypted_password", limit: 255
+    t.datetime "expires_in", default: "2024-09-03 04:49:21"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -223,6 +230,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["expires_in"], name: "emails_p06_expires_in_idx"
     t.index ["id", "address"], name: "emails_p06_id_address_idx", unique: true
     t.unique_constraint ["id", "address"], name: "emails_p06_id_address_key"
   end
@@ -232,7 +240,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "encrypted_password", limit: 255
+    t.datetime "expires_in", default: "2024-09-03 04:49:21"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -246,6 +254,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["expires_in"], name: "emails_p07_expires_in_idx"
     t.index ["id", "address"], name: "emails_p07_id_address_idx", unique: true
     t.unique_constraint ["id", "address"], name: "emails_p07_id_address_key"
   end
@@ -255,7 +264,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "encrypted_password", limit: 255
+    t.datetime "expires_in", default: "2024-09-03 04:49:21"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -269,6 +278,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["expires_in"], name: "emails_p08_expires_in_idx"
     t.index ["id", "address"], name: "emails_p08_id_address_idx", unique: true
     t.unique_constraint ["id", "address"], name: "emails_p08_id_address_key"
   end
@@ -278,7 +288,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "encrypted_password", limit: 255
+    t.datetime "expires_in", default: "2024-09-03 04:49:21"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -292,6 +302,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["expires_in"], name: "emails_p09_expires_in_idx"
     t.index ["id", "address"], name: "emails_p09_id_address_idx", unique: true
     t.unique_constraint ["id", "address"], name: "emails_p09_id_address_key"
   end
@@ -301,7 +312,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "encrypted_password", limit: 255
+    t.datetime "expires_in", default: "2024-09-03 04:49:21"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -315,6 +326,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["expires_in"], name: "emails_p0a_expires_in_idx"
     t.index ["id", "address"], name: "emails_p0a_id_address_idx", unique: true
     t.unique_constraint ["id", "address"], name: "emails_p0a_id_address_key"
   end
@@ -324,7 +336,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "encrypted_password", limit: 255
+    t.datetime "expires_in", default: "2024-09-03 04:49:21"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -338,6 +350,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["expires_in"], name: "emails_p0b_expires_in_idx"
     t.index ["id", "address"], name: "emails_p0b_id_address_idx", unique: true
     t.unique_constraint ["id", "address"], name: "emails_p0b_id_address_key"
   end
@@ -347,7 +360,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "encrypted_password", limit: 255
+    t.datetime "expires_in", default: "2024-09-03 04:49:21"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -361,6 +374,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["expires_in"], name: "emails_p0c_expires_in_idx"
     t.index ["id", "address"], name: "emails_p0c_id_address_idx", unique: true
     t.unique_constraint ["id", "address"], name: "emails_p0c_id_address_key"
   end
@@ -370,7 +384,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "encrypted_password", limit: 255
+    t.datetime "expires_in", default: "2024-09-03 04:49:21"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -384,6 +398,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["expires_in"], name: "emails_p0d_expires_in_idx"
     t.index ["id", "address"], name: "emails_p0d_id_address_idx", unique: true
     t.unique_constraint ["id", "address"], name: "emails_p0d_id_address_key"
   end
@@ -393,7 +408,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "encrypted_password", limit: 255
+    t.datetime "expires_in", default: "2024-09-03 04:49:21"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -407,6 +422,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["expires_in"], name: "emails_p0e_expires_in_idx"
     t.index ["id", "address"], name: "emails_p0e_id_address_idx", unique: true
     t.unique_constraint ["id", "address"], name: "emails_p0e_id_address_key"
   end
@@ -416,7 +432,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "encrypted_password", limit: 255
+    t.datetime "expires_in", default: "2024-09-03 04:49:21"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -430,6 +446,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.index ["expires_in"], name: "emails_p0f_expires_in_idx"
     t.index ["id", "address"], name: "emails_p0f_id_address_idx", unique: true
     t.unique_constraint ["id", "address"], name: "emails_p0f_id_address_key"
   end
@@ -596,6 +613,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
   end
 
   create_table "staffs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "encrypted_password", limit: 255
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.datetime "created_at", null: false
@@ -643,6 +661,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "encrypted_password", limit: 255
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.datetime "created_at", null: false

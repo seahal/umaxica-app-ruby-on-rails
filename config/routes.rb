@@ -10,9 +10,9 @@ Rails.application.routes.draw do
       # TODO: add Health check routing for ???.com
       resource :health, only: :show
       # TODO: Create or Delete membership
-      resource :membership, only: :new do # FIXME: scope out this resource
-        resources :emails, only: :create, controller: "membership_emails"
-        resources :phones, only: :create, controller: "membership_phones"
+      resource :registration, only: :new do
+        resources :emails, only: [ :new, :create, :show, :update ], controller: "registration_emails"
+        resources :phones, except: [], controller: "registration_phones"
       end
       # TODO: Login or Logout
       resources :session # FIXME: scope out this resource

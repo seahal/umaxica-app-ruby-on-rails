@@ -2,9 +2,9 @@
 
 class AddColumnEmails < ActiveRecord::Migration[7.2]
   def change
-    # FIXME: need hashed partition.
+    # FIXME: You need hashed partition.
     change_table :emails, bulk: true do |t|
-      t.string :encrypted_password, limit: 255, default: nil
+      t.datetime :expires_in, default: Time.now + 1.hour
 
       ## Confirmable
       t.string :confirmation_token
@@ -29,6 +29,7 @@ class AddColumnEmails < ActiveRecord::Migration[7.2]
       t.datetime :locked_at
     end
 
+    add_index :emails, :expires_in
     change_column_default :emails, :id, from: nil, to: 'gen_random_uuid()' # TODO: change to uuid v7
   end
 end

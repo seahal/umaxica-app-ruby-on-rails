@@ -1,0 +1,22 @@
+<%= form_with model: @user_phone, url: user_membership_phones_path do |form| %>
+  <% if @user_phone.errors.any? %>
+    <div>
+      <h2><%= pluralize(@user_phone.errors.count, "error") %> prohibited this email address from being saved:</h2>
+
+      <ul>
+        <% @user_phone.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :number, style: "display: block" %>
+    <%= form.telephone_field :number %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
