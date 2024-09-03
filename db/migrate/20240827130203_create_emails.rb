@@ -14,7 +14,7 @@ class CreateEmails < ActiveRecord::Migration[7.2]
                     type varchar not null,
                     created_at timestamp(6) not null,
                     updated_at timestamp(6) not null,
-                    UNIQUE(id, address)
+                    UNIQUE(address)
                 ) PARTITION BY HASH (id);
     SQL
 

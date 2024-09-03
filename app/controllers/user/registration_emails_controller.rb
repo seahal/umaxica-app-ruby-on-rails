@@ -11,7 +11,10 @@ class User::RegistrationEmailsController < ApplicationController
 
     respond_to do |format|
       if @user_email.save
-        format.html { redirect_to user_registration_email_path(@user_email), notice: "Sample was successfully created." }
+        format.html { redirect_to user_registration_email_path(@user_email) }
+      elsif @user_email.errors.select { _1.type == "taken" and _1.attribute == "address" } && @user_email.errors.count == 1
+          # to avoid that are there user activated
+          format.html { redirect_to user_registration_email_path(SecureRandom.uuid_v7) }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
