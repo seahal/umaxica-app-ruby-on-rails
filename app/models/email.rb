@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Email < ApplicationRecord
+  self.primary_key = :address
+
   has_one :user, foreign_key: "id"
   has_one :staff, foreign_key: "id"
 

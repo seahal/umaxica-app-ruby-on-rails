@@ -10,13 +10,11 @@ class CreateEmails < ActiveRecord::Migration[7.2]
     # I want to table emails as uniqueness of email address.
     execute <<-SQL
       CREATE TABLE emails(
-                    id uuid NOT NULL,
-                    address varchar(256) NOT NULL,
+                    address varchar(256) PRIMARY KEY,
                     type varchar not null,
                     created_at timestamp(6) not null,
-                    updated_at timestamp(6) not null,
-                    PRIMARY KEY(id)
-                ) PARTITION BY LIST (id);
+                    updated_at timestamp(6) not null
+                ) PARTITION BY LIST (address);
     SQL
   end
 

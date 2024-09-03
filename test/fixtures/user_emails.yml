@@ -6,10 +6,8 @@
 
 #
 user_emails_two:
-  id: "019194f0-46f0-7fe3-9459-fce2c71bb3ca"
   type: 'User'
   address: 'two_user@gmail.com'
 staff_emails_two:
-  id: "019194f0-46f0-7fe3-9459-fce2c71ba3ca"
   type: 'Staff'
   address: 'two_staff@gmail.com'
