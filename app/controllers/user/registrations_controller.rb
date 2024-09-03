@@ -1,4 +1,4 @@
-class User::MembershipsController < ApplicationController
+class User::RegistrationsController < ApplicationController
   def index
   end
 

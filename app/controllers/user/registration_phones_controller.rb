@@ -1,4 +1,4 @@
-class User::MembershipEmailsController < ApplicationController
+class User::RegistrationPhonesController < ApplicationController
   def new
   end
 
