@@ -43,12 +43,11 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "emails", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "address", limit: 256, null: false
+  create_table "emails", primary_key: "address", id: { type: :string, limit: 256 }, force: :cascade do |t|
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "expires_in", default: "2024-09-03 23:17:07"
+    t.datetime "expires_in", default: "2024-09-04 00:21:20"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -203,9 +202,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
 
   create_table "staff_email_staffs", id: false, force: :cascade do |t|
     t.uuid "staff_id", null: false
-    t.uuid "email_id", null: false
-    t.index ["email_id"], name: "index_staff_email_staffs_email_id", unique: true
-    t.index ["email_id"], name: "index_staff_email_staffs_on_email_id"
+    t.string "email_address", null: false
+    t.index ["email_address"], name: "index_staff_email_staffs_email_address", unique: true
     t.index ["staff_id"], name: "index_staff_email_staffs_on_staff_id"
     t.index ["staff_id"], name: "index_staff_email_staffs_staff_id"
   end
@@ -244,8 +242,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
 
   create_table "user_email_users", id: false, force: :cascade do |t|
     t.uuid "user_id", null: false
-    t.uuid "email_id", null: false
-    t.index ["email_id"], name: "index_user_email_users_email_id", unique: true
+    t.string "email_address", null: false
+    t.index ["email_address"], name: "index_user_email_users_email_address", unique: true
     t.index ["user_id"], name: "index_user_email_users_user_id"
   end
 
@@ -284,7 +282,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "staff_email_staffs", "emails"
+  add_foreign_key "staff_email_staffs", "emails", column: "email_address", primary_key: "address", on_delete: :cascade
   add_foreign_key "staff_email_staffs", "staffs"
   add_foreign_key "staff_phone_staffs", "phones"
   add_foreign_key "staff_phone_staffs", "phones_p00", column: "phone_id", name: "staff_phone_staffs_phone_id_fkey"
@@ -306,7 +304,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
   add_foreign_key "staff_phone_staffs", "staffs"
   add_foreign_key "staff_sessions", "staffs"
   add_foreign_key "user_apple_auths", "users"
-  add_foreign_key "user_email_users", "emails"
+  add_foreign_key "user_email_users", "emails", column: "email_address", primary_key: "address", on_delete: :cascade
   add_foreign_key "user_email_users", "users"
   add_foreign_key "user_google_auths", "users"
   add_foreign_key "user_phone_users", "phones"

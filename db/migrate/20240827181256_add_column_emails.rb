@@ -30,6 +30,5 @@ class AddColumnEmails < ActiveRecord::Migration[7.2]
     end
 
     add_index :emails, :expires_in
-    change_column_default :emails, :id, from: nil, to: 'gen_random_uuid()' # TODO: change to uuid v7
   end
 end

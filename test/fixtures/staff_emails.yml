@@ -6,6 +6,5 @@
 
 #
 staff_emails_two:
-  id: '019194f0-9e71-7e17-8343-651f98df0105'
   type: 'Staff'
   address: 'onetwostaff@example.com'
