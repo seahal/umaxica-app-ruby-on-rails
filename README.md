@@ -9,8 +9,8 @@ Things you may want to cover:
 * Ruby version
   - Just Do It => `ruby -v`
 * System dependencies
-  - OS X
-  - Ubuntu
+  - Ruby => Ofcource, we are on Ruby.
+  - Bun => We choiced use Bun as JavaScript Runtime.
 * Configuration
   - Edit hosts files to separate .com or .net.
 * Database creation
