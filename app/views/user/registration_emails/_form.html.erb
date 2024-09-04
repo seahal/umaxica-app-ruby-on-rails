@@ -1,4 +1,4 @@
-<%= form_with model: user_email, url: user_registration_emails_path do |form| %>
+<%= form_with model: @user_email, url: user_registration_emails_path do |form| %>
   <% if user_email.errors.any? %>
     <div>
       <h2><%= pluralize(user_email.errors.count, "error") %> prohibited this email address from being saved:</h2>

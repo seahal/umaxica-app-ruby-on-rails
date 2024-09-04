@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       resource :health, only: :show
       # TODO: Create or Delete membership
       resource :registration, only: :new do
-        resources :emails, only: [ :new, :create, :show, :update ], controller: "registration_emails"
+        resources :emails, only: [ :new, :create, :edit, :update ], controller: "registration_emails"
         resources :phones, except: [], controller: "registration_phones"
       end
       # TODO: Login or Logout

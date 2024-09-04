@@ -9,12 +9,10 @@ class CreateEmails < ActiveRecord::Migration[7.2]
 
     # I want to table emails as uniqueness of email address.
     execute <<-SQL
-      CREATE TABLE emails(
-                    address varchar(256) PRIMARY KEY,
-                    type varchar not null,
-                    created_at timestamp(6) not null,
-                    updated_at timestamp(6) not null
-                ) PARTITION BY LIST (address);
+      CREATE TABLE emails ( address varchar(256) PRIMARY KEY,
+                            type varchar not null,
+                            created_at timestamp(6) not null,
+                            updated_at timestamp(6) not null );
     SQL
   end
 
@@ -24,6 +22,12 @@ class CreateEmails < ActiveRecord::Migration[7.2]
   #     CREATE UNIQUE INDEX emails_address_index_p#{ format('%02x', i) } ON emails_p#{ format('%02x', i) } (address);
   #   SQL
   # end
+  #       CREATE TABLE emails(
+  #                     address varchar(256) PRIMARY KEY,
+  #                     type varchar not null,
+  #                     created_at timestamp(6) not null,
+  #                     updated_at timestamp(6) not null
+  #                 ) PARTITION BY LIST (address);
 
   def down
     execute <<-SQL
