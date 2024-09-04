@@ -63,7 +63,7 @@ gem "karafka", "~> 2.4"
 # Elasticsearch
 # gem 'elasticsearch', '~> 8.14'
 
-gem 'sass-rails'
+gem "sass-rails"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -86,7 +86,7 @@ group :development do
   gem "web-console"
   gem "brakeman", require: false
   gem "rubocop-rails-omakase", require: false
-  gem 'foreman'
+  gem "foreman"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
