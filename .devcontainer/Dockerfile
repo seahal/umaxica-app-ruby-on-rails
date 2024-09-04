@@ -1,4 +1,4 @@
-ARG RUBY_VERSION=3.3.4
+ARG RUBY_VERSION=3.34.
 
 FROM ruby:$RUBY_VERSION-bookworm AS development
 ENV TZ=UTC

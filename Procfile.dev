@@ -1,1 +1,3 @@
-livereload: bundle exec guard start -i -g livereload
+livereload: bundle exec guard start -i -g livereloadjs: bun run build --watch
+web: bin/rails server -p 3000
+js: bun run build --watch
