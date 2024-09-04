@@ -15,8 +15,10 @@ Rails.application.routes.draw do
         resources :phones, only: [ :new, :create, :edit, :update ], controller: "registration_phones"
         resource :information, only: [ :show, :create ], controller: "registration_information"
       end
-      # TODO: Login or Logout
-      resource :session # FIXME: scope out this resource
+      # Sign In/Out, NEED WEB
+      resource :session
+      # Settings
+      resource :preference
     end
   end
 
