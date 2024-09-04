@@ -12,10 +12,11 @@ Rails.application.routes.draw do
       # TODO: Create or Delete membership
       resource :registration, only: :new do
         resources :emails, only: [ :new, :create, :edit, :update ], controller: "registration_emails"
-        resources :phones, except: [], controller: "registration_phones"
+        resources :phones, only: [ :new, :create, :edit, :update ], controller: "registration_phones"
+        resource :information, only: [ :show, :create ], controller: "registration_information"
       end
       # TODO: Login or Logout
-      resources :session # FIXME: scope out this resource
+      resource :session # FIXME: scope out this resource
     end
   end
 

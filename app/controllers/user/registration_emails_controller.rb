@@ -15,10 +15,15 @@ class User::RegistrationEmailsController < ApplicationController
 
     respond_to do |format|
       if @user_email.save
-        # FIXME: not good email hashing
-        format.html { redirect_to edit_user_registration_email_path(Base64.urlsafe_encode64(@user_email.address.to_s, padding: false)) }
+        url = Base64.urlsafe_encode64(@user_email.address.to_s, padding: false)
+
+        # FIXME: DO NOT DEPLOY WITH URL including token! IT'a so critical mistake!!!
+        format.html { redirect_to edit_user_registration_email_path(url) }
 
         # TODO: send email to user
+        puts "a" * 1000
+        puts edit_user_registration_email_path(Base64.urlsafe_encode64(url), token: email_token)
+
       elsif @user_email.errors.select { _1.type == "taken" and _1.attribute == "address" } && @user_email.errors.count == 1
         # to avoid that are there user activated
         format.html { redirect_to edit_user_registration_email_path(Base64.urlsafe_encode64(@user_email.address.to_s, padding: false)) }
@@ -38,16 +43,18 @@ class User::RegistrationEmailsController < ApplicationController
     user_email = UserEmail.find(email_address)
     email_token = params[:token].to_s
 
+    respond_to do |format|
     if user_email && Argon2::Password.verify_password(email_token, user_email.confirmation_token)
-      render html: 'ok'
+      render html: "ok"
     else
-      render html: 'dame'
+      flash[:notice] = "bad token"
+      format.html { render :edit, status: :unprocessable_entity }
+    end
     end
   end
 
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_user_email
-
   end
 end
