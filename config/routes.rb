@@ -13,10 +13,17 @@ Rails.application.routes.draw do
       resource :registration, only: :new do
         resources :emails, only: [ :new, :create, :edit, :update ], controller: "registration_emails"
         resources :phones, only: [ :new, :create, :edit, :update ], controller: "registration_phones"
+        resource :google, only: [ :new, :create ]
+        resource :apple, only: [ :new, :create ]
         resource :information, only: [ :show, :create ], controller: "registration_information"
       end
       # Sign In/Out, NEED WEB
-      resource :session
+      resource :session, only: [ :new, :destroy ] do
+        resource :email, only: [ :new, :create ]
+        resource :phone, only: [ :new, :create ]
+        resource :google, only: [ :new, :create ]
+        resource :apple, only: [ :new, :create ]
+      end
       # Settings
       resource :preference
     end
