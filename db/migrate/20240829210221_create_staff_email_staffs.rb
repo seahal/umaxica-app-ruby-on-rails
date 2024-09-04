@@ -8,11 +8,10 @@ class CreateStaffEmailStaffs < ActiveRecord::Migration[7.2]
       t.string :email_address, null: false
 
       # need index. this is because i do not want to set id.
-      t.index ["staff_id"], name: "index_staff_email_staffs_staff_id"
-      t.index ["email_address"], name: "index_staff_email_staffs_email_address", unique: true
+      t.index [ "staff_id" ], name: "index_staff_email_staffs_staff_id"
+      t.index [ "email_address" ], name: "index_staff_email_staffs_email_address", unique: true
     end
 
-    add_foreign_key :staff_email_staffs, :emails,column: :email_address, primary_key: :address, on_delete: :cascade
-
+    add_foreign_key :staff_email_staffs, :emails, column: :email_address, primary_key: :address, on_delete: :cascade
    end
 end

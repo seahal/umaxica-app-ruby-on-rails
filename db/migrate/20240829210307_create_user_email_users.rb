@@ -11,6 +11,6 @@ class CreateUserEmailUsers < ActiveRecord::Migration[7.2]
       t.index [ "email_address" ], name: "index_user_email_users_email_address", unique: true
     end
 
-    add_foreign_key :user_email_users, :emails,column: :email_address, primary_key: :address, on_delete: :cascade
+    add_foreign_key :user_email_users, :emails, column: :email_address, primary_key: :address, on_delete: :cascade
   end
 end

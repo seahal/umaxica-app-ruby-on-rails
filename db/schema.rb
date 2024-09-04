@@ -47,7 +47,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "expires_in", default: "2024-09-04 00:21:20"
+    t.datetime "expires_in", default: "2024-09-04 00:43:37"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"

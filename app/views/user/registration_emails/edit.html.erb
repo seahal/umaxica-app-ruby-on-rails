@@ -3,7 +3,7 @@
 <hr>
 <p>Check your email. You can close this page.</p>
 
-<%= form_with url: user_registration_emails_path do |form| %>
+<%= form_with url: user_registration_email_path, method: :put do |form| %>
   <div>
     <%= form.label :token, style: "display: block" %>
     <%= form.text_field :token, value: params['token'] %>
