@@ -9,23 +9,25 @@ Rails.application.routes.draw do
       root to: redirect(ENV["REMIX_URL"])
       # TODO: add Health check routing for ???.com
       resource :health, only: :show
-      # TODO: Create or Delete membership
+      # Sign up pages
       resource :registration, only: :new do
-        resources :emails, only: [ :new, :create, :edit, :update ], controller: "registration_emails"
-        resources :phones, only: [ :new, :create, :edit, :update ], controller: "registration_phones"
-        resource :google, only: [ :new, :create ]
-        resource :apple, only: [ :new, :create ]
-        resource :information, only: [ :show, :create ], controller: "registration_information"
+        resources :emails, only: [ :create, :edit, :update ], controller: "registration_emails"
+        resources :phones, only: [ :create, :edit, :update ], controller: "registration_phones"
+        resource :google, only: [ :new, :create ], controller: "registration_googles"
+        resource :apple, only: [ :new, :create ], controller: "registration_apples"
+        resource :information, only: [ :new, :create, :show ], controller: "registration_information"
       end
+      # Withdrawal
+      resource :withdrawal, only: [:edit, :destroy] # TODO: Create or Delete membership
       # Sign In/Out, NEED WEB
       resource :session, only: [ :new, :destroy ] do
-        resource :email, only: [ :new, :create ]
-        resource :phone, only: [ :new, :create ]
-        resource :google, only: [ :new, :create ]
-        resource :apple, only: [ :new, :create ]
+        resource :email, only: [ :new, :create ], controller: "session_emails"
+        resource :phone, only: [ :new, :create ], controller: "session_phones"
+        resource :google, only: [ :new, :create ], controller: "session_googles"
+        resource :apple, only: [ :new, :create ], controller: "session_apples"
       end
       # Settings
-      resource :preference
+      resource :preference, only: :show
     end
   end
 

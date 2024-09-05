@@ -1,0 +1,22 @@
+<% content_for(:page_title, 'Sign up with email') %>
+
+<%= form_with user: user, url: user_registration_information_path do |form| %>
+  <div>
+    <%= form.label :display_name, style: "display: block" %>
+    <%= form.text_field :display_name %>
+  </div>
+
+  <div>
+    <%= form.label :password, style: "display: block" %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div>
+    <%= form.label :password_digest, style: "display: block" %>
+    <%= form.password_field :password_digest %>
+  </div>
+
+  <div>
+    <%= form.submit class: "bg-blue-700 hover:bg-blue-700 text-white " %>
+  </div>
+<% end %>
