@@ -63,7 +63,7 @@ gem "karafka", "~> 2.4"
 # Elasticsearch
 # gem 'elasticsearch', '~> 8.14'
 
-gem "sass-rails"
+# ???
 gem "ostruct"
 
 group :development, :test do
@@ -71,6 +71,9 @@ group :development, :test do
   gem "debug", platforms: %i[mri windows]
   gem "dotenv-rails", "~> 3.1", ">= 3.1.2" # OPTIMIZE: .env file must not be included sign_in production.
   gem "faker"
+
+  gem "jsbundling-rails", "~> 1.3"
+  gem "cssbundling-rails", "~> 1.4"
 end
 
 group :development do
@@ -103,5 +106,3 @@ group :test do
   gem "selenium-webdriver"
   gem "simplecov", require: false
 end
-
-gem "jsbundling-rails", "~> 1.3"
