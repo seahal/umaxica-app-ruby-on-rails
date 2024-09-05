@@ -1,4 +1,4 @@
-ARG RUBY_VERSION=3.34.
+ARG RUBY_VERSION=3.3.5
 
 FROM ruby:$RUBY_VERSION-bookworm AS development
 ENV TZ=UTC
@@ -6,7 +6,7 @@ ENV HOME=/ror
 RUN mkdir /ror
 WORKDIR /ror
 RUN apt-get update -qq && \
-    apt-get install -y build-essential postgresql-client libpq-dev graphviz curl git && \
+    apt-get install -y build-essential postgresql-client libpq-dev graphviz curl git gcc && \
     apt-get clean
 
 

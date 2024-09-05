@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-ruby "3.3.4"
+ruby "3.3.5"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.2"
@@ -64,6 +64,7 @@ gem "karafka", "~> 2.4"
 # gem 'elasticsearch', '~> 8.14'
 
 gem "sass-rails"
+gem "ostruct"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
