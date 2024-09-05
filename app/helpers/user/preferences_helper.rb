@@ -1,0 +1,2 @@
+module User::PreferencesHelper
+end

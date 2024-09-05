@@ -1,12 +1,11 @@
 <h1>User::MembershipEmails#new</h1>
 <p>Find me in app/views/user/membership_emails/new.html.erb</p>
 <hr>
+
 <%= render "form", user_email: @user_email %>
 
-<br>
-
 <div>
-  <%= link_to "Back to registration index", new_user_registration_path %>
+  <%= link_to "Back to registration page", new_user_registration_path %>
   <br>
-  <%= link_to "Back to membership email", new_user_registration_email_path %>
+  <%= link_to "Go to Sign In", new_user_session_path %>
 </div>
