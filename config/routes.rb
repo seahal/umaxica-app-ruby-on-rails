@@ -18,7 +18,7 @@ Rails.application.routes.draw do
         resource :information, only: [ :new, :create, :show ], controller: "registration_information"
       end
       # Withdrawal
-      resource :withdrawal, only: [:edit, :destroy] # TODO: Create or Delete membership
+      resource :withdrawal, only: [ :edit, :destroy ] # TODO: Create or Delete membership
       # Sign In/Out, NEED WEB
       resource :session, only: [ :new, :destroy ] do
         resource :email, only: [ :new, :create ], controller: "session_emails"

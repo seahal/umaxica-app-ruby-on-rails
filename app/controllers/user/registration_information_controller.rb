@@ -17,6 +17,6 @@ class User::RegistrationInformationController < ApplicationController
   end
 
   def show
-    render html: 'aaa'
+    render html: "aaa"
   end
 end
