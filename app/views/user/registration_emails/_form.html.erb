@@ -1,3 +1,5 @@
+<% content_for(:page_title, 'Sign up with email') %>
+
 <%= form_with model: @user_email, url: user_registration_emails_path do |form| %>
   <% if user_email.errors.any? %>
     <div>
@@ -17,6 +19,13 @@
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit class: "bg-blue-700 hover:bg-blue-700 text-white " %>
   </div>
 <% end %>
+
+
+<div class="flex h-screen items-center justify-center">
+  <button class="bg-blue-700 hover:bg-blue-700 text-white font-bold py-4 px-4 rounded">
+    Click me
+  </button>
+</div>

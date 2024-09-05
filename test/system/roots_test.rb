@@ -8,6 +8,7 @@ class RootsTest < ApplicationSystemTestCase
 
   test "should watch staff's homepage" do
     visit staff_root_url
+    assert_title /^umaxica$/i
     assert_element "h1"
   end
 end
