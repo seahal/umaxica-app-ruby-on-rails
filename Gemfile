@@ -73,7 +73,6 @@ group :development, :test do
   gem "faker"
 
   gem "jsbundling-rails", "~> 1.3"
-  gem "cssbundling-rails", "~> 1.4"
 end
 
 group :development do
@@ -91,10 +90,9 @@ group :development do
   gem "brakeman", require: false
   gem "rubocop-rails-omakase", require: false
   gem "foreman"
-
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
-  # gem "rack-mini-profiler"
 
+  # gem "rack-mini-profiler"
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
