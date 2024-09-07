@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for?(:page_title) ? "Umaxica | #{yield(:page_title)} " : "Umaxica" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+  </head>
+
+  <body class="px-4">
+    <header>
+      <%= link_to 'UMAXICA(STAFF)', staff_root_path %>
+    </header>
+
+    <%= yield %>
+
+    <footer>
+      <%= link_to 'Homepage', staff_root_path %>
+    </footer>
+  </body>
+</html>

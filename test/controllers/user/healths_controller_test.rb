@@ -12,6 +12,4 @@ class User::HealthsControllerTest < ActionDispatch::IntegrationTest
     json = JSON.parse(response.body)
     assert_equal "OK", json["status"]
   end
-
-
 end
