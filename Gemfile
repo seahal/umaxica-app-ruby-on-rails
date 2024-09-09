@@ -74,6 +74,7 @@ group :development, :test do
   gem "faker"
 
   gem "jsbundling-rails", "~> 1.3"
+  gem "cssbundling-rails"
 end
 
 group :development do
