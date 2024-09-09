@@ -7,8 +7,7 @@ RUN mkdir /ror
 WORKDIR /ror
 RUN apt-get update -qq && \
     apt-get install -y build-essential postgresql-client libpq-dev graphviz curl git libglib2.0-dev && \
-    apt-get clean && \
-    curl -fsSL https://bun.sh/install | bash
+    apt-get clean
 
 
 #FROM ruby:$RUBY_VERSION-bookworm AS production
