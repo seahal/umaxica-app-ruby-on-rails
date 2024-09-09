@@ -1,9 +1,9 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/ruby
 {
-  "name": "Demo-App-RoR",
+  "name": "DC-App-RoR",
   "dockerComposeFile": "./compose.yaml",
-  "service": "ror",
+  "service": "dc-app-ror",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 
   // Features to add to the dev container. More info: https://containers.dev/features.
