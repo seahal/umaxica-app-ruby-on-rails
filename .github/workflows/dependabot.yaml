@@ -1,9 +1,9 @@
 version: 2
 update:
   - package-ecosystem: gihub-actions
-  directly:/
-  schedule:
-    interval: dayily
+    directly: '/'
+    schedule:
+      interval: dayily
 jobs:
   test:
     runs-on: ubuntu-lates
