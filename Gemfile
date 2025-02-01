@@ -5,7 +5,7 @@ source "https://rubygems.org"
 ruby "3.4.1"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.2"
+gem 'rails', '~> 8.0', '>= 8.0.1'
 gem "rbs", "~> 3.5", ">= 3.5.3"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
@@ -79,7 +79,7 @@ end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem "bullet", "~> 7.2"
+  gem 'bullet', '~> 8.0'
   gem "bundler-audit", "~> 0.9.1"
   gem "guard"
   gem "guard-minitest"
