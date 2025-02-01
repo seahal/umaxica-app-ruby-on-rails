@@ -231,7 +231,6 @@ GEM
     net-protocol (0.2.2)
       timeout
     net-smtp (0.5.0)
-      net-protocol
     nio4r (2.7.4)
     nokogiri (1.18.2-x86_64-linux-gnu)
       racc (~> 1.4)
@@ -423,7 +422,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  argon2 (~> 2.3)
+  argon2
   aws-sdk-s3
   bootsnap
   brakeman
@@ -437,8 +436,8 @@ DEPENDENCIES
   foreman
   guard
   guard-minitest
-  hiredis (~> 0.6.3)
-  image_processing (~> 1.2)
+  hiredis
+  image_processing
   importmap-rails
   jbuilder
   jsbundling-rails (~> 1.3)
@@ -446,12 +445,12 @@ DEPENDENCIES
   kredis
   ostruct
   pg (~> 1.5, >= 1.5.7)
-  puma (>= 5.0)
+  puma
   rack-cors
   rails (~> 8.0, >= 8.0.1)
   rails-erd (~> 1.7, >= 1.7.2)
-  rbs (~> 3.5, >= 3.5.3)
-  redis (~> 5.2)
+  rbs
+  redis
   redis-actionpack
   rubocop
   rubocop-capybara (~> 2.21)

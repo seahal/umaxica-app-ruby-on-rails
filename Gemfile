@@ -6,7 +6,7 @@ ruby "3.4.1"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0", ">= 8.0.1"
-gem "rbs", "~> 3.5", ">= 3.5.3"
+gem "rbs"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -15,7 +15,7 @@ gem "sprockets-rails"
 gem "pg", "~> 1.5", ">= 1.5.7"
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem "puma", ">= 5.0"
+gem "puma"
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
@@ -30,8 +30,8 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 # Use Redis adapter to run Action Cable sign_in production
-gem "hiredis", "~> 0.6.3"
-gem "redis", "~> 5.2"
+gem "hiredis"
+gem "redis"
 
 # For Cache store @ Redis
 gem "redis-actionpack"
@@ -44,7 +44,7 @@ gem "rack-cors"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
-gem "argon2", "~> 2.3"
+gem "argon2"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[windows jruby]
@@ -53,7 +53,7 @@ gem "tzinfo-data", platforms: %i[windows jruby]
 gem "bootsnap", require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-gem "image_processing", "~> 1.2"
+gem "image_processing"
 
 # FIXME: i am wondering that using aws's s3.
 gem "aws-sdk-s3", require: false
