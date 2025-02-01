@@ -1,1 +1,4 @@
-1. fix test's errors
+- [ ] implement Argon2id password login
+- [ ] implement u2f login
+- [ ] implement sms login
+- [ ] implement social login
