@@ -2,3 +2,4 @@
 - [ ] implement u2f login
 - [ ] implement sms login
 - [ ] implement social login
+- [ ] fix Rails environment on Docker Compose.
