@@ -3,3 +3,4 @@
 - [ ] implement sms login
 - [ ] implement social login
 - [ ] fix Rails environment on Docker Compose.
+- [ ] add preferences to compose.yaml to use tmpfs
