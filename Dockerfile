@@ -1,14 +1,16 @@
 ARG RUBY_VERSION=3.4.1
 
-FROM ruby:$RUBY_VERSION-bookworm AS development
+FROM ruby:$RUBY_VERSION AS development
 ENV TZ=UTC
 ENV HOME=/ror
 RUN mkdir /ror
 WORKDIR /ror
 RUN apt-get update -qq && \
-    apt-get install -y build-essential postgresql-client libpq-dev graphviz curl git libglib2.0-dev && \
-    apt-get clean
-
+    apt-get install --no-install-recommends -y curl libjemalloc2 libvips postgresql-client && \
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives
+COPY Gemfile /ror/Gemfile
+COPY Gemfile.lock /ror/Gemfile.lock
+RUN bundle install
 
 #FROM ruby:$RUBY_VERSION-bookworm AS production
 #ENV TZ=UTC
