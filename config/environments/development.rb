@@ -72,5 +72,6 @@ Rails.application.configure do
 
   # added
   config.hosts << "localhost"
-  config.hosts << "localhost.localdomain"
+  config.hosts << "localhost4.localdomain"
+  config.hosts << "localhost6.localdomain"
 end
