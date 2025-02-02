@@ -1,5 +1,8 @@
 {
-  "name": "/ror",
+  "name": "ror",
+  "scripts": {
+    "build": ""
+  },
   "module": "index.ts",
   "type": "module",
   "devDependencies": {

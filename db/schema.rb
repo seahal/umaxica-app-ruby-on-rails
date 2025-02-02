@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
+ActiveRecord::Schema[8.0].define(version: 2024_08_30_171643) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_catalog.plpgsql"
   enable_extension "pgcrypto"
-  enable_extension "plpgsql"
 
   create_table "active_storage_attachments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", null: false
@@ -64,7 +64,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.index ["expires_in"], name: "index_emails_on_expires_in"
   end
 
-  create_table "phones", id: :uuid, default: nil, force: :cascade do |t|
+  create_table "phones", id: :uuid, default: nil, options: "PARTITION BY HASH (id)", force: :cascade do |t|
     t.string "number", limit: 127, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
@@ -72,7 +72,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.index ["id", "number"], name: "index_phones_on_id_and_number", unique: true
   end
 
-  create_table "phones_p00", id: :uuid, default: nil, force: :cascade do |t|
+  create_table "phones_p00", id: :uuid, default: nil, options: "INHERITS (phones)", force: :cascade do |t|
     t.string "number", limit: 127, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
@@ -80,7 +80,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.index ["id", "number"], name: "phones_p00_id_number_idx", unique: true
   end
 
-  create_table "phones_p01", id: :uuid, default: nil, force: :cascade do |t|
+  create_table "phones_p01", id: :uuid, default: nil, options: "INHERITS (phones)", force: :cascade do |t|
     t.string "number", limit: 127, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
@@ -88,7 +88,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.index ["id", "number"], name: "phones_p01_id_number_idx", unique: true
   end
 
-  create_table "phones_p02", id: :uuid, default: nil, force: :cascade do |t|
+  create_table "phones_p02", id: :uuid, default: nil, options: "INHERITS (phones)", force: :cascade do |t|
     t.string "number", limit: 127, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
@@ -96,7 +96,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.index ["id", "number"], name: "phones_p02_id_number_idx", unique: true
   end
 
-  create_table "phones_p03", id: :uuid, default: nil, force: :cascade do |t|
+  create_table "phones_p03", id: :uuid, default: nil, options: "INHERITS (phones)", force: :cascade do |t|
     t.string "number", limit: 127, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
@@ -104,7 +104,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.index ["id", "number"], name: "phones_p03_id_number_idx", unique: true
   end
 
-  create_table "phones_p04", id: :uuid, default: nil, force: :cascade do |t|
+  create_table "phones_p04", id: :uuid, default: nil, options: "INHERITS (phones)", force: :cascade do |t|
     t.string "number", limit: 127, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
@@ -112,7 +112,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.index ["id", "number"], name: "phones_p04_id_number_idx", unique: true
   end
 
-  create_table "phones_p05", id: :uuid, default: nil, force: :cascade do |t|
+  create_table "phones_p05", id: :uuid, default: nil, options: "INHERITS (phones)", force: :cascade do |t|
     t.string "number", limit: 127, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
@@ -120,7 +120,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.index ["id", "number"], name: "phones_p05_id_number_idx", unique: true
   end
 
-  create_table "phones_p06", id: :uuid, default: nil, force: :cascade do |t|
+  create_table "phones_p06", id: :uuid, default: nil, options: "INHERITS (phones)", force: :cascade do |t|
     t.string "number", limit: 127, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
@@ -128,7 +128,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.index ["id", "number"], name: "phones_p06_id_number_idx", unique: true
   end
 
-  create_table "phones_p07", id: :uuid, default: nil, force: :cascade do |t|
+  create_table "phones_p07", id: :uuid, default: nil, options: "INHERITS (phones)", force: :cascade do |t|
     t.string "number", limit: 127, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
@@ -136,7 +136,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.index ["id", "number"], name: "phones_p07_id_number_idx", unique: true
   end
 
-  create_table "phones_p08", id: :uuid, default: nil, force: :cascade do |t|
+  create_table "phones_p08", id: :uuid, default: nil, options: "INHERITS (phones)", force: :cascade do |t|
     t.string "number", limit: 127, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
@@ -144,7 +144,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.index ["id", "number"], name: "phones_p08_id_number_idx", unique: true
   end
 
-  create_table "phones_p09", id: :uuid, default: nil, force: :cascade do |t|
+  create_table "phones_p09", id: :uuid, default: nil, options: "INHERITS (phones)", force: :cascade do |t|
     t.string "number", limit: 127, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
@@ -152,7 +152,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.index ["id", "number"], name: "phones_p09_id_number_idx", unique: true
   end
 
-  create_table "phones_p0a", id: :uuid, default: nil, force: :cascade do |t|
+  create_table "phones_p0a", id: :uuid, default: nil, options: "INHERITS (phones)", force: :cascade do |t|
     t.string "number", limit: 127, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
@@ -160,7 +160,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.index ["id", "number"], name: "phones_p0a_id_number_idx", unique: true
   end
 
-  create_table "phones_p0b", id: :uuid, default: nil, force: :cascade do |t|
+  create_table "phones_p0b", id: :uuid, default: nil, options: "INHERITS (phones)", force: :cascade do |t|
     t.string "number", limit: 127, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
@@ -168,7 +168,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.index ["id", "number"], name: "phones_p0b_id_number_idx", unique: true
   end
 
-  create_table "phones_p0c", id: :uuid, default: nil, force: :cascade do |t|
+  create_table "phones_p0c", id: :uuid, default: nil, options: "INHERITS (phones)", force: :cascade do |t|
     t.string "number", limit: 127, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
@@ -176,7 +176,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.index ["id", "number"], name: "phones_p0c_id_number_idx", unique: true
   end
 
-  create_table "phones_p0d", id: :uuid, default: nil, force: :cascade do |t|
+  create_table "phones_p0d", id: :uuid, default: nil, options: "INHERITS (phones)", force: :cascade do |t|
     t.string "number", limit: 127, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
@@ -184,7 +184,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.index ["id", "number"], name: "phones_p0d_id_number_idx", unique: true
   end
 
-  create_table "phones_p0e", id: :uuid, default: nil, force: :cascade do |t|
+  create_table "phones_p0e", id: :uuid, default: nil, options: "INHERITS (phones)", force: :cascade do |t|
     t.string "number", limit: 127, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
@@ -192,7 +192,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_30_171643) do
     t.index ["id", "number"], name: "phones_p0e_id_number_idx", unique: true
   end
 
-  create_table "phones_p0f", id: :uuid, default: nil, force: :cascade do |t|
+  create_table "phones_p0f", id: :uuid, default: nil, options: "INHERITS (phones)", force: :cascade do |t|
     t.string "number", limit: 127, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
