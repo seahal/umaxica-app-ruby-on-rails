@@ -71,7 +71,6 @@ Rails.application.configure do
   config.generators.apply_rubocop_autocorrect_after_generate!
 
   # added
-  config.hosts << "localhost"
   config.hosts << "localhost4.localdomain"
   config.hosts << "localhost6.localdomain"
 end

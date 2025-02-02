@@ -5,8 +5,7 @@ Rails.application.routes.draw do
   # For User's pages (???.COM)
   constraints host: ENV["RAILS_USER_URL"] do
     scope module: :user, as: :user do
-      # Homepage only behaves redirect page. This is because I would like to create user's homepage for remix.
-      root to: redirect(ENV["REMIX_URL"])
+      root to: "roots#index"
       # TODO: add Health check routing for ???.com
       resource :health, only: :show
       # Sign up pages
