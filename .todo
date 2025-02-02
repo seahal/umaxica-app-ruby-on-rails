@@ -5,3 +5,4 @@
 - [ ] fix Rails environment on Docker Compose.
 - [ ] add preferences to compose.yaml to use tmpfs
 - [ ] set up env at Docker.
+- [ ] set up otp
