@@ -38,5 +38,4 @@
 
 # Added by owner
 /.env
-!/.env.localn
 Dockerfile
