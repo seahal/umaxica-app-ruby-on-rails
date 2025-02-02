@@ -1,14 +1,16 @@
 {
-  "name": "ror",
+  "name": "shuffle-lunch-app",
   "scripts": {
-    "build": ""
+    "build": "bun build app/javascript/application.js",
+    "build:css": "sleep 1"
   },
-  "module": "index.ts",
-  "type": "module",
   "devDependencies": {
     "@types/bun": "latest"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
-  }
+  },
+  "module": "index.ts",
+  "type": "module"
 }
+
