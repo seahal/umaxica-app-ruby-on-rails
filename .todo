@@ -7,3 +7,10 @@
 - [ ] set up otp
 - [+] fix Rails environment on Docker Compose.
 - [ ] fix test's fixtures
+- [ ] set up Porsgresql's read and write replicas.
+- [ ] I remember running into some issues with PostgreSQL partitioning. I should add that to my todo list and think through how to resolve it.
+- [ ] think about routes.
+  - www.example.com -> say to user that there is no page.
+  - jp.www.example.com -> say user that you have to jump other page.
+  - example.com -> out of rails(backend).
+- [ ] You should get real 4 Domains for this projects.
