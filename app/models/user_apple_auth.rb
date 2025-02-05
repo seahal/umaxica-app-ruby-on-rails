@@ -1,3 +1,3 @@
-class UserAppleAuth < ApplicationRecord
+class UserAppleAuth < AuthRecord
   belongs_to :user
 end

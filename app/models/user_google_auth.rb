@@ -1,3 +1,3 @@
-class UserGoogleAuth < ApplicationRecord
+class UserGoogleAuth < AuthRecord
   belongs_to :user
 end
