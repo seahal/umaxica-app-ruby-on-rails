@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-
   # www.example.com
   # constraints host: ENV["RAILS_USER_URL"] do
   # resource :health, only: :show
@@ -27,7 +26,7 @@ Rails.application.routes.draw do
       resource :session, only: [ :new, :destroy ] do
         resource :email, only: [ :new, :create ], controller: "session_emails"
         resource :phone, only: [ :new, :create ], controller: "session_phones"
-        resourceq :google, only: [ :new, :create ], controller: "session_googles"
+        resource :google, only: [ :new, :create ], controller: "session_googles"
         resource :apple, only: [ :new, :create ], controller: "session_apples"
       end
       # Settings

@@ -6,6 +6,6 @@ class StaffEmailStaffTest < ActiveSupport::TestCase
   end
 
   test "email staff relation" do
-    StaffEmail.create(address: "one@example.com")
+    assert StaffEmail.create(address: "one@example.com").valid?
   end
 end

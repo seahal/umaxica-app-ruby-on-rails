@@ -44,7 +44,7 @@ gem "rack-cors"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
-gem "argon2"
+gem "argon2", "~> 2.3"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[windows jruby]
@@ -67,9 +67,8 @@ gem "karafka", "~> 2.4"
 # ???
 gem "ostruct"
 
-
-# URL normalizetion
-gem 'addressable', '~> 2.8', '>= 2.8.7'
+# URL normalization gem
+gem "addressable", "~> 2.8", ">= 2.8.7"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -96,8 +95,8 @@ group :development do
   gem "brakeman", require: false
   gem "rubocop-rails-omakase", require: false
   gem "foreman"
-  # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
 
+  # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]

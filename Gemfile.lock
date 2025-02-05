@@ -423,7 +423,7 @@ PLATFORMS
 
 DEPENDENCIES
   addressable (~> 2.8, >= 2.8.7)
-  argon2
+  argon2 (~> 2.3)
   aws-sdk-s3
   bootsnap
   brakeman

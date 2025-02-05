@@ -1,4 +1,4 @@
-class Phone < ApplicationRecord
+class Phone < AuthRecord
   self.primary_key = :number
 
   has_one :user, foreign_key: "id"
