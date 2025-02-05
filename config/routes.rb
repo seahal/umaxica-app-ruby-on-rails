@@ -1,9 +1,14 @@
 # frozen_string_literal: true
 
-# TODO: You should get real 4 Domains for this projects.
 Rails.application.routes.draw do
-  # For User's pages (???.COM)
-  constraints host: ENV["RAILS_USER_URL"] do
+
+  # www.example.com
+  # constraints host: ENV["RAILS_USER_URL"] do
+  # resource :health, only: :show
+  # end
+
+  # For User's pages (jp.www.example.com)
+  constraints host: "#{ENV['RAILS_USER_URL']}" do
     scope module: :user, as: :user do
       root to: "roots#index"
       # TODO: add Health check routing for ???.com
@@ -22,7 +27,7 @@ Rails.application.routes.draw do
       resource :session, only: [ :new, :destroy ] do
         resource :email, only: [ :new, :create ], controller: "session_emails"
         resource :phone, only: [ :new, :create ], controller: "session_phones"
-        resource :google, only: [ :new, :create ], controller: "session_googles"
+        resourceq :google, only: [ :new, :create ], controller: "session_googles"
         resource :apple, only: [ :new, :create ], controller: "session_apples"
       end
       # Settings
@@ -30,7 +35,12 @@ Rails.application.routes.draw do
     end
   end
 
-  # For Staff's webpages (???.NET)
+
+  # example.net
+  # constraints host: ENV["RAILS_USER_URL"] do
+  # end
+
+  # For Staff's webpages (jp.example.net)
   constraints host: ENV["RAILS_STAFF_URL"] do
     scope module: :staff, as: :staff do
       # Homepage
