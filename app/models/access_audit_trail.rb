@@ -1,0 +1,2 @@
+class AccessAuditTrail < AuthRecord
+end
