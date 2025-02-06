@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :dogs
   # www.example.com
   # constraints host: ENV["RAILS_USER_URL"] do
   # resource :health, only: :show
