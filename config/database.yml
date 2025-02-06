@@ -51,7 +51,6 @@ test:
     host: <%= File.exist?('/.dockerenv') ? ENV["POSTGRES_URI"] : 'localhost' %>
     username: <%= ENV["POSTGRES_USER"] %>
     password: <%= ENV["POSTGRES_PASSWORD"] %>
-    database: test_core_db
   core_replica:
     <<: *default
     database: test_core_db
