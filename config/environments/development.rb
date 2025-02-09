@@ -28,7 +28,7 @@ Rails.application.configure do
 
   # Change to :null_store to avoid any caching.
   config.cache_store = :redis_cache_store, {
-    url: ENV['VALKEY_CACHE_URL'], # Redisの接続情報を環境変数から取得する
+    url: ENV["VALKEY_CACHE_URL"], # Redisの接続情報を環境変数から取得する
     expires_in: 1.hour,    # キャッシュの有効期限を設定
     driver: :hiredis       # hiredisドライバを使用することで高速化できる
   }
