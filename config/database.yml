@@ -19,24 +19,24 @@ development:
     <<: *default
     database: dev_auth_db
     port: <%= File.exist?('/.dockerenv') ? 5432 : 5433 %>
-    host: <%= File.exist?('/.dockerenv') ? ENV["PSQL_AUTH_PUB"] : 'localhost' %>
+    host: <%= File.exist?('/.dockerenv') ? ENV["POSTGRESQL_AUTH_PUB"] : 'localhost' %>
   auth_replica:
     <<: *default
     replica: true
     database: dev_auth_db
     port: <%= File.exist?('/.dockerenv') ? 5432 : 5434 %>
-    host: <%= File.exist?('/.dockerenv') ? ENV["PSQL_AUTH_SUB"] : 'localhost' %>
+    host: <%= File.exist?('/.dockerenv') ? ENV["POSTGRESQL_AUTH_SUB"] : 'localhost' %>
   core:
     <<: *default
     database: dev_core_db
     port: <%= File.exist?('/.dockerenv') ? 5432 : 5435 %>
-    host: <%= File.exist?('/.dockerenv') ? ENV["PSQL_CORE_PUB"] : 'localhost' %>
+    host: <%= File.exist?('/.dockerenv') ? ENV["POSTGRESQL_CORE_PUB"] : 'localhost' %>
   core_replica:
     <<: *default
     replica: true
     database: dev_core_db
     port: <%= File.exist?('/.dockerenv') ? 5432 : 5436 %>
-    host: <%= File.exist?('/.dockerenv') ? ENV["PSQL_CORE_SUB"] : 'localhost' %>
+    host: <%= File.exist?('/.dockerenv') ? ENV["POSTGRESQL_CORE_SUB"] : 'localhost' %>
 
 
 # Warning: The database defined as "test" will be erased and
