@@ -13,21 +13,31 @@ default: &default
   username: <%= ENV["POSTGRES_USER"] %>
   password: <%= ENV["POSTGRES_PASSWORD"] %>
 
+
 development:
   auth:
     <<: *default
     database: dev_auth_db
+    port: <%= File.exist?('/.dockerenv') ? 5432 : 5433 %>
+    host: <%= File.exist?('/.dockerenv') ? ENV["PSQL_AUTH_PUB"] : 'localhost' %>
   auth_replica:
     <<: *default
     replica: true
     database: dev_auth_db
+    port: <%= File.exist?('/.dockerenv') ? 5432 : 5434 %>
+    host: <%= File.exist?('/.dockerenv') ? ENV["PSQL_AUTH_SUB"] : 'localhost' %>
   core:
     <<: *default
     database: dev_core_db
+    port: <%= File.exist?('/.dockerenv') ? 5432 : 5435 %>
+    host: <%= File.exist?('/.dockerenv') ? ENV["PSQL_CORE_PUB"] : 'localhost' %>
   core_replica:
     <<: *default
     replica: true
     database: dev_core_db
+    port: <%= File.exist?('/.dockerenv') ? 5432 : 5436 %>
+    host: <%= File.exist?('/.dockerenv') ? ENV["PSQL_CORE_SUB"] : 'localhost' %>
+
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -36,27 +46,26 @@ test:
   auth:
     <<: *default
     database: test_auth_db
-    host: <%= File.exist?('/.dockerenv') ? ENV["POSTGRES_URI"] : 'localhost' %>
-    username: <%= ENV["POSTGRES_USER"] %>
-    password: <%= ENV["POSTGRES_PASSWORD"] %>
+    port: <%= File.exist?('/.dockerenv') ? 5432 : 5433 %>
+    host: <%= File.exist?('/.dockerenv') ? ENV["PSQL_AUTH_PUB"] : 'localhost' %>
   auth_replica:
     <<: *default
+    replica: true
     database: test_auth_db
-    host: <%= File.exist?('/.dockerenv') ? ENV["POSTGRES_URI"] : 'localhost' %>
-    username: <%= ENV["POSTGRES_USER"] %>
-    password: <%= ENV["POSTGRES_PASSWORD"] %>
+    port: <%= File.exist?('/.dockerenv') ? 5432 : 5434 %>
+    host: <%= File.exist?('/.dockerenv') ? ENV["PSQL_AUTH_SUB"] : 'localhost' %>
   core:
     <<: *default
     database: test_core_db
-    host: <%= File.exist?('/.dockerenv') ? ENV["POSTGRES_URI"] : 'localhost' %>
-    username: <%= ENV["POSTGRES_USER"] %>
-    password: <%= ENV["POSTGRES_PASSWORD"] %>
+    port: <%= File.exist?('/.dockerenv') ? 5432 : 5435 %>
+    host: <%= File.exist?('/.dockerenv') ? ENV["PSQL_CORE_PUB"] : 'localhost' %>
   core_replica:
     <<: *default
+    replica: true
     database: test_core_db
-    host: <%= File.exist?('/.dockerenv') ? ENV["POSTGRES_URI"] : 'localhost' %>
-    username: <%= ENV["POSTGRES_USER"] %>
-    password: <%= ENV["POSTGRES_PASSWORD"] %>
+    port: <%= File.exist?('/.dockerenv') ? 5432 : 5436 %>
+    host: <%= File.exist?('/.dockerenv') ? ENV["PSQL_CORE_SUB"] : 'localhost' %>
+
 
 # FIXME: please implement below
 production:
