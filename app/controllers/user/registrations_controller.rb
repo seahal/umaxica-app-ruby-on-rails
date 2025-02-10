@@ -1,7 +1,7 @@
 class User::RegistrationsController < ApplicationController
   def new
     @user_email = UserEmail.new
-    @user_phone = UserPhone.new
+    #   @user_phone = UserPhone.new
   end
 
   private

@@ -29,3 +29,10 @@ Things you may want to cover:
 * Deployment instructions
     - When you are free, look at 'bin/rails notes'
     - `docker push asia-northeast1-docker.pkg.dev/umaxica/docker/ror`
+* Using Services
+  * AWS
+  * Fastly
+  * CloudFlare
+  * SendGrid
+* Secrets
+  * Write on `.env.local`
