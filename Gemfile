@@ -61,7 +61,7 @@ gem "aws-sdk", "~> 3.0", ">= 3.0.1"
 
 
 # Kafka
-gem "karafka", "~> 2.4"
+gem 'karafka', '~> 2.4', '>= 2.4.17'
 
 # Elasticsearch
 # gem 'elasticsearch', '~> 8.14'
