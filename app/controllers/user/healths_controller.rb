@@ -4,7 +4,7 @@ class User::HealthsController < ApplicationController
       expires_in 1.second # using browser cache
 
       format.html { render :show }
-      format.json { render json: { status: "OK" } }
+      format.json { render json: { status: "OK", abc: Time.now } }
     end
   end
 end
