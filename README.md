@@ -33,6 +33,5 @@ Things you may want to cover:
   * AWS
   * Fastly
   * CloudFlare
-  * SendGrid
 * Secrets
-  * Write on `.env.local`
+  * You see => `.env.local`
