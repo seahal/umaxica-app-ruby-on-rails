@@ -1,14 +1,16 @@
-- [ ] fix database settings
+- [ ] implement email sending system using kafka and amazon sns.
+- [ ] build up database settings
+- [ ] set up Porsgresql's read and write replicas.
+- [ ] build up Elasticsearch.
+- [ ] build up Kafka.
 - [ ] fix bun settings
+- [ ] fix test's fixtures
 - [ ] implement Argon2id password login
 - [ ] implement u2f login
 - [ ] implement sms login
 - [ ] implement social login
-- [ ] add preferences to compose.yaml to use tmpfs
-- [ ] set up env at Docker.
 - [ ] set up otp
 - [ ] fix test's fixtures
-- [ ] set up Porsgresql's read and write replicas.
 - [ ] I remember running into some issues with PostgreSQL partitioning. I should add that to my todo list and think through how to resolve it.
 - [ ] think about routes.
   - www.example.com -> say to user that there is no page.
@@ -16,3 +18,5 @@
   - example.com -> out of rails(backend).
 - [+] You should get real 3 Domains for this projects.
 - [+] fix Rails environment on Docker Compose.
+- [+] add preferences to compose.yaml to use tmpfs
+- [+] set up env at Docker.
