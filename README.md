@@ -35,3 +35,4 @@ Things you may want to cover:
   * CloudFlare
 * Secrets
   * You have to set `.env.local` on your own environment.
+  * You should use [git-secrets](https://github.com/awslabs/git-secrets).
