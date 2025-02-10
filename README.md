@@ -34,4 +34,4 @@ Things you may want to cover:
   * Fastly
   * CloudFlare
 * Secrets
-  * You see => `.env.local`
+  * You have to set `.env.local` on your own environment.
