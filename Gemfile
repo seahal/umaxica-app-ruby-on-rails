@@ -57,7 +57,7 @@ gem "image_processing"
 
 # FIXME: i am wondering that using aws's s3.
 gem "aws-sdk-s3", require: false
-gem 'aws-sdk', '~> 3.0', '>= 3.0.1'
+gem "aws-sdk", "~> 3.0", ">= 3.0.1"
 
 
 # Kafka
@@ -66,8 +66,8 @@ gem "karafka", "~> 2.4"
 # Elasticsearch
 # gem 'elasticsearch', '~> 8.14'
 
-# ???
-gem "ostruct"
+# OpenStruct
+gem "ostruct", "~> 0.6.1"
 
 # URL normalization gem
 gem "addressable", "~> 2.8", ">= 2.8.7"
