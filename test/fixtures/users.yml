@@ -1,7 +1,4 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-#one:
-#  user: one
-
-#two:
-#  user: two
+ users_one:
+   id: "e6c146b6-e4f5-4056-888c-338a16ab82ce"
