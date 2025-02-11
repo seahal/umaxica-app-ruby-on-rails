@@ -12,7 +12,7 @@ gem "rbs"
 gem "sprockets-rails"
 
 # Use PostgreSQL as the database for Active Record
-gem 'pg', '~> 1.5', '>= 1.5.9'
+gem "pg", "~> 1.5", ">= 1.5.9"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma"
@@ -72,6 +72,8 @@ gem "ostruct", "~> 0.6.1"
 # URL normalization gem
 gem "addressable", "~> 2.8", ">= 2.8.7"
 
+# twillio
+gem "twilio-ruby", "~> 7.4.3"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

@@ -11,6 +11,7 @@
 - [ ] implement social login
 - [ ] set up otp
 - [ ] fix test's fixtures
+- [ ] use Porsgresql's Partition.
 - [ ] I remember running into some issues with PostgreSQL partitioning. I should add that to my todo list and think through how to resolve it.
 - [ ] think about routes.
   - www.example.com -> say to user that there is no page.
