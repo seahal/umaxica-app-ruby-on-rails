@@ -10,14 +10,16 @@
 - [ ] implement sms login
 - [ ] implement social login
 - [ ] set up otp
-- [ ] fix test's fixtures
 - [ ] use Porsgresql's Partition.
+- [ ] set up email env(using SendGrid)
+- [ ] set up SMS env(using Twilio)
 - [ ] I remember running into some issues with PostgreSQL partitioning. I should add that to my todo list and think through how to resolve it.
 - [ ] think about routes.
   - www.example.com -> say to user that there is no page.
-  - jp.www.example.com -> say user that you have to jump other page.
+  - jp.www.example.com -> SAY USER THAT YOU HAVE TO JUMP OTHER PAGE.
   - example.com -> out of rails(backend).
 - [+] You should get real 3 Domains for this projects.
 - [+] fix Rails environment on Docker Compose.
 - [+] add preferences to compose.yaml to use tmpfs
 - [+] set up env at Docker.
+- [+] fix test's fixtures
