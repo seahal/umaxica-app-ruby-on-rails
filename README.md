@@ -36,5 +36,5 @@ Things you may want to cover:
   * twilio & SendGrid
   * Terraform Cloud
 * Secrets
-  * You have to set `.env.local` on your own environment.
+  * You have to set `.env.local` on your own environment.This is because it has confidential. 
   * You should use [git-secrets](https://github.com/awslabs/git-secrets).

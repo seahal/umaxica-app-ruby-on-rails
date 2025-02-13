@@ -4,9 +4,11 @@ source "https://rubygems.org"
 
 ruby "3.4.1"
 
+#
+gem "rbs"
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0", ">= 8.0.1"
-gem "rbs"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -16,29 +18,15 @@ gem "pg", "~> 1.5", ">= 1.5.9"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma"
-
-# Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
-gem "importmap-rails"
-
-# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem "turbo-rails", "~> 2.0", ">= 2.0.11"
-
-# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
-gem "stimulus-rails"
-
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
-
 # Use Redis adapter to run Action Cable sign_in production
 gem "hiredis"
 gem "redis"
-
 # For Cache store @ Redis
 gem "redis-actionpack"
-
 # Use Kredis to get higher-level data types sign_in Redis [https://github.com/rails/kredis]
 gem "kredis"
-
 # For CORS
 gem "rack-cors"
 
@@ -48,36 +36,40 @@ gem "argon2", "~> 2.3.2"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[windows jruby]
-
 # Reduces boot times through caching; required sign_in config/boot.rb
 gem "bootsnap", require: false
-
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing"
-
+# Kafka
+gem "karafka", "~> 2.4", ">= 2.4.17"
+# Elasticsearch
+gem "opensearch-ruby", "~> 3.4"
+# gem 'elasticsearch', '~> 8.14'
+# OpenStruct
+gem "ostruct", "~> 0.6.1"
+# URL normalization gem
+gem "addressable", "~> 2.8", ">= 2.8.7"
+# Authentication
+gem "cancancan", "~> 3.6", ">= 3.6.1"
+# twilio
+gem "twilio-ruby", "~> 7.4.3"
 # FIXME: i am wondering that using aws's s3.
 gem "aws-sdk-s3", require: false
 gem "aws-sdk", "~> 3.0", ">= 3.0.1"
 
-# Kafka
-gem "karafka", "~> 2.4", ">= 2.4.17"
 
-# Elasticsearch
-gem "opensearch-ruby", "~> 3.4"
-# gem 'elasticsearch', '~> 8.14'
-
-# OpenStruct
-gem "ostruct", "~> 0.6.1"
-
-# URL normalization gem
-gem "addressable", "~> 2.8", ">= 2.8.7"
-
-# twilio & SendGrid
-gem "twilio-ruby", "~> 7.4.3"
-gem "sendgrid-ruby", "~> 6.7"
-
-# Authentication
-gem "cancancan", "~> 3.6", ">= 3.6.1"
+# The modern asset pipeline for Rails [https://github.com/rails/propshaft]
+gem "propshaft"
+# Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
+gem "importmap-rails"
+# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
+gem "turbo-rails"
+# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
+gem "stimulus-rails"
+# Deploy this application anywhere as a Docker container [https://kamal-deploy.org]
+gem "kamal", require: false
+# Add HTTP asset caching/compression and X-Sendfile acceleration to Puma [https://github.com/basecamp/thruster/]
+gem "thruster", require: false
 
 
 group :development, :test do
