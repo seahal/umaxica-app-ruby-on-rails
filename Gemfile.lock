@@ -79,7 +79,7 @@ GEM
       ffi-compiler (~> 1.0)
     ast (2.4.2)
     aws-eventstream (1.3.0)
-    aws-partitions (1.1049.0)
+    aws-partitions (1.1050.0)
     aws-sdk (3.2.0)
       aws-sdk-resources (~> 3)
     aws-sdk-accessanalyzer (1.66.0)
@@ -91,7 +91,7 @@ GEM
     aws-sdk-acm (1.83.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.5)
-    aws-sdk-acmpca (1.87.0)
+    aws-sdk-acmpca (1.88.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.5)
     aws-sdk-amplify (1.78.0)
@@ -154,7 +154,7 @@ GEM
     aws-sdk-appstream (1.106.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.5)
-    aws-sdk-appsync (1.99.0)
+    aws-sdk-appsync (1.100.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.5)
     aws-sdk-apptest (1.12.0)
@@ -181,7 +181,7 @@ GEM
     aws-sdk-autoscalingplans (1.68.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.5)
-    aws-sdk-b2bi (1.26.0)
+    aws-sdk-b2bi (1.27.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.5)
     aws-sdk-backup (1.85.0)
@@ -205,10 +205,10 @@ GEM
     aws-sdk-bedrock (1.35.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.5)
-    aws-sdk-bedrockagent (1.44.0)
+    aws-sdk-bedrockagent (1.45.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.5)
-    aws-sdk-bedrockagentruntime (1.43.0)
+    aws-sdk-bedrockagentruntime (1.44.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.5)
     aws-sdk-bedrockdataautomation (1.3.0)
@@ -313,7 +313,7 @@ GEM
     aws-sdk-codeartifact (1.58.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.5)
-    aws-sdk-codebuild (1.142.0)
+    aws-sdk-codebuild (1.143.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.5)
     aws-sdk-codecatalyst (1.32.0)
@@ -474,7 +474,7 @@ GEM
     aws-sdk-ebs (1.55.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.5)
-    aws-sdk-ec2 (1.504.0)
+    aws-sdk-ec2 (1.505.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.5)
     aws-sdk-ec2instanceconnect (1.54.0)
@@ -561,7 +561,7 @@ GEM
     aws-sdk-freetier (1.18.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-fsx (1.108.0)
+    aws-sdk-fsx (1.109.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.5)
     aws-sdk-gamelift (1.100.0)
@@ -819,7 +819,7 @@ GEM
     aws-sdk-mediaconvert (1.151.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.5)
-    aws-sdk-medialive (1.144.0)
+    aws-sdk-medialive (1.145.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.5)
     aws-sdk-mediapackage (1.85.0)
@@ -909,7 +909,7 @@ GEM
     aws-sdk-omics (1.43.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.5)
-    aws-sdk-opensearchserverless (1.33.0)
+    aws-sdk-opensearchserverless (1.34.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.5)
     aws-sdk-opensearchservice (1.64.0)
@@ -960,7 +960,7 @@ GEM
     aws-sdk-personalizeruntime (1.65.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.5)
-    aws-sdk-pi (1.75.0)
+    aws-sdk-pi (1.76.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.5)
     aws-sdk-pinpoint (1.105.0)
@@ -978,7 +978,7 @@ GEM
     aws-sdk-pipes (1.35.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.5)
-    aws-sdk-polly (1.102.0)
+    aws-sdk-polly (1.103.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.5)
     aws-sdk-pricing (1.72.0)
@@ -1697,6 +1697,7 @@ GEM
     aws-sigv4 (1.11.0)
       aws-eventstream (~> 1, >= 1.0.2)
     base64 (0.2.0)
+    bcrypt_pbkdf (1.1.1)
     benchmark (0.4.0)
     bigdecimal (3.1.9)
     bindex (0.8.1)
@@ -1711,6 +1712,7 @@ GEM
     bundler-audit (0.9.2)
       bundler (>= 1.2.0, < 3)
       thor (~> 1.0)
+    cancancan (3.6.1)
     capybara (3.40.0)
       addressable
       matrix
@@ -1737,6 +1739,7 @@ GEM
       dotenv (= 3.1.7)
       railties (>= 6.1)
     drb (2.2.1)
+    ed25519 (1.3.0)
     erubi (1.13.1)
     faker (3.5.1)
       i18n (>= 1.8.11, < 2)
@@ -1793,6 +1796,17 @@ GEM
     json (2.10.1)
     jwt (2.10.1)
       base64
+    kamal (2.5.2)
+      activesupport (>= 7.0)
+      base64 (~> 0.2)
+      bcrypt_pbkdf (~> 1.0)
+      concurrent-ruby (~> 1.2)
+      dotenv (~> 3.1)
+      ed25519 (~> 1.2)
+      net-ssh (~> 7.3)
+      sshkit (>= 1.23.0, < 2.0)
+      thor (~> 1.3)
+      zeitwerk (>= 2.6.18, < 3.0)
     karafka (2.4.17)
       base64 (~> 0.2)
       karafka-core (>= 2.4.4, < 2.5.0)
@@ -1814,7 +1828,7 @@ GEM
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    logger (1.6.5)
+    logger (1.6.6)
     loofah (2.24.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -1845,8 +1859,13 @@ GEM
       net-protocol
     net-protocol (0.2.2)
       timeout
+    net-scp (4.1.0)
+      net-ssh (>= 2.6.5, < 8.0.0)
+    net-sftp (4.0.0)
+      net-ssh (>= 5.0.0, < 8.0.0)
     net-smtp (0.5.1)
       net-protocol
+    net-ssh (7.3.0)
     nio4r (2.7.4)
     nokogiri (1.18.2-x86_64-linux-gnu)
       racc (~> 1.4)
@@ -1865,6 +1884,11 @@ GEM
     pp (0.6.2)
       prettyprint
     prettyprint (0.2.0)
+    propshaft (1.1.0)
+      actionpack (>= 7.0.0)
+      activesupport (>= 7.0.0)
+      rack
+      railties (>= 7.0.0)
     pry (0.15.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -2003,15 +2027,23 @@ GEM
       actionpack (>= 6.1)
       activesupport (>= 6.1)
       sprockets (>= 3.0.0)
+    sshkit (1.24.0)
+      base64
+      logger
+      net-scp (>= 1.1.2)
+      net-sftp (>= 2.1.2)
+      net-ssh (>= 2.8.0)
+      ostruct
     stimulus-rails (1.3.4)
       railties (>= 6.0.0)
     stringio (3.1.2)
     thor (1.3.2)
+    thruster (0.1.11-x86_64-linux)
     timeout (0.4.3)
     turbo-rails (2.0.11)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
-    twilio-ruby (7.4.3)
+    twilio-ruby (7.4.4)
       benchmark
       faraday (>= 0.9, < 3.0)
       jwt (>= 1.5, < 3.0)
@@ -2055,6 +2087,7 @@ DEPENDENCIES
   brakeman
   bullet (~> 8.0)
   bundler-audit (~> 0.9.1)
+  cancancan (~> 3.6, >= 3.6.1)
   capybara
   cssbundling-rails
   debug
@@ -2068,11 +2101,13 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   jsbundling-rails (~> 1.3)
+  kamal
   karafka (~> 2.4, >= 2.4.17)
   kredis
   opensearch-ruby (~> 3.4)
   ostruct (~> 0.6.1)
   pg (~> 1.5, >= 1.5.9)
+  propshaft
   puma
   rack-cors
   rails (~> 8.0, >= 8.0.1)
@@ -2089,7 +2124,8 @@ DEPENDENCIES
   simplecov
   sprockets-rails
   stimulus-rails
-  turbo-rails (~> 2.0, >= 2.0.11)
+  thruster
+  turbo-rails
   twilio-ruby (~> 7.4.3)
   tzinfo-data
   web-console
