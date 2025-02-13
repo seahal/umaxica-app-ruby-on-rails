@@ -4,18 +4,14 @@ source "https://rubygems.org"
 
 ruby "3.4.1"
 
-#
+# type for Ruby language.
 gem "rbs"
-
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0", ">= 8.0.1"
-
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
-
 # Use PostgreSQL as the database for Active Record
 gem "pg", "~> 1.5", ">= 1.5.9"
-
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
@@ -29,11 +25,9 @@ gem "redis-actionpack"
 gem "kredis"
 # For CORS
 gem "rack-cors"
-
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 gem "argon2", "~> 2.3.2"
-
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[windows jruby]
 # Reduces boot times through caching; required sign_in config/boot.rb
@@ -97,6 +91,8 @@ group :development do
   gem "brakeman", require: false
   gem "rubocop-rails-omakase", require: false
   gem "foreman"
+  # Preview email in the default browser instead of sending it.
+  gem "letter_opener"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
