@@ -33,7 +33,8 @@ Things you may want to cover:
   * AWS
   * Fastly
   * CloudFlare
-  * Twillio & SendGrid
+  * twilio & SendGrid
+  * Terraform Cloud
 * Secrets
   * You have to set `.env.local` on your own environment.
   * You should use [git-secrets](https://github.com/awslabs/git-secrets).
