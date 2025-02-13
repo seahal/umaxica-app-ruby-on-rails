@@ -72,8 +72,13 @@ gem "ostruct", "~> 0.6.1"
 # URL normalization gem
 gem "addressable", "~> 2.8", ">= 2.8.7"
 
-# twillio
+# twilio & SendGrid
 gem "twilio-ruby", "~> 7.4.3"
+gem "sendgrid-ruby", "~> 6.7"
+
+# Authentication
+gem "cancancan", "~> 3.6", ">= 3.6.1"
+
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
