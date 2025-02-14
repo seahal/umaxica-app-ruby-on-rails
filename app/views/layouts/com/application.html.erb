@@ -3,16 +3,15 @@
   <head>
     <title><%= content_for?(:page_title) ? "Umaxica | #{yield(:page_title)} " : "Umaxica" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= favicon_link_tag "org/favicon.ico" %>
+    <%= favicon_link_tag "com/favicon.ico" %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "org/main" %>
-    <%= stylesheet_link_tag "tailwind", "application", "data-turbo-track": "reload" %>
-    </head>
+    <%= stylesheet_link_tag "com/main" %>
+  </head>
 
   <body class="px-4">
     <header>
-      <h1 class="container mx-auto mt-28 px-5 flex"><%= link_to 'UMAXICA(ORG)', staff_root_path %></h1>
+      <h1 class="container mx-auto mt-28 px-5 flex"><%= link_to 'UMAXICA(corp)', staff_root_path %></h1>
     </header>
 
 
@@ -23,6 +22,6 @@
     <footer>
       <%= link_to 'Homepage', staff_root_path %>
     </footer>
-    <%= javascript_include_tag "org/main" %>
+    <%= javascript_include_tag "com/main" %>
   </body>
 </html>

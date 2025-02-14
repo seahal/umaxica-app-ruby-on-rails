@@ -42,8 +42,8 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: "localhost", port: 3333 }
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    domain: 'gmail.com',
+    address: "smtp.gmail.com",
+    domain: "gmail.com",
     port: 587,
     user_name:       ENV["SENDGRID_USERNAME"],
     password:        ENV["SENDGRID_PASSWORD"],
@@ -87,6 +87,10 @@ Rails.application.configure do
   config.generators.apply_rubocop_autocorrect_after_generate!
 
   # added
+  ## to avoid errors
+  config.hosts << "localhost.localdomain"
   config.hosts << "localhost4.localdomain"
   config.hosts << "localhost6.localdomain"
+  ## file watcher
+  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 end
