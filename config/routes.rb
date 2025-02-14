@@ -1,12 +1,16 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  # www.example.com
-  # constraints host: ENV["RAILS_USER_URL"] do
-  # resource :health, only: :show
-  # end
+  # Corporate Page, www.jp.example.com
+  constraints host: ENV["API_CORPORATE_URL"] do
+    scope module: :com, as: :com do
+      root to: "roots#index"
+      resource :health, only: :show # health check url
+    end
+  end
 
-  # For User's pages (jp.www.example.com)
+
+  # Service page, www.jp.example.net
   constraints host: "#{ENV['RAILS_USER_URL']}" do
     scope module: :user, as: :user do
       root to: "roots#index"
@@ -34,12 +38,7 @@ Rails.application.routes.draw do
     end
   end
 
-
-  # example.net
-  # constraints host: ENV["RAILS_USER_URL"] do
-  # end
-
-  # For Staff's webpages (jp.example.net)
+  # For Staff's webpages www.jp.example.org
   constraints host: ENV["RAILS_STAFF_URL"] do
     scope module: :staff, as: :staff do
       # Homepage

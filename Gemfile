@@ -50,8 +50,6 @@ gem "twilio-ruby", "~> 7.4.3"
 # FIXME: i am wondering that using aws's s3.
 gem "aws-sdk-s3", require: false
 gem "aws-sdk", "~> 3.0", ">= 3.0.1"
-
-
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
@@ -64,6 +62,8 @@ gem "stimulus-rails"
 gem "kamal", require: false
 # Add HTTP asset caching/compression and X-Sendfile acceleration to Puma [https://github.com/basecamp/thruster/]
 gem "thruster", require: false
+# To Avoid attacks from crackers
+gem 'rack-attack', '~> 6.7'
 
 
 group :development, :test do
