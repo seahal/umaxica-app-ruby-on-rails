@@ -56,3 +56,5 @@
 /node_modules
 .run
 .solargraph.yml
+
+/config/credentials/production.key

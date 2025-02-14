@@ -1,0 +1,3 @@
+class UserRegistrationByEmailMailer
+  def password_reset: -> nil
+end

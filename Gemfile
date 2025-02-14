@@ -9,7 +9,6 @@ gem "rbs"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0", ">= 8.0.1"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "sprockets-rails"
 # Use PostgreSQL as the database for Active Record
 gem "pg", "~> 1.5", ">= 1.5.9"
 # Use the Puma web server [https://github.com/puma/puma]
@@ -63,7 +62,7 @@ gem "kamal", require: false
 # Add HTTP asset caching/compression and X-Sendfile acceleration to Puma [https://github.com/basecamp/thruster/]
 gem "thruster", require: false
 # To Avoid attacks from crackers
-gem 'rack-attack', '~> 6.7'
+gem "rack-attack", "~> 6.7"
 
 
 group :development, :test do
