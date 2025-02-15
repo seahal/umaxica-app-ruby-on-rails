@@ -8,4 +8,3 @@ class Com::HealthsController < ApplicationController
     end
   end
 end
-

@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   allow_browser versions: :modern
 
   # Change User's and Staff's Root Template.
-  layout ->(controller) {
+  layout ->() {
     case request.host
     when ENV["API_CORPORATE_URL"]
       "com/application"
