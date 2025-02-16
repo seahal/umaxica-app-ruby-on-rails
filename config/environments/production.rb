@@ -86,4 +86,11 @@ Rails.application.configure do
   #
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+
+
+  # Added by someone
+  # prefer to use CDN to delivery assets files
+  # config.asset_host = "mycdnsubdomain.fictional-cdn.com"
+  # not use credentials
+  config.require_master_key = false
 end

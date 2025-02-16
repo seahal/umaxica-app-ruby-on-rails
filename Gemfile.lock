@@ -2030,13 +2030,6 @@ GEM
       simplecov_json_formatter (~> 0.1)
     simplecov-html (0.13.1)
     simplecov_json_formatter (0.1.4)
-    sprockets (4.2.1)
-      concurrent-ruby (~> 1.0)
-      rack (>= 2.2.4, < 4)
-    sprockets-rails (3.5.2)
-      actionpack (>= 6.1)
-      activesupport (>= 6.1)
-      sprockets (>= 3.0.0)
     sshkit (1.24.0)
       base64
       logger
@@ -2134,7 +2127,6 @@ DEPENDENCIES
   rubocop-rails-omakase
   selenium-webdriver
   simplecov
-  sprockets-rails
   stimulus-rails
   thruster
   turbo-rails
