@@ -1,5 +1,7 @@
-- [ ] implement email sending system using kafka and amazon sns.
+- [ ] implement email sending system using kafka and sendgrid with SMTP protocol.
 - [ ] build up database settings
+- [ ] setup Fastly as cdn.
+- [ ] implement email sending system using kafka and amazon sns.
 - [ ] set up Porsgresql's read and write replicas.
 - [ ] build up Elasticsearch.
 - [ ] build up Kafka.
