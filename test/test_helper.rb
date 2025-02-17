@@ -1,13 +1,13 @@
-require "simplecov"
-SimpleCov.start "rails" do
-  coverage_dir "./tmp/coverage"
+# frozen_string_literal: true
+
+require 'simplecov'
+SimpleCov.start 'rails' do
+  coverage_dir './tmp/coverage'
 end
 
-ENV["RAILS_ENV"] ||= "test"
-require_relative "../config/environment"
-require "rails/test_help"
-
-REMIX_URL_PREFIX = ENV["REMIX_URL"]
+ENV['RAILS_ENV'] ||= 'test'
+require_relative '../config/environment'
+require 'rails/test_help'
 
 module ActiveSupport
   class TestCase
