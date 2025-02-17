@@ -1,11 +1,13 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class StaffEmailStaffTest < ActiveSupport::TestCase
-  test "the truth" do
+  test 'the truth' do
     assert true
   end
 
-  test "email staff relation" do
-    assert StaffEmail.create(address: "one@example.com").valid?
+  test 'email staff relation' do
+    assert StaffEmail.create(address: 'one@example.com').valid?
   end
 end
