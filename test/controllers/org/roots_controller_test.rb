@@ -2,10 +2,10 @@
 
 require 'test_helper'
 
-module Com
+module Org
   class RootsControllerTest < ActionDispatch::IntegrationTest
     test 'should get index' do
-      get com_root_url
+      get org_root_url
       assert_response :success
     end
   end
