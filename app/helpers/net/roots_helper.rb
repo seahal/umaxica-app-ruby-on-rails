@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Com
+module Net
   module RootsHelper
   end
 end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Com
+module Org
   class RootsController < ApplicationController
     def index; end
   end

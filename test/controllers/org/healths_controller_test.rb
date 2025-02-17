@@ -2,10 +2,10 @@
 
 require 'test_helper'
 
-module Com
+module Org
   class HealthsControllerTest < ActionDispatch::IntegrationTest
     test 'should get show' do
-      get com_health_url
+      get org_health_url
       assert_response :success
     end
   end
