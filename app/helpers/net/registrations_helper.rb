@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Sign
-  module UpHelper
+module Net
+  module RegistrationsHelper
   end
 end

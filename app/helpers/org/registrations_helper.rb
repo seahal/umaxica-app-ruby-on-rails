@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Sign
-  module InHelper
+module Org
+  module RegistrationsHelper
   end
 end
