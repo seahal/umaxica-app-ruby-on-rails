@@ -1,4 +1,7 @@
+- [ ] RENAME 'api' to 'hub'
+- [ ] Fix brone system test on Docker Compose
 - [ ] implement email sending system using kafka and sendgrid with SMTP protocol.
+- [ ] implement UserEmail model.
 - [ ] build up database settings
 - [ ] setup Fastly as cdn.
 - [ ] implement email sending system using kafka and amazon sns.
@@ -15,13 +18,13 @@
 - [ ] use Porsgresql's Partition.
 - [ ] set up email env(using SendGrid)
 - [ ] set up SMS env(using Twilio)
+- [ ] Reset CI
+- [ ] Set up Trivy Scanner with CI
 - [ ] I remember running into some issues with PostgreSQL partitioning. I should add that to my todo list and think through how to resolve it.
-- [ ] think about routes.
-  - www.example.com -> say to user that there is no page.
-  - jp.www.example.com -> SAY USER THAT YOU HAVE TO JUMP OTHER PAGE.
-  - example.com -> out of rails(backend).
+- [+] think about routes.
 - [+] You should get real 3 Domains for this projects.
 - [+] fix Rails environment on Docker Compose.
 - [+] add preferences to compose.yaml to use tmpfs
 - [+] set up env at Docker.
 - [+] fix test's fixtures
+- [+] Fix system test
