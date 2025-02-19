@@ -21,6 +21,7 @@
 - [ ] Reset CI
 - [ ] Set up Trivy Scanner with CI
 - [ ] I remember running into some issues with PostgreSQL partitioning. I should add that to my todo list and think through how to resolve it.
+- [ ] cors is VERY POOR SECURITY now.
 - [+] think about routes.
 - [+] You should get real 3 Domains for this projects.
 - [+] fix Rails environment on Docker Compose.
