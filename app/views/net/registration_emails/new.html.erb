@@ -1,0 +1,11 @@
+<div>
+  <h1 class="font-bold text-4xl">Net::RegistrationEmails#new</h1>
+  <%= form_with do |form| %>
+    <%= form.label :query, "Search for:" %>
+    <%= form.search_field :query %>
+    <%= form.submit "Search" %>
+  <% end %>
+  <p>
+    <%= link_to 'log in?', new_net_session_path %>
+  </p>
+</div>
