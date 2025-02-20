@@ -6,9 +6,9 @@
     <%= favicon_link_tag "net/favicon.ico" %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "net/main" %>
     <%= stylesheet_link_tag "tailwind", "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
   </head>
 
   <body class="px-4">
@@ -17,9 +17,15 @@
       <%= link_to 'UMAXICA(SERVICE)', net_root_path %>
     </header>
 
-    <nav id="app" class="mt-4 bg-white bg-opacity-50 hover:font-black hover:text-blue-500">←class属性を追加</nav>
+    <hr>
+
+    <nav id="app" class="mt-4 bg-white bg-opacity-50 hover:font-black hover:text-blue-500">
+      home
+    </nav>
 
     <main class="container mx-auto mt-28 px-5 block"><%= yield %></main>
+
+    <hr>
 
     <footer>
       <%= link_to 'Homepage', net_root_path %>

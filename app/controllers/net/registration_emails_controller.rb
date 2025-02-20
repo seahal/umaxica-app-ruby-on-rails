@@ -5,5 +5,9 @@ module Net
     def new
       @user_email = UserEmail.new
     end
+
+    def create
+      params[]
+    end
   end
 end
