@@ -1,4 +1,6 @@
-class CreateStaffs  < ActiveRecord::Migration[7.2]
+# frozen_string_literal: true
+
+class CreateStaffs < ActiveRecord::Migration[7.2]
   def change
     # FIXME: need hashed partition.
     create_table :staffs, id: :uuid do |t|

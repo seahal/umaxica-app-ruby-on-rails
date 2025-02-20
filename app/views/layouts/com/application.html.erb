@@ -7,21 +7,28 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "com/main" %>
+    <%= stylesheet_link_tag "tailwind", "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
   </head>
 
   <body class="px-4">
     <header>
-      <h1 class="container mx-auto mt-28 px-5 flex"><%= link_to 'UMAXICA(corp)', staff_root_path %></h1>
+      <h1 class="container mx-auto mt-28 px-5 flex"><%= link_to 'UMAXICA(Corporate Site)', com_root_path %></h1>
     </header>
 
+    <hr>
 
-    <nav id="app" class="mt-4 bg-white bg-opacity-50 hover:font-black hover:text-blue-500">←class属性を追加</nav>
+    <nav></nav>
+    <main class="container mx-auto mt-28 px-5 block">
+      <%= yield %>
+    </main>
 
-    <main class="container mx-auto mt-28 px-5 block"><%= yield %></main>
-    <%= button_to "Destroy", staff_owner_url, method: :delete, data: { turbo_confirm: '本当に削除していいですか？' } , class: "btn btn-sm btn-outline-danger" %>
+    <hr>
+
     <footer>
-      <%= link_to 'Homepage', staff_root_path %>
+      <%= link_to 'Homepage', com_root_path %>
     </footer>
+
     <%= javascript_include_tag "com/main" %>
   </body>
 </html>
