@@ -1,4 +1,5 @@
 - [ ] RENAME 'api' to 'jit'
+- [ ] Set up dev container.
 - [ ] implement email sending system using kafka and sendgrid with SMTP protocol.
 - [ ] implement UserEmail model.
 - [ ] build up database settings

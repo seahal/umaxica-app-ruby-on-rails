@@ -5,8 +5,12 @@ Rails.application.routes.draw do
   constraints host: ENV['API_CORPORATE_URL'] do
     scope module: :com, as: :com do
       defaults format: :html do
-        root to: 'roots#index' # Homepage
-        resource :health, only: :show # health check for html
+        # Homepage
+        root to: 'roots#index'
+        # health check for html
+        resource :health, only: :show
+        # show latest 'term of use'
+        resource :term, only: :show
       end
       defaults format: :json do
         namespace :v1 do
@@ -22,6 +26,8 @@ Rails.application.routes.draw do
       defaults format: :html do
         root to: 'roots#index'
         resource :health, only: :show # health check for html
+        # show latest 'term of use'
+        resource :term, only: :show
         # Sign up pages
         resource :registration, only: :new do
           resource :email, only: %i[new create edit update], controller: 'registration_emails'
@@ -57,6 +63,8 @@ Rails.application.routes.draw do
         root to: 'roots#index'
         # health check for html
         resource :health, only: :show
+        # show 'term of use'
+        resource :term, only: :show
         # TODO: Owner's lounge
         resource :owner, only: :show
         # Sign up pages
@@ -74,6 +82,7 @@ Rails.application.routes.draw do
       defaults format: :json do
         namespace :v1 do
           resource :health, only: :show
+          resource :term # edit 'term of use'
         end
       end
     end
