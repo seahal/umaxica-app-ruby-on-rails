@@ -1,17 +1,18 @@
-ARG RUBY_VERSION=3.4.1
+ARG RUBY_VERSION=3.4.2
 
 FROM ruby:$RUBY_VERSION AS development
 ENV TZ=UTC
 ENV HOME=/ror
+#RUN groupadd -r lirantal && useradd -r -s /bin/false -g lirantal lirantal
 RUN mkdir /ror
 WORKDIR /ror
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y curl libjemalloc2 libvips postgresql-client && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 COPY Gemfile Gemfile.lock /ror/
-RUN curl -fsSL https://bun.sh/install | bash
-COPY package.json bun.lock /ror/
 RUN bundle install
+#USER lirantal
+
 
 #FROM ruby:$RUBY_VERSION-bookworm AS production
 #ENV TZ=UTC

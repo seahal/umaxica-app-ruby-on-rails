@@ -1,8 +1,10 @@
 #!/usr/bin/env ruby
-require "rubygems"
-require "bundler/setup"
+# frozen_string_literal: true
 
-# explicit rubocop config increases performance slightly while avoiding config confusion.
-ARGV.unshift("--config", File.expand_path("../.rubocop.yml", __dir__))
+require 'rubygems'
+require 'bundler/setup'
 
-load Gem.bin_path("rubocop", "rubocop")
+# Explicit RuboCop config increases performance slightly while avoiding config confusion.
+ARGV.unshift('--config', File.expand_path('../.rubocop.yml', __dir__))
+
+load Gem.bin_path('rubocop', 'rubocop')

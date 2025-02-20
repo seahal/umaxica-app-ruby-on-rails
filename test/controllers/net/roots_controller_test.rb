@@ -7,6 +7,7 @@ module Net
     test 'should get index' do
       get net_root_url
       assert_response :success
+      assert_select 'a[href=?]', net_root_path, count: 2
     end
   end
 end

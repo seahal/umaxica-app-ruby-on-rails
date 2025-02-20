@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CoreRecord < ActiveRecord::Base
   self.abstract_class = true
 
