@@ -6,7 +6,6 @@ module Net
   class RootsTest < ApplicationSystemTestCase
     test 'visiting the index' do
       visit net_root_url
-
       assert_selector 'h1', text: 'Net::Roots'
     end
   end
