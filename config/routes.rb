@@ -1,9 +1,19 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  namespace :org do
+    get 'terms/show'
+  end
+  namespace :net do
+    get 'terms/show'
+  end
+  namespace :com do
+    get 'terms/show'
+  end
   # Corporate Page, www.jp.example.com
   constraints host: ENV['API_CORPORATE_URL'] do
     scope module: :com, as: :com do
+      # only delivery html format
       defaults format: :html do
         # Homepage
         root to: 'roots#index'
@@ -12,6 +22,7 @@ Rails.application.routes.draw do
         # show latest 'term of use'
         resource :term, only: :show
       end
+      # only delivery json format
       defaults format: :json do
         namespace :v1 do
           resource :health, only: :show
