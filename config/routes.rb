@@ -1,15 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  namespace :org do
-    get 'terms/show'
-  end
-  namespace :net do
-    get 'terms/show'
-  end
-  namespace :com do
-    get 'terms/show'
-  end
   # Corporate Page, www.jp.example.com
   constraints host: ENV['API_CORPORATE_URL'] do
     scope module: :com, as: :com do
@@ -21,6 +12,8 @@ Rails.application.routes.draw do
         resource :health, only: :show
         # show latest 'term of use'
         resource :term, only: :show
+        # show stating env
+        resource :staging, only: :show
       end
       # only delivery json format
       defaults format: :json do
@@ -39,6 +32,8 @@ Rails.application.routes.draw do
         resource :health, only: :show # health check for html
         # show latest 'term of use'
         resource :term, only: :show
+        # show stating env
+        resource :staging, only: :show
         # Sign up pages
         resource :registration, only: :new do
           resource :email, only: %i[new create edit update], controller: 'registration_emails'
@@ -76,6 +71,8 @@ Rails.application.routes.draw do
         resource :health, only: :show
         # show 'term of use'
         resource :term, only: :show
+        # show stating env
+        resource :staging, only: :show
         # TODO: Owner's lounge
         resource :owner, only: :show
         # Sign up pages
