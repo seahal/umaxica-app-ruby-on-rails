@@ -1,0 +1,212 @@
+name: 'app'
+services:
+  psql-pub:
+    image: postgres:16.6
+    networks:
+      - backend
+    environment:
+      POSTGRES_USER: default
+      POSTGRES_PASSWORD: password
+      TZ: UTC
+    ports:
+      - "5433:5432"
+    volumes:
+      - psql-pub-volume:/var/lib/postgresql/data
+      # - ./docker/psql-auth-pub/init.sh:/docker-entrypoint-initdb.d/init.sh
+      # - ./docker/psql-auth-pub/postgresql.conf:/etc/postgresql/postgresql.conf
+      # - ./docker/psql-auth-pub/pg_hba.conf:/etc/postgresql/pg_hba.conf
+    tmpfs:
+      - /var/lib/postgresql/data
+  psql-sub:
+    image: postgres:16.6
+    networks:
+      - backend
+    environment:
+      POSTGRES_USER: default
+      POSTGRES_PASSWORD: password
+      TZ: UTC
+    ports:
+      - "5434:5432"
+    volumes:
+      -  psql-sub-volume:/var/lib/postgresql/data
+      # - ./docker/psql-auth-sub/init.sh:/docker-entrypoint-initdb.d/init.sh
+      # - ./docker/psql-auth-sub/postgresql.conf:/etc/postgresql/postgresql.conf
+      # - ./docker/psql-auth-sub/pg_hba.conf:/etc/postgresql/pg_hba.conf
+    tmpfs:
+      - /var/lib/postgresql/data
+  # psql-core-pub:
+  #   image: postgres:16.6
+  #   networks:
+  #     - backend
+  #   environment:
+  #     POSTGRES_USER: default
+  #     POSTGRES_PASSWORD: password
+  #     TZ: UTC
+  #   ports:
+  #     - "5435:5432"
+  #   volumes:
+  #     -   psql-core-pub-volume:/var/lib/postgresql/data
+  #     # - ./docker/psql-core-pub/init.sh:/docker-entrypoint-initdb.d/init.sh
+  #     # - ./docker/psql-core-pub/postgresql.conf:/etc/postgresql/postgresql.conf
+  #     # - ./docker/psql-core-pub/pg_hba.conf:/etc/postgresql/pg_hba.conf
+  #   # tmpfs:
+  #   #   - /var/lib/postgresql/data
+  # psql-core-sub:
+  #   image: postgres:16.6
+  #   volumes:
+  #     - psql-core-sub-volume:/var/lib/postgresql/data
+  #     # - ./docker/psql-core-sub/init.sh:/docker-entrypoint-initdb.d/init.sh
+  #     # - ./docker/psql-core-sub/postgresql.conf:/etc/postgresql/postgresql.conf
+  #     # - ./docker/psql-core-sub/pg_hba.conf:/etc/postgresql/pg_hba.conf
+  #   networks:
+  #     - backend
+  #   environment:
+  #     POSTGRES_USER: default
+  #     POSTGRES_PASSWORD: password
+  #     TZ: UTC
+  #   ports:
+  #     - "5436:5432"
+  #   # tmpfs:
+  #   #   - /var/lib/postgresql/data
+  minio:
+    image: minio/minio:RELEASE.2025-02-07T23-21-09Z-cpuv1
+    volumes:
+      - minio-data-1:/data
+    command: server --console-address ":9001" /data
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    networks:
+      - backend
+    environment:
+      MINIO_ROOT_USER: default
+      MINIO_ROOT_PASSWORD: password
+      MINIO_DEFAULT_BUCKETS: application
+  vk-session: # AWS MemoryDB
+    image: 'valkey/valkey:7.2'
+    networks:
+      - backend
+    ports:
+      - "6379:6379"
+    volumes:
+      - vk-session-data:/data
+  vk-cache: # AWS ElastiCache
+    image: 'valkey/valkey:8.0'
+    volumes:
+      - vk-cache-volume:/data
+    networks:
+      - backend
+    ports:
+      - '6380:6379'
+#  kafka-broker:
+#    image: confluentinc/cp-kafka:6.2.4 # https://hub.docker.com/r/confluentinc/cp-kafka
+#    restart: always
+#    depends_on:
+#      - zookeeper
+#    ports:
+#      - "9092:9092"
+#    environment:
+#      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_DOCKER_INTERNAL:PLAINTEXT
+#      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-broker:19092,PLAINTEXT_DOCKER_INTERNAL://localhost:9092
+#      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+#      KAFKA_ADVERTISED_HOST_NAME: kafka-broker
+#      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+#  zookeeper:
+#    image: confluentinc/cp-zookeeper:6.2.4 # https://hub.docker.com/r/confluentinc/cp-zookeeper
+#    restart: always
+#    ports:
+#      - "2181:2181"
+#    environment:
+#      ZOOKEEPER_CLIENT_PORT: "2181"
+#  cp-kafka-rest:
+#    image: confluentinc/cp-kafka-rest:6.2.4         # https://hub.docker.com/r/confluentinc/cp-kafka-rest
+#    restart: always
+#    depends_on:
+#      - "kafka-broker"
+#      - "zookeeper"
+#    environment:
+#      KAFKA_REST_BOOTSTRAP_SERVERS: "kafka-broker:19092"
+#      KAFKA_REST_CLIENT_SECURITY_PROTOCOL: "PLAINTEXT"
+#      KAFKA_REST_HOST_NAME: "cp-kafka-rest"
+#      KAFKA_REST_LISTENERS: "http://0.0.0.0:8082"
+#  kafka-topic-ui:    # 管理コンソール（http://localhost:8000）
+#    image: landoop/kafka-topics-ui:0.9.4    # https://hub.docker.com/r/landoop/kafka-topics-ui
+#    restart: always
+#    depends_on:
+#      - "kafka-broker"
+#      - "zookeeper"
+#      - "cp-kafka-rest"
+#    ports:
+#      - "8000:8000"
+#    environment:
+#      KAFKA_REST_PROXY_URL: "http://cp-kafka-rest:8082"
+#      PROXY: "true"
+  api:
+    build:
+      context: ror/
+      target: development
+    command:  bundle exec rails s -p 3000 -b 0.0.0.0
+    restart: always
+    user: "1000:1000"
+    tty: true
+    stdin_open: true
+    ports:
+      - "3333:3000"
+    volumes:
+      - ./ror:/ror
+    networks:
+      - backend
+    depends_on:
+      - vk-cache
+      - vk-session
+      - minio
+  #  edge:
+  #    build:
+  #      context: remix/.devcontainer/
+  #      target: development
+  #    command: bash -c "bun run dev"
+  #    restart: always # コンテナが停止すると常に再起動
+  #    tty: true
+  #    stdin_open: true
+  #    ports:
+  #      - '4000:4000'
+  #      - "5173:5173"
+  #      - "8002:8002"
+  #    networks:
+  #      - frontend
+  #    volumes:
+  #      - ./remix:/remix
+  #    depends_on:
+  #      - ror
+  chromium:
+    image: seleniarm/standalone-chromium
+    restart: always # コンテナが停止すると常に再起動
+    environment:
+      VNC_NO_PASSWORD: 1
+    networks:
+      - backend
+      - frontend
+    ports:
+      - "4444:4444"
+      - "7900:7900"
+    depends_on:
+      - api
+  firefox:
+    image: selenium/standalone-firefox
+    restart: always # コンテナが停止すると常に再起動
+    networks:
+      - backend
+      - frontend
+    ports:
+      - "4445:4444"
+      - "7901:7900"
+volumes: #
+  psql-pub-volume:
+  psql-sub-volume:
+  vk-session-data:
+  vk-cache-volume:
+  opensearch-volume:
+  minio-data-1:
+networks:
+  backend:
+  frontend:
