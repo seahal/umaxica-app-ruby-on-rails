@@ -7,11 +7,11 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
-    - Just Do It => `ruby -v`,
-	- ... or Check `Gemfile` or `.ruby-version`.
+    - Just Do It => `ruby -v`, and check `Gemfile` or `.ruby-version`.
 * System dependencies
     - Ruby => Ofcource, we are on Ruby.
 	- Linux => Run on it.
+    - JavaScripts => now removing it.
 * Configuration
     - Edit hosts files to separate .com or .net.
     - ```
@@ -26,10 +26,12 @@ Things you may want to cover:
 * How to run the test suite
     - `bin/rails test all`
 * Services (job queues, cache servers, search engines, etc.)
-    - ???
+    - Elasticsearch
+    - Redis
+    - Kafka
+    - S3(minio)
 * Deployment instructions
     - When you are free, look at 'bin/rails notes'
-    - `docker push asia-northeast1-docker.pkg.dev/umaxica/docker/ror`
 * Using Services
   * AWS
   * Fastly
