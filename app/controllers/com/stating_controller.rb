@@ -1,7 +1,6 @@
 
 module Com
     class StatingController < ApplicationController
-        def show
-            end
+        def show;            end
     end
 end
