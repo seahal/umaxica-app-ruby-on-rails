@@ -1,4 +1,4 @@
-name: 'app'
+name: 'jit'
 services:
   psql-pub:
     image: postgres:16.6
@@ -34,40 +34,6 @@ services:
       # - ./docker/psql-auth-sub/pg_hba.conf:/etc/postgresql/pg_hba.conf
     tmpfs:
       - /var/lib/postgresql/data
-  # psql-core-pub:
-  #   image: postgres:16.6
-  #   networks:
-  #     - backend
-  #   environment:
-  #     POSTGRES_USER: default
-  #     POSTGRES_PASSWORD: password
-  #     TZ: UTC
-  #   ports:
-  #     - "5435:5432"
-  #   volumes:
-  #     -   psql-core-pub-volume:/var/lib/postgresql/data
-  #     # - ./docker/psql-core-pub/init.sh:/docker-entrypoint-initdb.d/init.sh
-  #     # - ./docker/psql-core-pub/postgresql.conf:/etc/postgresql/postgresql.conf
-  #     # - ./docker/psql-core-pub/pg_hba.conf:/etc/postgresql/pg_hba.conf
-  #   # tmpfs:
-  #   #   - /var/lib/postgresql/data
-  # psql-core-sub:
-  #   image: postgres:16.6
-  #   volumes:
-  #     - psql-core-sub-volume:/var/lib/postgresql/data
-  #     # - ./docker/psql-core-sub/init.sh:/docker-entrypoint-initdb.d/init.sh
-  #     # - ./docker/psql-core-sub/postgresql.conf:/etc/postgresql/postgresql.conf
-  #     # - ./docker/psql-core-sub/pg_hba.conf:/etc/postgresql/pg_hba.conf
-  #   networks:
-  #     - backend
-  #   environment:
-  #     POSTGRES_USER: default
-  #     POSTGRES_PASSWORD: password
-  #     TZ: UTC
-  #   ports:
-  #     - "5436:5432"
-  #   # tmpfs:
-  #   #   - /var/lib/postgresql/data
   minio:
     image: minio/minio:RELEASE.2025-02-07T23-21-09Z-cpuv1
     volumes:
@@ -141,9 +107,9 @@ services:
 #    environment:
 #      KAFKA_REST_PROXY_URL: "http://cp-kafka-rest:8082"
 #      PROXY: "true"
-  api:
+  ror:
     build:
-      context: ror/
+      context: ./
       target: development
     command:  bundle exec rails s -p 3000 -b 0.0.0.0
     restart: always
@@ -153,31 +119,13 @@ services:
     ports:
       - "3333:3000"
     volumes:
-      - ./ror:/ror
+      - ./:/ror
     networks:
       - backend
     depends_on:
       - vk-cache
       - vk-session
       - minio
-  #  edge:
-  #    build:
-  #      context: remix/.devcontainer/
-  #      target: development
-  #    command: bash -c "bun run dev"
-  #    restart: always # コンテナが停止すると常に再起動
-  #    tty: true
-  #    stdin_open: true
-  #    ports:
-  #      - '4000:4000'
-  #      - "5173:5173"
-  #      - "8002:8002"
-  #    networks:
-  #      - frontend
-  #    volumes:
-  #      - ./remix:/remix
-  #    depends_on:
-  #      - ror
   chromium:
     image: seleniarm/standalone-chromium
     restart: always # コンテナが停止すると常に再起動
@@ -190,7 +138,7 @@ services:
       - "4444:4444"
       - "7900:7900"
     depends_on:
-      - api
+      - ror
   firefox:
     image: selenium/standalone-firefox
     restart: always # コンテナが停止すると常に再起動
@@ -200,6 +148,8 @@ services:
     ports:
       - "4445:4444"
       - "7901:7900"
+    depends_on:
+      - ror
 volumes: #
   psql-pub-volume:
   psql-sub-volume:
