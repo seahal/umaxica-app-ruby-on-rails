@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails.git
-  revision: e36deb7c0527680a89782de624ee600ca8b9ae74
+  revision: 04775277406fe6bb26e7c8052d2459c568a780d8
   branch: main
   specs:
     actioncable (8.1.0.alpha)
@@ -1754,8 +1754,6 @@ GEM
     concurrent-ruby (1.3.5)
     connection_pool (2.5.0)
     crass (1.0.6)
-    cssbundling-rails (1.4.1)
-      railties (>= 6.0.0)
     date (3.4.1)
     debug (1.10.0)
       irb (~> 1.10)
@@ -1820,8 +1818,6 @@ GEM
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     jmespath (1.6.2)
-    jsbundling-rails (1.3.1)
-      railties (>= 6.0.0)
     json (2.10.1)
     jwt (2.10.1)
       base64
@@ -2015,7 +2011,7 @@ GEM
       lint_roller (~> 1.1)
       rubocop (>= 1.72.1, < 2.0)
       rubocop-ast (>= 1.38.0, < 2.0)
-    rubocop-rails (2.30.1)
+    rubocop-rails (2.30.2)
       activesupport (>= 4.2.0)
       lint_roller (~> 1.1)
       rack (>= 1.1)
@@ -2117,7 +2113,6 @@ DEPENDENCIES
   bundler-audit (~> 0.9.1)
   cancancan (~> 3.6, >= 3.6.1)
   capybara
-  cssbundling-rails
   debug
   dotenv-rails (~> 3.1, >= 3.1.2)
   faker
@@ -2128,7 +2123,6 @@ DEPENDENCIES
   image_processing
   importmap-rails
   jbuilder
-  jsbundling-rails (~> 1.3)
   kamal
   karafka (~> 2.4, >= 2.4.17)
   kredis
