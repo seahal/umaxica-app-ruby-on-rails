@@ -1,26 +1,18 @@
-- [ ] Set up dev container.
-- [ ] RENAME 'api' to 'jit'
-- [ ] implement email sending system using kafka and sendgrid with SMTP protocol.
+- [ ] implement email sending system using kafka and sendgrid with SMTP protocol
 - [ ] implement UserEmail model.
-- [ ] build up database settings
 - [ ] setup Fastly as cdn.
 - [ ] implement email sending system using kafka and amazon sns.
 - [ ] set up Porsgresql's read and write replicas.
 - [ ] build up Elasticsearch.
 - [ ] build up Kafka.
-- [ ] fix bun settings
-- [ ] fix test's fixtures
 - [ ] implement Argon2id password login
 - [ ] implement u2f login
-- [ ] implement sms login
-- [ ] implement social login
+- [ ] implement social() login
+- [ ] implement social(Google) login
 - [ ] set up otp
 - [ ] use Porsgresql's Partition.
 - [ ] set up email env(using SendGrid)
 - [ ] set up SMS env(using Twilio)
-- [ ] Reset CI
-- [ ] Set up Trivy Scanner with CI
-- [ ] I remember running into some issues with PostgreSQL partitioning. I should add that to my todo list and think through how to resolve it.
 - [ ] cors is VERY POOR SECURITY now.
 - [ ] Fix broken system test on Docker Compose
 - [+] think about routes.
@@ -30,3 +22,8 @@
 - [+] set up env at Docker.
 - [+] fix test's fixtures
 - [+] Fix system test
+- [+] Set up dev container.
+- [+] RENAME 'api' to 'jit'
+- [+] build up database settings
+- [-] fix bun settings
+- [-] fix test's fixtures
