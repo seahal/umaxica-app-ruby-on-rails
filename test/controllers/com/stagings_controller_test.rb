@@ -7,6 +7,7 @@ module Com
     test 'should get show' do
       get com_staging_url
       assert_response :success
+      assert_select 'p', "HASH => #{ENV['STAGING']}"
     end
   end
 end

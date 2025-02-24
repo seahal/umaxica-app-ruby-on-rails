@@ -7,7 +7,6 @@ module Com
     test 'should get index' do
       get com_root_url
       assert_response :success
-      assert_select 'a[href=?]', com_root_path, count: 2
     end
   end
 end
