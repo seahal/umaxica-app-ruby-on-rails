@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Org
-  module StatingHelper
+module Com
+  module StagingsHelper
   end
 end
