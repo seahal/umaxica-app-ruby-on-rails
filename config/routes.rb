@@ -1,6 +1,15 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  namespace :org do
+    get 'stagings/show'
+  end
+  namespace :net do
+    get 'stagings/show'
+  end
+  namespace :com do
+    get 'stagings/show'
+  end
   # Corporate Page, www.jp.example.com
   constraints host: ENV['API_CORPORATE_URL'] do
     scope module: :com, as: :com do
