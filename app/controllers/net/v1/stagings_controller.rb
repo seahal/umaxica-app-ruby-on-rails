@@ -8,7 +8,7 @@ module Net
         if ENV['STAGING'].blank? && Rails.env.production?
           render status: 500, json: { staging: true }
         else
-          render status: 200, json: { staging: false }
+          render status: 200, json: { staging: false, id: '???' }
         end
       end
     end
