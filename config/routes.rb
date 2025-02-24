@@ -2,13 +2,9 @@
 
 Rails.application.routes.draw do
   namespace :org do
-    get 'stagings/show'
-  end
-  namespace :net do
-    get 'stagings/show'
-  end
-  namespace :com do
-    get 'stagings/show'
+    namespace :v1 do
+      get 'stagings/show'
+    end
   end
   # Corporate Page, www.jp.example.com
   constraints host: ENV['API_CORPORATE_URL'] do
@@ -28,6 +24,8 @@ Rails.application.routes.draw do
       defaults format: :json do
         namespace :v1 do
           resource :health, only: :show
+          # show stating env
+          resource :staging, only: :show
         end
       end
     end
@@ -65,6 +63,7 @@ Rails.application.routes.draw do
         # For api
         namespace :v1 do
           resource :health, only: :show
+          resource :staging, only: :show
         end
       end
     end
@@ -100,6 +99,7 @@ Rails.application.routes.draw do
         namespace :v1 do
           resource :health, only: :show
           resource :term # edit 'term of use'
+          resource :staging, only: :show
         end
       end
     end
