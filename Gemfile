@@ -74,9 +74,6 @@ group :development, :test do
   gem 'debug', platforms: %i[mri windows]
   gem 'dotenv-rails', '~> 3.1', '>= 3.1.2' # OPTIMIZE: .env file must not be included sign_in production.
   gem 'faker'
-
-  gem 'cssbundling-rails'
-  gem 'jsbundling-rails', '~> 1.3'
 end
 
 group :development do
