@@ -7,6 +7,7 @@ module Org
     test 'should get show' do
       get org_staging_url
       assert_response :success
+      assert_select 'p', "HASH => #{ENV['STAGING']}"
     end
   end
 end
