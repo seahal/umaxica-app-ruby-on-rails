@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 0702af7849d12fcb5ed19e1b6a2808c0579d6779
+  revision: da26f40409e372fb82d218bfea708d029791cf5e
   branch: main
   specs:
     actioncable (8.1.0.alpha)
@@ -233,10 +233,10 @@ GEM
     aws-sdk-bedrock (1.36.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.5)
-    aws-sdk-bedrockagent (1.47.0)
+    aws-sdk-bedrockagent (1.48.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.5)
-    aws-sdk-bedrockagentruntime (1.45.0)
+    aws-sdk-bedrockagentruntime (1.46.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.5)
     aws-sdk-bedrockdataautomation (1.4.0)
@@ -245,7 +245,7 @@ GEM
     aws-sdk-bedrockdataautomationruntime (1.4.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.5)
-    aws-sdk-bedrockruntime (1.38.0)
+    aws-sdk-bedrockruntime (1.39.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.5)
     aws-sdk-billing (1.4.0)
@@ -526,13 +526,10 @@ GEM
     aws-sdk-eksauth (1.18.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-elasticache (1.122.0)
+    aws-sdk-elasticache (1.123.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.5)
     aws-sdk-elasticbeanstalk (1.84.0)
-      aws-sdk-core (~> 3, >= 3.216.0)
-      aws-sigv4 (~> 1.5)
-    aws-sdk-elasticinference (1.53.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.5)
     aws-sdk-elasticloadbalancing (1.71.0)
@@ -1078,7 +1075,7 @@ GEM
     aws-sdk-resourcegroupstaggingapi (1.77.0)
       aws-sdk-core (~> 3, >= 3.216.0)
       aws-sigv4 (~> 1.5)
-    aws-sdk-resources (3.222.0)
+    aws-sdk-resources (3.223.0)
       aws-sdk-accessanalyzer (~> 1)
       aws-sdk-account (~> 1)
       aws-sdk-acm (~> 1)
@@ -1218,7 +1215,6 @@ GEM
       aws-sdk-eksauth (~> 1)
       aws-sdk-elasticache (~> 1)
       aws-sdk-elasticbeanstalk (~> 1)
-      aws-sdk-elasticinference (~> 1)
       aws-sdk-elasticloadbalancing (~> 1)
       aws-sdk-elasticloadbalancingv2 (~> 1)
       aws-sdk-elasticsearchservice (~> 1)
@@ -1725,6 +1721,7 @@ GEM
     aws-sigv4 (1.11.0)
       aws-eventstream (~> 1, >= 1.0.2)
     base64 (0.2.0)
+    bcrypt (3.1.20)
     bcrypt_pbkdf (1.1.1)
     benchmark (0.4.0)
     bigdecimal (3.1.9)
@@ -2003,10 +2000,6 @@ GEM
       unicode-display_width (>= 2.4.0, < 4.0)
     rubocop-ast (1.38.0)
       parser (>= 3.3.1.0)
-    rubocop-minitest (0.37.1)
-      lint_roller (~> 1.1)
-      rubocop (>= 1.72.1, < 2.0)
-      rubocop-ast (>= 1.38.0, < 2.0)
     rubocop-performance (1.24.0)
       lint_roller (~> 1.1)
       rubocop (>= 1.72.1, < 2.0)
@@ -2017,11 +2010,10 @@ GEM
       rack (>= 1.1)
       rubocop (>= 1.72.1, < 2.0)
       rubocop-ast (>= 1.38.0, < 2.0)
-    rubocop-rails-omakase (1.0.0)
-      rubocop
-      rubocop-minitest
-      rubocop-performance
-      rubocop-rails
+    rubocop-rails-omakase (1.1.0)
+      rubocop (>= 1.72)
+      rubocop-performance (>= 1.24)
+      rubocop-rails (>= 2.30)
     ruby-graphviz (1.2.5)
       rexml
     ruby-progressbar (1.13.0)
@@ -2108,6 +2100,7 @@ DEPENDENCIES
   argon2 (~> 2.3.2)
   aws-sdk (~> 3.0, >= 3.0.1)
   aws-sdk-s3
+  bcrypt (~> 3.1.7)
   bootsnap
   brakeman
   bundler-audit (~> 0.9.1)
