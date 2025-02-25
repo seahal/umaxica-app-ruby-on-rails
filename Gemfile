@@ -86,7 +86,6 @@ group :development do
   gem 'foreman'
   gem 'guard'
   gem 'guard-minitest'
-  gem 'rails-erd'
   gem 'web-console'
   # Preview email in the default browser instead of sending it.
   gem 'letter_opener'
