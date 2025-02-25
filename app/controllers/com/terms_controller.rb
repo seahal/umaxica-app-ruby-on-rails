@@ -3,7 +3,7 @@
 module Com
   class TermsController < ApplicationController
     def show
-      render plain: 'kiyaku'
+      render plain: gen_original_uuid
     end
   end
 end

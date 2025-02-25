@@ -1,17 +1,12 @@
 # frozen_string_literal: true
 
-# require "test_helper"
-#
-# class TermsControllerTest < ActionDispatch::IntegrationTest
-#   setup do
-#     @term = terms(:one)
-#   end
-#
-#   test "should get index" do
-#     get terms_url
-#     assert_response :success
-#   end
-#
+require "test_helper"
+
+class CommonControllerTest < ActionDispatch::IntegrationTest
+  test "function test" do
+    assert true
+  end
+
 #   test "should get new" do
 #     get new_term_url
 #     assert_response :success
@@ -47,4 +42,4 @@
 #
 #     assert_redirected_to terms_url
 #   end
-# end
+end
