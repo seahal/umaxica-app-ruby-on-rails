@@ -8,6 +8,10 @@ services:
       POSTGRES_USER: default
       POSTGRES_PASSWORD: password
       TZ: UTC
+      POSTGRES_HOST_AUTH_METHOD: trust #開発用のため
+      POSTGRES_INITDB_WAL_LEVEL: replica # wal_levelの設定
+      POSTGRES_INITDB_MAX_WAL_SENDERS: 10 #max_wal_sendersの設定
+      POSTGRES_INITDB_MAX_REPLICATION_SLOTS: 10 #max_replication_slotsの設定
     ports:
       - "5433:5432"
     volumes:
@@ -25,6 +29,7 @@ services:
       POSTGRES_USER: default
       POSTGRES_PASSWORD: password
       TZ: UTC
+      POSTGRES_HOST_AUTH_METHOD: trust #開発用のため
     ports:
       - "5434:5432"
     volumes:
@@ -34,6 +39,8 @@ services:
       # - ./docker/psql-auth-sub/pg_hba.conf:/etc/postgresql/pg_hba.conf
     tmpfs:
       - /var/lib/postgresql/data
+    depends_on:
+      - psql-pub
   minio:
     image: minio/minio:RELEASE.2025-02-07T23-21-09Z-cpuv1
     volumes:
