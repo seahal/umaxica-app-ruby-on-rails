@@ -6,7 +6,7 @@ module Org
   class RootsControllerTest < ActionDispatch::IntegrationTest
     test "should get index" do
       get org_root_url
-      assert_response :success
+      assert_response :redirect
     end
   end
 end
