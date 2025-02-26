@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'test_helper'
+require "test_helper"
 
 class CommonControllerTest < ActionDispatch::IntegrationTest
-  test 'function test' do
+  test "function test" do
     assert true
   end
 
