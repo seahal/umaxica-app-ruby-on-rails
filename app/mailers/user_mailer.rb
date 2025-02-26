@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
 class UserMailer < ApplicationMailer
-  default from: 'notifications@umaxica.com'
+  default from: "notifications@umaxica.com"
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
   #   en.user_mailer.account_activation.subject
   #
   def account_activation
-    @greeting = 'Hi'
+    @greeting = "Hi"
     # debugger
-    mail to: 'to@example.org', subject: 'Account activation'
+    mail to: "to@example.org", subject: "Account activation"
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -19,12 +19,12 @@ class UserMailer < ApplicationMailer
   #   en.user_mailer.password_reset.subject
   #
   def password_reset
-    @greeting = 'Hi'
+    @greeting = "Hi"
 
-    mail to: 'to@example.org', subject: 'Password reset'
+    mail to: "to@example.org", subject: "Password reset"
   end
 
   def welcome_email
-    mail(to: 'systestaddress@gmail.com', subject: 'Welcome to My Awesome Site')
+    mail(to: "systestaddress@gmail.com", subject: "Welcome to My Awesome Site")
   end
 end

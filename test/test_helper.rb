@@ -4,12 +4,12 @@
 # SimpleCov.start 'rails' do
 #   coverage_dir './tmp/coverage'
 # end
-require 'simplecov'
-SimpleCov.start 'rails'
+require "simplecov"
+SimpleCov.start "rails"
 
-ENV['RAILS_ENV'] ||= 'test'
-require_relative '../config/environment'
-require 'rails/test_help'
+ENV["RAILS_ENV"] ||= "test"
+require_relative "../config/environment"
+require "rails/test_help"
 
 module ActiveSupport
   class TestCase
