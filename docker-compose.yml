@@ -8,7 +8,7 @@ services:
       POSTGRES_USER: default
       POSTGRES_PASSWORD: password
       TZ: UTC
-      POSTGRES_HOST_AUTH_METHOD: trust #開発用のため
+      POSTGRES_HOST_AUTH_METHOD: trust # NOTE: 開発用のため
       POSTGRES_INITDB_WAL_LEVEL: replica # wal_levelの設定
       POSTGRES_INITDB_MAX_WAL_SENDERS: 10 #max_wal_sendersの設定
       POSTGRES_INITDB_MAX_REPLICATION_SLOTS: 10 #max_replication_slotsの設定
@@ -16,11 +16,8 @@ services:
       - "5433:5432"
     volumes:
       - psql-pub-volume:/var/lib/postgresql/data
-      # - ./docker/psql-auth-pub/init.sh:/docker-entrypoint-initdb.d/init.sh
-      # - ./docker/psql-auth-pub/postgresql.conf:/etc/postgresql/postgresql.conf
-      # - ./docker/psql-auth-pub/pg_hba.conf:/etc/postgresql/pg_hba.conf
-    tmpfs:
-      - /var/lib/postgresql/data
+      - ./docker/psql-pub/postgresql.conf:/etc/postgresql/postgresql.conf
+      - ./docker/psql-pub/pg_hba.conf:/etc/postgresql/pg_hba.conf
   psql-sub:
     image: postgres:16.6
     networks:
@@ -29,16 +26,12 @@ services:
       POSTGRES_USER: default
       POSTGRES_PASSWORD: password
       TZ: UTC
-      POSTGRES_HOST_AUTH_METHOD: trust #開発用のため
+      POSTGRES_HOST_AUTH_METHOD: trust  # NOTE: 開発用のため
     ports:
       - "5434:5432"
     volumes:
       -  psql-sub-volume:/var/lib/postgresql/data
-      # - ./docker/psql-auth-sub/init.sh:/docker-entrypoint-initdb.d/init.sh
-      # - ./docker/psql-auth-sub/postgresql.conf:/etc/postgresql/postgresql.conf
-      # - ./docker/psql-auth-sub/pg_hba.conf:/etc/postgresql/pg_hba.conf
-    tmpfs:
-      - /var/lib/postgresql/data
+      - ./docker/psql-sub/init.sh:/docker-entrypoint-initdb.d/init.sh
     depends_on:
       - psql-pub
   minio:
