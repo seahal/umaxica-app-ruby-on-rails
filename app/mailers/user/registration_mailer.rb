@@ -6,12 +6,12 @@ module User
     # with the following lookup:
     #
     #   en.user.registration_mailer.account_activation.subject
-    default from: 'any_from_address@example.com'
+    default from: "any_from_address@example.com"
 
     def account_activation
-      @greeting = 'Hi'
+      @greeting = "Hi"
 
-      mail to: 'to@example.org'
+      mail to: "to@example.org"
     end
 
     # Subject can be set in your I18n file at config/locales/en.yml
@@ -20,13 +20,13 @@ module User
     #   en.user.registration_mailer.password_reset.subject
     #
     def password_reset
-      @greeting = 'Hi'
+      @greeting = "Hi"
 
-      mail to: 'to@example.org'
+      mail to: "to@example.org"
     end
 
     def welcome_email
-      mail(to: 'm.shiihara@gmail.com', subject: '私の素敵なサイトへようこそ')
+      mail(to: "m.shiihara@gmail.com", subject: "私の素敵なサイトへようこそ")
     end
   end
 end

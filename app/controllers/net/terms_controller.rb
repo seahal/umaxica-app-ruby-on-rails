@@ -3,7 +3,7 @@
 module Net
   class TermsController < ApplicationController
     def show
-      render plain: 'kiyaku'
+      render plain: "kiyaku"
     end
   end
 end

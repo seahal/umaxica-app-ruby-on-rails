@@ -15,10 +15,10 @@ Rails.application.configure do
   # this is usually not necessary, and can slow down your test suite. However, it's
   # recommended that you enable it in continuous integration systems to ensure eager
   # loading is working properly before deploying your code.
-  config.eager_load = ENV['CI'].present?
+  config.eager_load = ENV["CI"].present?
 
   # Configure public file server for tests with cache-control for performance.
-  config.public_file_server.headers = { 'cache-control' => 'public, max-age=3600' }
+  config.public_file_server.headers = { "cache-control" => "public, max-age=3600" }
 
   # Show full error reports.
   config.consider_all_requests_local = true
@@ -39,7 +39,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :test
 
   # Set host to be used by links generated in mailer templates.
-  config.action_mailer.default_url_options = { host: 'example.com' }
+  config.action_mailer.default_url_options = { host: "example.com" }
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
@@ -54,7 +54,7 @@ Rails.application.configure do
   config.action_controller.raise_on_missing_callback_actions = true
 
   config.cache_store = :redis_cache_store, {
-    url: ENV['VALKEY_CACHE_URL'], # Redisの接続情報を環境変数から取得する
+    url: ENV["VALKEY_CACHE_URL"], # Redisの接続情報を環境変数から取得する
     expires_in: 1.hour,    # キャッシュの有効期限を設定
     driver: :hiredis       # hiredisドライバを使用することで高速化できる
   }
