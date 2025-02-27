@@ -1,6 +1,9 @@
 name: Static Checking for Rails
 
 on:
+  concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
   push:
     branches:
       - master
@@ -14,6 +17,9 @@ jobs:
   static-checks:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    efaults:
+      run:
+        shell: bash
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -36,4 +42,10 @@ jobs:
         run: bundle exec bundle audit check --update
 
       - name: rubocop 2
-        run: docker compose run ror bin/rubocop --fail-fast
+        run: docker compose exec ror bin/rubocop --fail-fast
+
+      - name: Brakeman 2
+        run: docker compose exec ror bundle exec brakeman -z -q
+
+      - name: bundle audit 2
+        run: docker compose exec ror bundle exec bundle audit check --update
