@@ -20,7 +20,7 @@ jobs:
   static-checks:
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    efaults:
+    defaults:
       run:
         shell: bash
     steps:
