@@ -37,6 +37,17 @@ jobs:
       - name: Build Docker image
         run: docker build -t umaxica/jit . --target production
 
+      # scanning with trivy
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          image-ref: 'docker.io/my-organization/my-app:${{ github.sha }}'
+          format: 'table'
+          exit-code: '1'
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'
+
       # Dockerイメージのタグ付け
       - run: docker tag umaxica/jit:latest 841162677945.dkr.ecr.ap-northeast-1.amazonaws.com/umaxica/jit:latest
 
