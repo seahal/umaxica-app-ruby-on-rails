@@ -5,24 +5,31 @@ on:
     branches:
       - main
       - develop
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+
 # delete develop
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
-
+    timeout-minutes: 5
+    defaults:
+      run:
+        shell: bash
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       # AWS CLI のセットアップ
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v3
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
-
-      - run: aws configure list
 
       - run: aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 841162677945.dkr.ecr.ap-northeast-1.amazonaws.com
 
