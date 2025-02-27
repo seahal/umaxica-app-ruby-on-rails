@@ -32,9 +32,6 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
-      - name: Docker compose
-        run: docker compose build
-
       - name: Rubocop
         run: bin/rubocop --fail-fast
 
