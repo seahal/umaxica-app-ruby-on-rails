@@ -1,10 +1,10 @@
-name: Static checking in Ruby on Rails
+name: Static Checking for Rails
 
 on:
   push:
-    branches: [ "master", "develop" ]
-  schedule:
-    - cron:  '0 0 1 * *' # 毎月一日に動作するようにする。
+    branches:
+      - master
+      - develop
 
 jobs:
   publishing:
@@ -29,10 +29,10 @@ jobs:
         run: bundle install --path vendor/bundle --jobs 4
 
       - name: Rubocop
-        run: bin/rubocop
+        run: bin/rubocop --fail-fast
 
       - name: Brakeman
-        run: bundle exec brakeman
+        run: bundle exec brakeman -z -q
 
       - name: bundle audit
-        run: bundle exec bundle-audit
+        run: bundle exec bundle audit check --update
