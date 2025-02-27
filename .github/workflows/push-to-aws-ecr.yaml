@@ -49,7 +49,7 @@ jobs:
         #   severity: 'CRITICAL,HIGH'
 
       # dockerイメージのタグ付け
-      - run: docker tag umaxica/jit:latest 841162677945.dkr.ecr.ap-northeast-1.amazonaws.com/umaxica/jit:latest
+      - run: docker tag docker.io/my-organization/my-app:${{ github.sha }} . 841162677945.dkr.ecr.ap-northeast-1.amazonaws.com/umaxica/jit:latest
 
       # Dockerイメージのプッシュ
       - run: docker push 841162677945.dkr.ecr.ap-northeast-1.amazonaws.com/umaxica/jit:latest
