@@ -24,11 +24,11 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       # Dockerログイン
-      - name: Log in to Amazon ECR
-        run: |
-          aws ecr get-login-password --region ${{ secrets.AWS_REGION }} \
-            | docker login --username GitHubActionsUser --password-stdin \
-              $(aws sts get-caller-identity --query 'Account' --output text).dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
+      # - name: Log in to Amazon ECR
+      #   run: |
+      #     aws ecr get-login-password --region ${{ secrets.AWS_REGION }} \
+      #       | docker login --username GitHubActionsUser --password-stdin \
+      #         $(aws sts get-caller-identity --query 'Account' --output text).dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
 
       # # Dockerイメージのビルド
       # - name: Build Docker image
