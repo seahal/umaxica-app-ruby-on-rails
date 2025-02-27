@@ -25,10 +25,11 @@ jobs:
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: ${{ runner.os }}-gems-
 
-      - run: |
-          gem install bundler
-          bundle install
+      - name: install gems
+        run: bundle install --path vendor/bundle --jobs 4
+
       - run: |
           ruby -v
+
       - run: |
           bin/rubocop
