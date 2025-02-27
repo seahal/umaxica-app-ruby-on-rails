@@ -1,5 +1,6 @@
-[![Hello](https://github.com/seahal/demo-application-ror/actions/workflows/example.yaml/badge.svg)](https://github.com/seahal/demo-application-ror/actions/workflows/example.yaml)
+[![Hello](https://github.com/seahal/demo-application-ror/actions/workflows/static.yaml/badge.svg)](https://github.com/seahal/demo-application-ror/actions/workflows/static.yaml)
 # README
+
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
