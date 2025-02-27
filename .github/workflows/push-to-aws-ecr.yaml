@@ -11,9 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # リポジトリのクローン
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # AWS CLI のセットアップ
       - name: Configure AWS credentials
@@ -22,6 +21,8 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
+
+      - run: aws configure list
 
       # Dockerログイン
       # - name: Log in to Amazon ECR
