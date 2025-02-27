@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails.git
-  revision: cff159f8584fbe7c062dd2743abe6f8ec66bfd13
+  revision: 800976975253be2912d09a80757ee70a2bb1e984
   branch: main
   specs:
     actioncable (8.1.0.alpha)
@@ -1828,7 +1828,7 @@ GEM
     json (2.10.1)
     jwt (2.10.1)
       base64
-    kamal (2.5.2)
+    kamal (2.5.3)
       activesupport (>= 7.0)
       base64 (~> 0.2)
       bcrypt_pbkdf (~> 1.0)
@@ -2199,7 +2199,7 @@ GEM
     reline (0.6.0)
       io-console (~> 0.5)
     rexml (3.4.1)
-    rubocop (1.73.0)
+    rubocop (1.73.1)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.1.0)

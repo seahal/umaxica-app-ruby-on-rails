@@ -35,7 +35,7 @@ jobs:
 
       # Dockerイメージのビルド
       - name: Build Docker image
-        run: docker build -t umaxica/jit .
+        run: docker build -t umaxica/jit . --target development
 
       # Dockerイメージのタグ付け
       - run: docker tag umaxica/jit:latest 841162677945.dkr.ecr.ap-northeast-1.amazonaws.com/umaxica/jit:latest
