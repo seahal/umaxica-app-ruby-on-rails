@@ -44,6 +44,9 @@ jobs:
       - name: bundle audit
         run: bundle exec bundle audit check --update
 
+      - name: Docker up
+        run: docker compose up
+
       - name: rubocop 2
         run: docker compose run ror bin/rubocop --fail-fast
 
