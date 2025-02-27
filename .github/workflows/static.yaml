@@ -1,9 +1,6 @@
 name: Static Checking for Rails
 
 on:
-  concurrency:
-    group: ${{ github.workflow }}-${{ github.ref }}
-    cancel-in-progress: true
   push:
     branches:
       - master
@@ -12,6 +9,12 @@ on:
     branches:
       - master
       - develop
+
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 
 jobs:
   static-checks:
