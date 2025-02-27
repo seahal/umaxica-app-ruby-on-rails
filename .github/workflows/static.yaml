@@ -32,8 +32,5 @@ jobs:
       - name: bundle audit
         run: bundle exec bundle audit check --update
 
-      - name: Docker
-        run: docker build -t umaxica/jit .
-
       - name: Docker compose
         run: docker compose build
