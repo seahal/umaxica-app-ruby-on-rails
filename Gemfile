@@ -95,6 +95,7 @@ group :development do
   gem "letter_opener"
   # Live Reload
   gem "rails_live_reload"
+
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
