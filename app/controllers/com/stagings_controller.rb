@@ -2,5 +2,6 @@
 
 module Com
   class StagingsController < ApplicationController
+    include ::Staging
   end
 end
