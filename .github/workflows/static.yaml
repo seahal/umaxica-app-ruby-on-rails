@@ -45,10 +45,10 @@ jobs:
         run: bundle exec bundle audit check --update
 
       - name: rubocop 2
-        run: docker compose exec ror bin/rubocop --fail-fast
+        run: docker compose run ror bin/rubocop --fail-fast
 
       - name: Brakeman 2
-        run: docker compose exec ror bundle exec brakeman -z -q
+        run: docker compose run ror bundle exec brakeman -z -q
 
       - name: bundle audit 2
-        run: docker compose exec ror bundle exec bundle audit check --update
+        run: docker compose run ror bundle exec bundle audit check --update
