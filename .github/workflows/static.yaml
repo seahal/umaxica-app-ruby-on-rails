@@ -41,6 +41,9 @@ jobs:
       - name: bundle audit
         run: bundle exec bundle audit check --update
 
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
       - name: Docker up
         run: docker compose up
 
