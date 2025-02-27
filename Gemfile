@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 source "https://rubygems.org"
 
 ruby "3.4.2"
@@ -68,7 +66,7 @@ gem "thruster", require: false
 gem "rack-attack", "~> 6.7"
 # To use tailwind css
 gem "tailwindcss-rails", "~> 4.0"
-  # opentelemetry
+# OpenTelemetry
 gem "opentelemetry-sdk"
 gem "opentelemetry-exporter-otlp"
 gem "opentelemetry-instrumentation-all"
