@@ -19,15 +19,6 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
-      - uses: actions/cache@v4
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: ${{ runner.os }}-gems-
-
-      - name: install gems
-        run: bundle install --path vendor/bundle --jobs 4
-
       - name: Rubocop
         run: bin/rubocop --fail-fast
 
