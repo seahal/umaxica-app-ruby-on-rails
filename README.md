@@ -10,9 +10,8 @@ Things you may want to cover:
 * Ruby version
     - Just Do It => `ruby -v`, and check `Gemfile` or `.ruby-version`.
 * System dependencies
-    - Ruby => Ofcource, we are on Ruby.
 	- Linux => Run on it.
-    - JavaScripts => now removing it.
+    - Ruby => Ofcource, we are on Ruby.
 * Configuration
     - Edit hosts files to separate .com or .net.
     - ```
@@ -42,7 +41,7 @@ Things you may want to cover:
   * CloudFlare
   * twilio & SendGrid
   * Terraform Cloud
-  * [Open Telementory](https://opentelemetry.io/)
+  * [OpenTelemetry](https://opentelemetry.io/)
 * Secrets
   * You have to set `.env.local` on your own environment.This is because it has confidential.
   * "You can use the AWS CLI command, and then you should run aws configure --profile umaxica."

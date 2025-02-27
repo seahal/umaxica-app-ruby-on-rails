@@ -68,10 +68,6 @@ gem "thruster", require: false
 gem "rack-attack", "~> 6.7"
 # To use tailwind css
 gem "tailwindcss-rails", "~> 4.0"
-# opentelemetry
-gem "opentelemetry-sdk"
-gem "opentelemetry-exporter-otlp"
-gem "opentelemetry-instrumentation-all"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -95,6 +91,7 @@ group :development do
   gem "letter_opener"
   # Live Reload
   gem "rails_live_reload"
+
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
@@ -106,4 +103,11 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "simplecov", require: false
+end
+
+group :production do
+  # opentelemetry
+  gem "opentelemetry-sdk"
+  gem "opentelemetry-exporter-otlp"
+  gem "opentelemetry-instrumentation-all"
 end
