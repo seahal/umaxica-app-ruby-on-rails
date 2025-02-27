@@ -31,5 +31,8 @@ jobs:
       - name: Rubocop
         run: bin/rubocop
 
-      - name: bundle
+      - name: Brakeman
         run: bundle exec brakeman
+
+      - name: bundle audit
+        run: bundle exec bundle-audit
