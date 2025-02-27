@@ -1,0 +1,33 @@
+name: Static Checking for Rails
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+  pull_request:
+    branches:
+      - master
+      - develop
+
+jobs:
+  static-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+
+      - name: Rubocop
+        run: bin/rubocop --fail-fast
+
+      - name: Brakeman
+        run: bundle exec brakeman -z -q
+
+      - name: bundle audit
+        run: bundle exec bundle audit check --update
