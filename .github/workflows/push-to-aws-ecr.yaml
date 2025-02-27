@@ -24,20 +24,15 @@ jobs:
 
       - run: aws configure list
 
-
       - run: aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 841162677945.dkr.ecr.ap-northeast-1.amazonaws.com
 
-      # Dockerログイン
-      # - name: Log in to Amazon ECR
-      #   run: |
-      #     aws ecr get-login-password --region ${{ secrets.AWS_REGION }} \
-      #       | docker login --username GitHubActionsUser --password-stdin \
-      #         $(aws sts get-caller-identity --query 'Account' --output text).dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
+      # Dockerイメージのビルド
+      - name: Build Docker image
+        run: docker build -t umaxica/jit .
 
-      # # Dockerイメージのビルド
-      # - name: Build Docker image
-      #   run: |
-      #     docker build -t ${{ secrets.ECR_REPOSITORY }}:${{ secrets.IMAGE_TAG }} -f Dockerfile .
+      - run: docker tag umaxica/jit:latest 841162677945.dkr.ecr.ap-northeast-1.amazonaws.com/umaxica/jit:latest
+
+      - run: docker push 841162677945.dkr.ecr.ap-northeast-1.amazonaws.com/umaxica/jit:latest
 
       # # Dockerイメージのタグ付け
       # - name: Tag Docker image
