@@ -10,9 +10,8 @@ Things you may want to cover:
 * Ruby version
     - Just Do It => `ruby -v`, and check `Gemfile` or `.ruby-version`.
 * System dependencies
-    - Ruby => Ofcource, we are on Ruby.
 	- Linux => Run on it.
-    - JavaScripts => now removing it.
+    - Ruby => Ofcource, we are on Ruby.
 * Configuration
     - Edit hosts files to separate .com or .net.
     - ```

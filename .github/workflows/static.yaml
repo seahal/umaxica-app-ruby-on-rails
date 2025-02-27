@@ -31,3 +31,6 @@ jobs:
 
       - name: bundle audit
         run: bundle exec bundle audit check --update
+
+      - name: Docker
+        run: docker -v
