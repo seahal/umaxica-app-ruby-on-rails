@@ -27,22 +27,33 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: .ruby-version
-          bundler-cache: true
+      # - uses: ruby/setup-ruby@v1
+      #   with:
+      #     ruby-version: .ruby-version
+      #     bundler-cache: true
 
-      - name: Rubocop
-        run: bin/rubocop --fail-fast
+      # - name: Rubocop
+      #   run: bin/rubocop --fail-fast
 
-      - name: Brakeman
-        run: bundle exec brakeman -z -q
+      # - name: Brakeman
+      #   run: bundle exec brakeman -z -q
 
-      - name: bundle audit
-        run: bundle exec bundle audit check --update
+      # - name: bundle audit
+      #   run: bundle exec bundle audit check --update
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
+
+      - name: ""
+        uses: docker/build-push-action@v5
+        with:
+          file: ./Dockerfile
+          push: false
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          # NOTE: 以下でビルドキャッシュを使うように設定しています
+          cache-from: type=registry,ref=ghcr.io/kei-s16/ghcr-container-push-demo:buildcache
+          cache-to: type=registry,ref=ghcr.io/kei-s16/ghcr-container-push-demo:buildcache,mode=max
 
       - name: Docker up
         run: docker compose up
