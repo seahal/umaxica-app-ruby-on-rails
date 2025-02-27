@@ -33,4 +33,4 @@ jobs:
         run: bundle exec bundle audit check --update
 
       - name: Docker
-        run: docker -v
+        run: docker build -t umaxica/jit .
