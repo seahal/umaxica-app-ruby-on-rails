@@ -19,7 +19,7 @@ concurrency:
 jobs:
   static-checks:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
     defaults:
       run:
         shell: bash
@@ -27,42 +27,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # - uses: ruby/setup-ruby@v1
-      #   with:
-      #     ruby-version: .ruby-version
-      #     bundler-cache: true
-
-      # - name: Rubocop
-      #   run: bin/rubocop --fail-fast
-
-      # - name: Brakeman
-      #   run: bundle exec brakeman -z -q
-
-      # - name: bundle audit
-      #   run: bundle exec bundle audit check --update
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: ""
-        uses: docker/build-push-action@v5
+      - uses: ruby/setup-ruby@v1
         with:
-          file: ./Dockerfile
-          push: false
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-          # NOTE: 以下でビルドキャッシュを使うように設定しています
-          cache-from: type=registry,ref=ghcr.io/kei-s16/ghcr-container-push-demo:buildcache
-          cache-to: type=registry,ref=ghcr.io/kei-s16/ghcr-container-push-demo:buildcache,mode=max
+          ruby-version: .ruby-version
+          bundler-cache: true
 
-      - name: Docker up
-        run: docker compose up
+      - name: Rubocop
+        run: bin/rubocop --fail-fast
 
-      - name: rubocop 2
-        run: docker compose run ror bin/rubocop --fail-fast
+      - name: Brakeman
+        run: bundle exec brakeman -z -q
 
-      - name: Brakeman 2
-        run: docker compose run ror bundle exec brakeman -z -q
-
-      - name: bundle audit 2
-        run: docker compose run ror bundle exec bundle audit check --update
+      - name: bundle audit
+        run: bundle exec bundle audit check --update
