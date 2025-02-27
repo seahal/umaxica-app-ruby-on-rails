@@ -10,7 +10,7 @@ class UserMailer < ApplicationMailer
   def account_activation
     @greeting = "Hi"
     # debugger
-    mail to: "to@example.org", subject: "Account activation"
+    mail to: "seahal.com@gmail.com", subject: "Account activation"
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml

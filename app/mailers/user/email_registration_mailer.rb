@@ -10,7 +10,7 @@ module User
     def account_activation
       @greeting = "Hi"
 
-      mail to: "m.shiihara@gmail.com", subject: "Account activation"
+      mail to: "", subject: "Account activation"
     end
 
     # Subject can be set in your I18n file at config/locales/en.yml
