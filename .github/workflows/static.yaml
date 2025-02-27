@@ -32,4 +32,4 @@ jobs:
         run: bin/rubocop
 
       - name: bundle
-        run: bundle audit
+        run: bin/bundle audit
