@@ -43,6 +43,9 @@ Things you may want to cover:
   * Terraform Cloud
   * [OpenTelemetry](https://opentelemetry.io/)
 * Secrets
-  * You have to set `.env.local` on your own environment.This is because it has confidential.
+  * You have to set `.env.local` and `.envrc` on your own environment.This is because it has confidential.
   * "You can use the AWS CLI command, and then you should run aws configure --profile umaxica."
   * You should use [git-secrets](https://github.com/awslabs/git-secrets).
+* Tools
+  * `envrc`
+  * `yamlfmt`
