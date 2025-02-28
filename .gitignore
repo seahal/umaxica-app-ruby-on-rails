@@ -61,3 +61,4 @@
 .vscode-server
 .ssh
 .gnupg
+.envrc

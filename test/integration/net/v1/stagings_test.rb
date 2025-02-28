@@ -10,7 +10,7 @@ module Net
         assert_response :success
         json = JSON.parse(response.body)
         assert_equal false, json["staging"]
-        assert_equal "", json["id"]
+        assert_equal ENV.fetch("STAGING", nil), json["id"]
       end
     end
   end
