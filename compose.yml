@@ -26,11 +26,11 @@ services:
       POSTGRES_USER: default
       POSTGRES_PASSWORD: password
       TZ: UTC
-      POSTGRES_HOST_AUTH_METHOD: trust  # NOTE: 開発用のため
+      POSTGRES_HOST_AUTH_METHOD: trust # NOTE: 開発用のため
     ports:
       - "5434:5432"
     volumes:
-      -  psql-sub-volume:/var/lib/postgresql/data
+      - psql-sub-volume:/var/lib/postgresql/data
       - ./docker/psql-sub/init.sh:/docker-entrypoint-initdb.d/init.sh
     depends_on:
       - psql-pub
@@ -64,49 +64,49 @@ services:
       - backend
     ports:
       - '6380:6379'
-#  kafka-broker:
-#    image: confluentinc/cp-kafka:6.2.4 # https://hub.docker.com/r/confluentinc/cp-kafka
-#    restart: always
-#    depends_on:
-#      - zookeeper
-#    ports:
-#      - "9092:9092"
-#    environment:
-#      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_DOCKER_INTERNAL:PLAINTEXT
-#      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-broker:19092,PLAINTEXT_DOCKER_INTERNAL://localhost:9092
-#      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-#      KAFKA_ADVERTISED_HOST_NAME: kafka-broker
-#      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-#  zookeeper:
-#    image: confluentinc/cp-zookeeper:6.2.4 # https://hub.docker.com/r/confluentinc/cp-zookeeper
-#    restart: always
-#    ports:
-#      - "2181:2181"
-#    environment:
-#      ZOOKEEPER_CLIENT_PORT: "2181"
-#  cp-kafka-rest:
-#    image: confluentinc/cp-kafka-rest:6.2.4         # https://hub.docker.com/r/confluentinc/cp-kafka-rest
-#    restart: always
-#    depends_on:
-#      - "kafka-broker"
-#      - "zookeeper"
-#    environment:
-#      KAFKA_REST_BOOTSTRAP_SERVERS: "kafka-broker:19092"
-#      KAFKA_REST_CLIENT_SECURITY_PROTOCOL: "PLAINTEXT"
-#      KAFKA_REST_HOST_NAME: "cp-kafka-rest"
-#      KAFKA_REST_LISTENERS: "http://0.0.0.0:8082"
-#  kafka-topic-ui:    # 管理コンソール（http://localhost:8000）
-#    image: landoop/kafka-topics-ui:0.9.4    # https://hub.docker.com/r/landoop/kafka-topics-ui
-#    restart: always
-#    depends_on:
-#      - "kafka-broker"
-#      - "zookeeper"
-#      - "cp-kafka-rest"
-#    ports:
-#      - "8000:8000"
-#    environment:
-#      KAFKA_REST_PROXY_URL: "http://cp-kafka-rest:8082"
-#      PROXY: "true"
+      #  kafka-broker:
+      #    image: confluentinc/cp-kafka:6.2.4 # https://hub.docker.com/r/confluentinc/cp-kafka
+      #    restart: always
+      #    depends_on:
+      #      - zookeeper
+      #    ports:
+      #      - "9092:9092"
+      #    environment:
+      #      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_DOCKER_INTERNAL:PLAINTEXT
+      #      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-broker:19092,PLAINTEXT_DOCKER_INTERNAL://localhost:9092
+      #      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      #      KAFKA_ADVERTISED_HOST_NAME: kafka-broker
+      #      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      #  zookeeper:
+      #    image: confluentinc/cp-zookeeper:6.2.4 # https://hub.docker.com/r/confluentinc/cp-zookeeper
+      #    restart: always
+      #    ports:
+      #      - "2181:2181"
+      #    environment:
+      #      ZOOKEEPER_CLIENT_PORT: "2181"
+      #  cp-kafka-rest:
+      #    image: confluentinc/cp-kafka-rest:6.2.4         # https://hub.docker.com/r/confluentinc/cp-kafka-rest
+      #    restart: always
+      #    depends_on:
+      #      - "kafka-broker"
+      #      - "zookeeper"
+      #    environment:
+      #      KAFKA_REST_BOOTSTRAP_SERVERS: "kafka-broker:19092"
+      #      KAFKA_REST_CLIENT_SECURITY_PROTOCOL: "PLAINTEXT"
+      #      KAFKA_REST_HOST_NAME: "cp-kafka-rest"
+      #      KAFKA_REST_LISTENERS: "http://0.0.0.0:8082"
+      #  kafka-topic-ui:    # 管理コンソール（http://localhost:8000）
+      #    image: landoop/kafka-topics-ui:0.9.4    # https://hub.docker.com/r/landoop/kafka-topics-ui
+      #    restart: always
+      #    depends_on:
+      #      - "kafka-broker"
+      #      - "zookeeper"
+      #      - "cp-kafka-rest"
+      #    ports:
+      #      - "8000:8000"
+      #    environment:
+      #      KAFKA_REST_PROXY_URL: "http://cp-kafka-rest:8082"
+      #      PROXY: "true"
   ror:
     build:
       context: ./
