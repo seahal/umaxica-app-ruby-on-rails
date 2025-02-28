@@ -43,11 +43,11 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: "localhost", port: 3333 }
   config.action_mailer.smtp_settings = {
-    address: "smtp.sendgrid.net",
+    address: "email-smtp.ap-northeast-1.amazonaws.com",
     domain: "umaxica.net",
-    port: 25,
-    user_name: ENV["SENDGRID_USERNAME"],
-    password: ENV["SENDGRID_PASSWORD"],
+    port: 2465,
+    user_name: ENV["SMTP_USERNAME"],
+    password: ENV["SMTP_PASSWORD"],
     authentication: :login,
     enable_starttls: true,
     open_timeout: 5,
