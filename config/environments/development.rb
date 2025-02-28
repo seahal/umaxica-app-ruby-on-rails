@@ -53,7 +53,7 @@ Rails.application.configure do
     open_timeout: 5,
     read_timeout: 5
   }
-  
+
   ## Letter Opener => https://github.com/ryanb/letter_opener
   #  config.action_mailer.delivery_method = :letter_opener
   # config.action_mailer.perform_deliveries = true
