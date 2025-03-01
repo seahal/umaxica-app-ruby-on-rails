@@ -37,8 +37,8 @@ jobs:
       POSTGRESQL_CORE_SUB: 'localhost'
       POSTGRESQL_DOCS_PUB: 'localhost'
       POSTGRESQL_DOCS_SUB: 'localhost'
-      VALKEY_CACHE_URL: 'redis://vk-cache:6379'
-      VALKEY_SESSION_URL: 'redis://vk-session:6379'
+      VALKEY_CACHE_URL: 'redis://localhost:6379/0'
+      VALKEY_SESSION_URL: 'redis://localhost:6379/1'
 
     # Service containers to run with `container-job`
     services:
