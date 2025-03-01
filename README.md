@@ -1,4 +1,4 @@
-[![Hello](https://github.com/seahal/demo-application-ror/actions/workflows/static.yaml/badge.svg)](https://github.com/seahal/demo-application-ror/actions/workflows/static.yaml)
+[![Hello](https://github.com/seahal/demo-application-ror/actions/workflows/ci.yaml/badge.svg)](https://github.com/seahal/demo-application-ror/actions/workflows/ci.yaml)
 # README
 
 
@@ -34,12 +34,12 @@ Things you may want to cover:
     - When you are free, look at 'bin/rails notes'
 * Using Services
   * Amazon Web Service
+    * ses and sms
     * ecr
     * eks
     * cloudlfront
   * Fastly
   * CloudFlare
-  * twilio & SendGrid
   * Terraform Cloud
   * [OpenTelemetry](https://opentelemetry.io/)
 * Secrets

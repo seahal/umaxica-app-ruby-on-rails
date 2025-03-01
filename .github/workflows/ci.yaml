@@ -27,7 +27,7 @@ jobs:
         options: >-
           --health-cmd "redis-cli ping" --health-interval 10s --health-timeout 5s --health-retries 5
         ports:
-          - 6379:6379 # Redisのデフォルトポートをマッピング
+          - 6380:6379 # Redisのデフォルトポートをマッピング
       postgres:
         # Docker Hub image
         image: postgres
@@ -49,8 +49,8 @@ jobs:
       POSTGRESQL_CORE_SUB: 'localhost'
       POSTGRESQL_DOCS_PUB: 'localhost'
       POSTGRESQL_DOCS_SUB: 'localhost'
-      VALKEY_CACHE_URL: 'redis://localhost:6379/0'
-      VALKEY_SESSION_URL: 'redis://localhost:6379/1'
+      VALKEY_CACHE_URL: 'redis://localhost:6380/0'
+      VALKEY_SESSION_URL: 'redis://localhost:6380/1'
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
