@@ -29,12 +29,12 @@ jobs:
       # RailsがRedisとPostgreSQLに接続するための環境変数
       REDIS_URL: redis://localhost:6379/0
       DATABASE_URL: postgres://postgres:postgres@localhost:5432/myapp_test
-      POSTGRESQL_AUTH_PUB: 'psql-pub'
-      POSTGRESQL_AUTH_SUB: 'psql-sub'
-      POSTGRESQL_CORE_PUB: 'psql-pub'
-      POSTGRESQL_CORE_SUB: 'psql-sub'
-      POSTGRESQL_DOCS_PUB: 'psql-pub'
-      POSTGRESQL_DOCS_SUB: 'psql-sub'
+      POSTGRESQL_AUTH_PUB: 'localhost'
+      POSTGRESQL_AUTH_SUB: 'localhost'
+      POSTGRESQL_CORE_PUB: 'localhost'
+      POSTGRESQL_CORE_SUB: 'localhost'
+      POSTGRESQL_DOCS_PUB: 'localhost'
+      POSTGRESQL_DOCS_SUB: 'localhots'
       VALKEY_CACHE_URL: 'redis://vk-cache:6379'
       VALKEY_SESSION_URL: 'redis://vk-session:6379'
 
