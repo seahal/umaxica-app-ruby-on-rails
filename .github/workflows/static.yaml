@@ -86,5 +86,9 @@ jobs:
       - name: bundle audit
         run: bundle exec bundle audit check --update
 
+      - name: Debug
+        if: ${{ always() }}
+        uses: mxschmitt/action-tmate@v3
+
       - name: rails test
         run: bundle exec rails db:create && bundle exec rails db:migrate && bundle exec rails test
