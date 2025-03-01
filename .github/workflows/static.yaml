@@ -1,4 +1,4 @@
-name: [CI] Ruby on Rails
+name: '[CI] Ruby on Rails'
 
 on:
   push:
