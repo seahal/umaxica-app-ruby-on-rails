@@ -72,6 +72,8 @@ jobs:
         run: bin/rails test
       - name: Check Application Boot
         run: bundle exec rails runner "puts ActiveRecord::Base.connection.active?"
+      - name: Check ERB
+        run: bundle exec erb_lint --lint-all
 #      - name: ERB Lint
 #      - name System tests
 #      - name: Run Code Climate
