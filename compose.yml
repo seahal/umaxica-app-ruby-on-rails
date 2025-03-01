@@ -150,22 +150,23 @@ services:
       - "7901:7900"
     depends_on:
       - ror
-  openopenobserve:
-    image: public.ecr.aws/zinclabs/openobserve
-    ports:
-      - 5080:5080
-    volumes:
-      - ../openobserve/data:/data
+  openobserve:
+    image: public.ecr.aws/zinclabs/openobserve:latest
+    restart: unless-stopped
     environment:
-      ZO_DATA_DIR: /data
-      ZO_ROOT_USER_EMAIL: root@example.com
-      ZO_ROOT_USER_PASSWORD: default
+      ZO_ROOT_USER_EMAIL: "root@example.com"
+      ZO_ROOT_USER_PASSWORD: "Complexpass#123"
+    ports:
+      - "5080:5080"
+    volumes:
+      - openobserve-volume:/data
 volumes: #
   psql-pub-volume:
   psql-sub-volume:
   vk-session-data:
   vk-cache-volume:
   opensearch-volume:
+  openobserve-volume:
   minio-data-1:
 networks:
   backend:
