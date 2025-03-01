@@ -102,7 +102,7 @@ Rails.application.routes.draw do
           resource :staging, only: :show
         end
       end
-      # 
+      #
       defaults format: :text do
         get "/robots.txt", to: "robots#show", as: :robot
       end
