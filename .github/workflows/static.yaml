@@ -25,21 +25,6 @@ jobs:
       run:
         shell: bash
 
-    env:
-      # RailsがRedisとPostgreSQLに接続するための環境変数
-      REDIS_URL: redis://localhost:6379/0
-      DATABASE_URL: postgres://postgres:postgres@localhost:5432/myapp_test
-      POSTGRES_USER: 'default'
-      POSTGRES_PASSWORD: 'password'
-      POSTGRESQL_AUTH_PUB: 'localhost'
-      POSTGRESQL_AUTH_SUB: 'localhost'
-      POSTGRESQL_CORE_PUB: 'localhost'
-      POSTGRESQL_CORE_SUB: 'localhost'
-      POSTGRESQL_DOCS_PUB: 'localhost'
-      POSTGRESQL_DOCS_SUB: 'localhost'
-      VALKEY_CACHE_URL: 'redis://localhost:6379/0'
-      VALKEY_SESSION_URL: 'redis://localhost:6379/1'
-
     # Service containers to run with `container-job`
     services:
       redis:
@@ -70,6 +55,20 @@ jobs:
         ports:
           - 5432:5432  # PostgreSQLのデフォルトポートをマッピング
 
+      env:
+        REDIS_URL: redis://localhost:6379/0
+        DATABASE_URL: postgres://postgres:postgres@localhost:5432/myapp_test
+        POSTGRES_USER: 'default'
+        POSTGRES_PASSWORD: 'password'
+        POSTGRESQL_AUTH_PUB: 'localhost'
+        POSTGRESQL_AUTH_SUB: 'localhost'
+        POSTGRESQL_CORE_PUB: 'localhost'
+        POSTGRESQL_CORE_SUB: 'localhost'
+        POSTGRESQL_DOCS_PUB: 'localhost'
+        POSTGRESQL_DOCS_SUB: 'localhost'
+        VALKEY_CACHE_URL: 'redis://localhost:6379/0'
+        VALKEY_SESSION_URL: 'redis://localhost:6379/1'
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -93,4 +92,4 @@ jobs:
         timeout-minutes: 15
 
       - name: rails test
-        run: bundle exec rails db:create && bundle exec rails db:migrate && bundle exec rails test
+        run: bin/rails db:create && bin/rails db:migrate && bin/rails test

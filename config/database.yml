@@ -93,7 +93,7 @@ production:
   auth:
     <<: *default
     database: test_auth_db
-    port: <%= File.exist?('/.dockerenv') ? 5432 : 5433 %>
+    port: <%= File.exist?('/.dockerenv') ? ENV["POSTGRESQL_PORT"] : 5433 %>
     host: <%= File.exist?('/.dockerenv') ? ENV["POSTGRESQL_AUTH_PUB"] : 'localhost' %>
   auth_replica:
     <<: *default
