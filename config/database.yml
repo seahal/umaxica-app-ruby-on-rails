@@ -29,13 +29,13 @@ development:
     <<: *default
     database: development_docs_db
     port: <%= File.exist?('/.dockerenv') ? 5432 : 5433 %> # FIXME: change to use replica
-    host: <%= File.exist?('/.dockerenv') ? ENV["POSTGRESQL_CORE_PUB"] : 'localhost' %> # FIXME: change to use replica
+    host: <%= File.exist?('/.dockerenv') ? ENV["POSTGRESQL_DOCS_PUB"] : 'localhost' %> # FIXME: change to use replica
   docs_replica:
     <<: *default
     replica: true
     database: development_docs_db
     port: <%= File.exist?('/.dockerenv') ? 5432 : 5434 %> # FIXME: change to use replica
-    host: <%= File.exist?('/.dockerenv') ? ENV["POSTGRESQL_CORE_PUB"] : 'localhost' %>  # FIXME: change to use replica
+    host: <%= File.exist?('/.dockerenv') ? ENV["POSTGRESQL_DOCS_PUB"] : 'localhost' %>  # FIXME: change to use replica
   core:
     <<: *default
     database: development_core_db
