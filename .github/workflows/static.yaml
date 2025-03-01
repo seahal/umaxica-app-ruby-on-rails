@@ -40,17 +40,17 @@ jobs:
           --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
         ports:
           - 5432:5432 # PostgreSQLのデフォルトポートをマッピング
-      env:
-        POSTGRES_USER: 'default'
-        POSTGRES_PASSWORD: 'password'
-        POSTGRESQL_AUTH_PUB: 'localhost'
-        POSTGRESQL_AUTH_SUB: 'localhost'
-        POSTGRESQL_CORE_PUB: 'localhost'
-        POSTGRESQL_CORE_SUB: 'localhost'
-        POSTGRESQL_DOCS_PUB: 'localhost'
-        POSTGRESQL_DOCS_SUB: 'localhost'
-        VALKEY_CACHE_URL: 'redis://localhost:6379/0'
-        VALKEY_SESSION_URL: 'redis://localhost:6379/1'
+    env:
+      POSTGRES_USER: 'default'
+      POSTGRES_PASSWORD: 'password'
+      POSTGRESQL_AUTH_PUB: 'localhost'
+      POSTGRESQL_AUTH_SUB: 'localhost'
+      POSTGRESQL_CORE_PUB: 'localhost'
+      POSTGRESQL_CORE_SUB: 'localhost'
+      POSTGRESQL_DOCS_PUB: 'localhost'
+      POSTGRESQL_DOCS_SUB: 'localhost'
+      VALKEY_CACHE_URL: 'redis://localhost:6379/0'
+      VALKEY_SESSION_URL: 'redis://localhost:6379/1'
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
