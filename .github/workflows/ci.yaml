@@ -1,0 +1,80 @@
+name: '[CI] Ruby on Rails'
+on:
+  push:
+    branches:
+      - master
+      - develop
+  pull_request:
+    branches:
+      - master
+      - develop
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  static-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    defaults:
+      run:
+        shell: bash
+    # Service containers to run with `container-job`
+    services:
+      redis:
+        # Docker Hub image
+        image: redis
+        # Set health checks to wait until redis has started
+        options: >-
+          --health-cmd "redis-cli ping" --health-interval 10s --health-timeout 5s --health-retries 5
+        ports:
+          - 6380:6379 # Redisのデフォルトポートをマッピング
+      postgres:
+        # Docker Hub image
+        image: postgres
+        # Provide the password for postgres
+        env:
+          POSTGRES_USER: 'default'
+          POSTGRES_PASSWORD: 'password'
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+        ports:
+          - 5433:5432 # PostgreSQLのデフォルトポートをマッピング
+    env:
+      POSTGRES_USER: 'default'
+      POSTGRES_PASSWORD: 'password'
+      POSTGRESQL_AUTH_PUB: 'localhost'
+      POSTGRESQL_AUTH_SUB: 'localhost'
+      POSTGRESQL_CORE_PUB: 'localhost'
+      POSTGRESQL_CORE_SUB: 'localhost'
+      POSTGRESQL_DOCS_PUB: 'localhost'
+      POSTGRESQL_DOCS_SUB: 'localhost'
+      VALKEY_CACHE_URL: 'redis://localhost:6380/0'
+      VALKEY_SESSION_URL: 'redis://localhost:6380/1'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+      - name: Rubocop
+        run: bin/rubocop --fail-fast
+      - name: Brakeman
+        run: bundle exec brakeman -z -q
+      - name: bundle audit
+        run: bundle exec bundle audit check --update
+      - name: Rails db:create
+        run: bin/rails db:create
+      - name: Rails db:migrate
+        run: bin/rails db:migrate
+      - name: Do tests without System Test
+        run: bin/rails test
+      - name: Check Application Boot
+        run: bundle exec rails runner "puts ActiveRecord::Base.connection.active?"
+#      - name: ERB Lint
+#      - name System tests
+#      - name: Run Code Climate
+    # - name: Debug
+    #   uses: mxschmitt/action-tmate@v3
+    #   timeout-minutes: 15
