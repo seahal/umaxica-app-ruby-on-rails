@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  namespace :com do
-    get "robots/show"
-  end
   # Corporate Page, www.jp.example.com
   constraints host: ENV["API_CORPORATE_URL"] do
     scope module: :com, as: :com do
@@ -67,6 +64,9 @@ Rails.application.routes.draw do
           resource :staging, only: :show
         end
       end
+      defaults format: :text do
+        get "/robots.txt", to: "robots#show", as: :robot
+      end
     end
   end
 
@@ -95,13 +95,16 @@ Rails.application.routes.draw do
         resources :session # FIXME: scope out this resource
       end
       # For api
-
       defaults format: :json do
         namespace :v1 do
           resource :health, only: :show
           resource :term # edit 'term of use'
           resource :staging, only: :show
         end
+      end
+      # 
+      defaults format: :text do
+        get "/robots.txt", to: "robots#show", as: :robot
       end
     end
   end
