@@ -64,8 +64,12 @@ jobs:
         run: bundle exec brakeman -z -q
       - name: bundle audit
         run: bundle exec bundle audit check --update
-      # - name: Rails test without Syste Test
-      #   run: bin/rails db:create && bin/rails db:migrate && bin/rails test:all
-      - name: Debug
-        uses: mxschmitt/action-tmate@v3
-        timeout-minutes: 15
+      - name: Rails db:create
+        run: bin/rails db:create
+      - name: Rails db:migrate
+        run: bin/rails db:migrate
+      - name: Rails test without System Test
+        run: bin/rails test
+    # - name: Debug
+    #   uses: mxschmitt/action-tmate@v3
+    #   timeout-minutes: 15
