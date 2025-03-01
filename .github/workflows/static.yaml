@@ -29,7 +29,6 @@ jobs:
       # RailsがRedisとPostgreSQLに接続するための環境変数
       REDIS_URL: redis://localhost:6379/0
       DATABASE_URL: postgres://postgres:postgres@localhost:5432/myapp_test
-      RAILS_ENV: test
       POSTGRESQL_AUTH_PUB: 'psql-pub'
       POSTGRESQL_AUTH_SUB: 'psql-sub'
       POSTGRESQL_CORE_PUB: 'psql-pub'
@@ -58,7 +57,7 @@ jobs:
         image: postgres
         # Provide the password for postgres
         env:
-          POSTGRES_PASSWORD: postgres
+          POSTGRES_PASSWORD: default
         # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
@@ -87,8 +86,8 @@ jobs:
         run: bundle exec bundle audit check --update
 
       - name: Debug
-        if: ${{ always() }}
         uses: mxschmitt/action-tmate@v3
+        timeout-minutes: 15
 
       - name: rails test
         run: bundle exec rails db:create && bundle exec rails db:migrate && bundle exec rails test
