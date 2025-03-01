@@ -79,6 +79,8 @@ group :development, :test do
   gem "faker"
   gem "rubocop", require: false
   gem "rubocop-rails-omakase", require: false
+  # erb linter
+  gem 'erb_lint', require: false
 end
 
 group :development do
