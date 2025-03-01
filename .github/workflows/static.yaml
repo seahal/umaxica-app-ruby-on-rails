@@ -79,4 +79,4 @@ jobs:
         run: bundle exec bundle audit check --update
 
       - name: rails test
-        run: printenv
+        run: bundle exec rails test
