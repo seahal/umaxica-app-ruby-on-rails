@@ -70,6 +70,8 @@ gem "tailwindcss-rails", "~> 4.0"
 gem "opentelemetry-sdk"
 gem "opentelemetry-exporter-otlp"
 gem "opentelemetry-instrumentation-all"
+# sitemap
+gem 'sitemap_generator'
 
 
 group :development, :test do
