@@ -1,5 +1,4 @@
 name: '[CI] Ruby on Rails'
-
 on:
   push:
     branches:
@@ -9,22 +8,16 @@ on:
     branches:
       - master
       - develop
-
-
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
-
-
 jobs:
   static-checks:
     runs-on: ubuntu-latest
     timeout-minutes: 5
-
     defaults:
       run:
         shell: bash
-
     # Service containers to run with `container-job`
     services:
       redis:
@@ -32,13 +25,9 @@ jobs:
         image: redis
         # Set health checks to wait until redis has started
         options: >-
-          --health-cmd "redis-cli ping"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+          --health-cmd "redis-cli ping" --health-interval 10s --health-timeout 5s --health-retries 5
         ports:
-          - 6379:6379  # Redisのデフォルトポートをマッピング
-
+          - 6379:6379 # Redisのデフォルトポートをマッピング
       postgres:
         # Docker Hub image
         image: postgres
@@ -48,16 +37,10 @@ jobs:
           POSTGRES_PASSWORD: 'password'
         # Set health checks to wait until postgres has started
         options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+          --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
         ports:
-          - 5432:5432  # PostgreSQLのデフォルトポートをマッピング
-
+          - 5432:5432 # PostgreSQLのデフォルトポートをマッピング
       env:
-        REDIS_URL: redis://localhost:6379/0
-        DATABASE_URL: postgres://postgres:postgres@localhost:5432/myapp_test
         POSTGRES_USER: 'default'
         POSTGRES_PASSWORD: 'password'
         POSTGRESQL_AUTH_PUB: 'localhost'
@@ -68,28 +51,21 @@ jobs:
         POSTGRESQL_DOCS_SUB: 'localhost'
         VALKEY_CACHE_URL: 'redis://localhost:6379/0'
         VALKEY_SESSION_URL: 'redis://localhost:6379/1'
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
           bundler-cache: true
-
       - name: Rubocop
         run: bin/rubocop --fail-fast
-
       - name: Brakeman
         run: bundle exec brakeman -z -q
-
       - name: bundle audit
         run: bundle exec bundle audit check --update
-
       - name: Debug
         uses: mxschmitt/action-tmate@v3
         timeout-minutes: 15
-
       - name: rails test
         run: bin/rails db:create && bin/rails db:migrate && bin/rails test
