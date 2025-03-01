@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  namespace :com do
+    get "robots/show"
+  end
   # Corporate Page, www.jp.example.com
   constraints host: ENV["API_CORPORATE_URL"] do
     scope module: :com, as: :com do
@@ -22,6 +25,9 @@ Rails.application.routes.draw do
           # show stating env
           resource :staging, only: :show
         end
+      end
+      defaults format: :text do
+        get "/robots.txt", to: "robots#show", as: :robot
       end
     end
   end
