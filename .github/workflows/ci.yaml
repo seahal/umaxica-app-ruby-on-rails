@@ -140,3 +140,49 @@ jobs:
           bundler-cache: true
       - name: Check Application Boot
         run: bundle exec rails runner "puts ActiveRecord::Base.connection.active?"
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    defaults:
+      run:
+        shell: bash
+    services:
+      redis:
+        image: redis
+        options: >-
+          --health-cmd "redis-cli ping" --health-interval 10s --health-timeout 5s --health-retries 5
+        ports:
+          - 6380:6379
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_USER: 'default'
+          POSTGRES_PASSWORD: 'password'
+        options: >-
+          --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+        ports:
+          - 5433:5432
+    env:
+      POSTGRES_USER: 'default'
+      POSTGRES_PASSWORD: 'password'
+      POSTGRESQL_AUTH_PUB: 'localhost'
+      POSTGRESQL_AUTH_SUB: 'localhost'
+      POSTGRESQL_DOCS_PUB: 'localhost'
+      POSTGRESQL_DOCS_SUB: 'localhost'
+      POSTGRESQL_CORE_PUB: 'localhost'
+      POSTGRESQL_CORE_SUB: 'localhost'
+      VALKEY_CACHE_URL: 'redis://localhost:6379/0'
+      VALKEY_SESSION_URL: 'redis://localhost:6379/1'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+      - name: Rails db:create
+        run: bin/rails db:create
+      - name: Rails db:migrate
+        run: bin/rails db:migrate
+      - name: Do tests without System Test
+        run: bin/rails test
