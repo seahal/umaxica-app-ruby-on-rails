@@ -1,5 +1,4 @@
 name: Push to ECR
-
 on:
   push:
     branches:
@@ -9,11 +8,9 @@ on:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
-
 permissions:
   contents: read # リポジトリのコンテンツを読み取る権限
   issues: write # Issueを書き込む権限
-  
 # delete develop
 jobs:
   build-and-push:
@@ -25,7 +22,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
       # Set up AWS CLI
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -33,14 +29,11 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
-
       - name: AWS preference
         run: aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 841162677945.dkr.ecr.ap-northeast-1.amazonaws.com
-
       # Dockerイメージのビルド
       - name: Build Docker image
         run: docker build -t docker.io/my-organization/my-app:${{ github.sha }} .
-
       # scanning with trivy
       # - name: Run Trivy vulnerability scanner
       #   uses: aquasecurity/trivy-action@0.28.0
@@ -51,9 +44,7 @@ jobs:
       #     ignore-unfixed: true
       #     vuln-type: 'os,library'
       #     severity: 'CRITICAL,HIGH'
-
       - name: Retag dockerimage
         run: docker tag docker.io/my-organization/my-app:${{ github.sha }} 841162677945.dkr.ecr.ap-northeast-1.amazonaws.com/umaxica/jit:latest
-
       - name: Push to Amazon ECR
         run: docker push 841162677945.dkr.ecr.ap-northeast-1.amazonaws.com/umaxica/jit:latest

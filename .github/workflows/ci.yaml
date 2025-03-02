@@ -67,9 +67,9 @@ jobs:
         run: bin/rails db:migrate
       - name: Do tests without System Test
         run: bin/rails test
-#      - name System tests
-#      - name: Run Code Climate
-#      - name: type check
+        #      - name System tests
+        #      - name: Run Code Climate
+        #      - name: type check
     # - name: Debug
     #   uses: mxschmitt/action-tmate@v3
     #   timeout-minutes: 15
