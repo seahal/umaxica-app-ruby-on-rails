@@ -64,8 +64,6 @@ jobs:
         run: bin/rails db:migrate
       - name: Do tests without System Test
         run: bin/rails test
-      - name: Check Application Boot
-        run: bundle exec rails runner "puts ActiveRecord::Base.connection.active?"
 #      - name System tests
 #      - name: Run Code Climate
 #      - name: type check
@@ -135,3 +133,19 @@ jobs:
           bundler-cache: true
       - name: Check ERB
         run: bundle exec erb_lint --lint-all
+  bootable:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: [setup]
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+      - name: Check Application Boot
+        run: bundle exec rails runner "puts ActiveRecord::Base.connection.active?"
