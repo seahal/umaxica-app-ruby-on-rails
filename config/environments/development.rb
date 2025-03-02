@@ -93,9 +93,13 @@ Rails.application.configure do
 
   # added
   ## to avoid errors
-  config.hosts << "localhost.localdomain"
-  config.hosts << "localhost4.localdomain"
-  config.hosts << "localhost6.localdomain"
+  # config.hosts << "localhost.localdomain"
+  # config.hosts << "localhost4.localdomain"
+  # config.hosts << "localhost6.localdomain"
+  config.hosts << "com.jit.localdomain"
+  config.hosts << "net.jit.localdomain"
+  config.hosts << "org.jit.localdomain"
+
   ## file watcher
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 end

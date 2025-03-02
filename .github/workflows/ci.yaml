@@ -12,7 +12,7 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 jobs:
-  ci:
+  setup:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     defaults:
@@ -58,25 +58,94 @@ jobs:
         with:
           ruby-version: .ruby-version
           bundler-cache: true
-      - name: Rubocop
-        run: bin/rubocop --fail-fast
-      - name: Brakeman
-        run: bundle exec brakeman -z -q
-      - name: bundle audit
-        run: bundle exec bundle audit check --update
       - name: Rails db:create
         run: bin/rails db:create
       - name: Rails db:migrate
         run: bin/rails db:migrate
       - name: Do tests without System Test
         run: bin/rails test
-      - name: Check Application Boot
-        run: bundle exec rails runner "puts ActiveRecord::Base.connection.active?"
-      - name: Check ERB
-        run: bundle exec erb_lint --lint-all
 #      - name System tests
 #      - name: Run Code Climate
 #      - name: type check
     # - name: Debug
     #   uses: mxschmitt/action-tmate@v3
     #   timeout-minutes: 15
+  brakeman:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: [setup]
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+      - run: bundle exec brakeman -z -q
+  rubocop:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: [setup]
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+      - name: Rubocop
+        run: bin/rubocop --fail-fast
+  bundle-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: [setup]
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+      - name: bundle audit
+        run: bundle exec bundle audit check --update
+  erb-lint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: [setup]
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+      - name: Check ERB
+        run: bundle exec erb_lint --lint-all
+  bootable:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: [setup]
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+      - name: Check Application Boot
+        run: bundle exec rails runner "puts ActiveRecord::Base.connection.active?"
