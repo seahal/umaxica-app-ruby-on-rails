@@ -143,6 +143,7 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    needs: [setup]
     defaults:
       run:
         shell: bash
