@@ -80,3 +80,9 @@ jobs:
     # - name: Debug
     #   uses: mxschmitt/action-tmate@v3
     #   timeout-minutes: 15
+  abc:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    defaults:
+      run:
+        shell: bash
