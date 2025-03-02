@@ -80,7 +80,7 @@ jobs:
     # - name: Debug
     #   uses: mxschmitt/action-tmate@v3
     #   timeout-minutes: 15
-  abc:
+  brakeman:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     needs: [ci]
@@ -100,3 +100,13 @@ jobs:
     steps:
       - name: Brakeman
         run: bundle exec brakeman -z -q
+  bundle-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: [ci]
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
