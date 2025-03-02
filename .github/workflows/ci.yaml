@@ -101,8 +101,14 @@ jobs:
       run:
         shell: bash
     steps:
-      - name: Brakeman
-        run: bundle exec brakeman -z -q
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+      - name: Rubocop
+        run: bin/rubocop --fail-fast
   bundle-audit:
     runs-on: ubuntu-latest
     timeout-minutes: 5
