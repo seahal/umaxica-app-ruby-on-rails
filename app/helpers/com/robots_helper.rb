@@ -1,0 +1,2 @@
+module Com::RobotsHelper
+end

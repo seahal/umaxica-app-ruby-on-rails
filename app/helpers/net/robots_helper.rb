@@ -1,0 +1,2 @@
+module Net::RobotsHelper
+end

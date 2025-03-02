@@ -23,6 +23,9 @@ Rails.application.routes.draw do
           resource :staging, only: :show
         end
       end
+      defaults format: :text do
+        get "/robots.txt", to: "robots#show", as: :robot
+      end
     end
   end
 
@@ -61,6 +64,9 @@ Rails.application.routes.draw do
           resource :staging, only: :show
         end
       end
+      defaults format: :text do
+        get "/robots.txt", to: "robots#show", as: :robot
+      end
     end
   end
 
@@ -89,13 +95,16 @@ Rails.application.routes.draw do
         resources :session # FIXME: scope out this resource
       end
       # For api
-
       defaults format: :json do
         namespace :v1 do
           resource :health, only: :show
           resource :term # edit 'term of use'
           resource :staging, only: :show
         end
+      end
+      #
+      defaults format: :text do
+        get "/robots.txt", to: "robots#show", as: :robot
       end
     end
   end

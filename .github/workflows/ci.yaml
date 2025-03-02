@@ -12,7 +12,7 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 jobs:
-  static-checks:
+  ci:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     defaults:
@@ -72,9 +72,11 @@ jobs:
         run: bin/rails test
       - name: Check Application Boot
         run: bundle exec rails runner "puts ActiveRecord::Base.connection.active?"
-#      - name: ERB Lint
+      - name: Check ERB
+        run: bundle exec erb_lint --lint-all
 #      - name System tests
 #      - name: Run Code Climate
+#      - name: type check
     # - name: Debug
     #   uses: mxschmitt/action-tmate@v3
     #   timeout-minutes: 15
