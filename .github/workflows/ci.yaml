@@ -12,8 +12,8 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 permissions:
-  contents: read # リポジトリのコンテンツを読み取る権限
-  issues: write # Issueを書き込む権限
+  contents: read
+  issues: write
 jobs:
   setup:
     runs-on: ubuntu-latest
@@ -21,39 +21,27 @@ jobs:
     defaults:
       run:
         shell: bash
-    # Service containers to run with `container-job`
     services:
       redis:
-        # Docker Hub image
         image: redis
-        # Set health checks to wait until redis has started
         options: >-
           --health-cmd "redis-cli ping" --health-interval 10s --health-timeout 5s --health-retries 5
         ports:
-          - 6380:6379 # Redisのデフォルトポートをマッピング
+          - 6379:6379
       postgres:
-        # Docker Hub image
         image: postgres
-        # Provide the password for postgres
         env:
           POSTGRES_USER: 'default'
           POSTGRES_PASSWORD: 'password'
-        # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
         ports:
-          - 5433:5432 # PostgreSQLのデフォルトポートをマッピング
+          - 5432:5432
     env:
       POSTGRES_USER: 'default'
       POSTGRES_PASSWORD: 'password'
-      POSTGRESQL_AUTH_PUB: 'localhost'
-      POSTGRESQL_AUTH_SUB: 'localhost'
-      POSTGRESQL_CORE_PUB: 'localhost'
-      POSTGRESQL_CORE_SUB: 'localhost'
-      POSTGRESQL_DOCS_PUB: 'localhost'
-      POSTGRESQL_DOCS_SUB: 'localhost'
-      VALKEY_CACHE_URL: 'redis://localhost:6380/0'
-      VALKEY_SESSION_URL: 'redis://localhost:6380/1'
+      VALKEY_CACHE_URL: 'redis://localhost:6379/0'
+      VALKEY_SESSION_URL: 'redis://localhost:6379/1'
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -67,12 +55,6 @@ jobs:
         run: bin/rails db:migrate
       - name: Do tests without System Test
         run: bin/rails test
-        #      - name System tests
-        #      - name: Run Code Climate
-        #      - name: type check
-    # - name: Debug
-    #   uses: mxschmitt/action-tmate@v3
-    #   timeout-minutes: 15
   brakeman:
     runs-on: ubuntu-latest
     timeout-minutes: 5
