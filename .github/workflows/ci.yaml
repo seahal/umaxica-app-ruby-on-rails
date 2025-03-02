@@ -11,6 +11,9 @@ on:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
+permissions:
+  contents: read # リポジトリのコンテンツを読み取る権限
+  issues: write # Issueを書き込む権限
 jobs:
   setup:
     runs-on: ubuntu-latest
