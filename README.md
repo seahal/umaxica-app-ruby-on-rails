@@ -13,12 +13,12 @@ Things you may want to cover:
 	- Linux => Run on it.
     - Ruby => Ofcource, we are on Ruby.
 * Configuration
-    - Edit hosts files to separate .com or .net.
+    - Edit `/etc/hosts` files to separate .com or .net.
     - ```
-      # /etc/hosts
-      127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain        in4
-      ::1         localhost localhost.localdomain localhost6 localhost6.localdomain        in6```
-    - `localhost.localdomain` is for jit.umaxica.com, `localhost4.localdomain` is for jit.umaxica.net and `localhost6.localdomain` is for jit.umaxica.org .
+      # See hosts(5) for details.
+	  127.0.0.1   com.jit.localdomain net.jit.localdomain org.jit.localdomain
+	  ```
+    - `com.jit.localdomain` is for jit.umaxica.com, `net.jit.localdomain` is for jit.umaxica.net and `org.jit.localdomain` is for jit.umaxica.org .
 * Database creation
     - `bin/rails db:create`
 * Database initialization
