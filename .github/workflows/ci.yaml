@@ -156,3 +156,19 @@ jobs:
         run: bin/rails db:migrate
       - name: Do tests without System Test
         run: bin/rails test
+  teardown:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: [brakeman, rubocop, bundle-audit,erb-lint,bootable,tests]
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+      - name: Check helath
+        run: bin/rails about
