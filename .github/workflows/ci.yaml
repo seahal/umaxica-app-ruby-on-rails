@@ -60,8 +60,6 @@ jobs:
           bundler-cache: true
       - name: Rubocop
         run: bin/rubocop --fail-fast
-      - name: Brakeman
-        run: bundle exec brakeman -z -q
       - name: bundle audit
         run: bundle exec bundle audit check --update
       - name: Rails db:create
@@ -90,6 +88,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+      - run: bundle exec brakeman -z -q
   rubocop:
     runs-on: ubuntu-latest
     timeout-minutes: 5
