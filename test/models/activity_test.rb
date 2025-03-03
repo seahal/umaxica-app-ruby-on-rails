@@ -4,7 +4,7 @@ require "test_helper"
 
 class ActivityTest < ActiveSupport::TestCase
   test "checking redis cache liveness" do
-    r = Redis.new(url: File.exist?("/.dockerenv") ? ENV["REDIS_CACHE_URL"] : "redis://localhost:6379/0")
+    r = Redis.new(url: File.exist?("/.dockerenv") ? ENV["REDIS_CACHE_URL"] : "redis://localhost:6380/0")
     assert_equal r.ping, "PONG"
   end
 
@@ -14,7 +14,7 @@ class ActivityTest < ActiveSupport::TestCase
   end
 
   test "checking PostgreSQL(AUTH, Pub) liveness" do
-    r = Redis.new(url: File.exist?("/.dockerenv") ? ENV["REDIS_CACHE_URL"] : "redis://localhost:6379/0")
-    assert_equal r.ping, "PONG"
+    # r = Redis.new(url: File.exist?("/.dockerenv") ? ENV["REDIS_CACHE_URL"] : "redis://localhost:6380/0")
+    # assert_equal r.ping, "PONG"
   end
 end
