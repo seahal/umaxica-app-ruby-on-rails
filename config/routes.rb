@@ -4,29 +4,23 @@ Rails.application.routes.draw do
   # Corporate Page, www.jp.example.com
   constraints host: ENV["API_CORPORATE_URL"] do
     scope module: :com, as: :com do
-      # only delivery html format
-      defaults format: :html do
-        # Homepage
-        root to: "roots#index"
-        # health check for html
+      # Homepage
+      root to: "roots#index"
+      # health check for html
+      resource :health, only: :show
+      # show latest 'term of use'
+      resource :term, only: :show
+      # show stating env
+      resource :staging, only: :show
+      # show search pages
+      resource :search, only: :show
+      # ROBOTS
+      get "/robots.txt", to: "robots#show", as: :robot, format: :text
+      # api
+      namespace :v1 do
         resource :health, only: :show
-        # show latest 'term of use'
-        resource :term, only: :show
         # show stating env
         resource :staging, only: :show
-        # show search pages
-        resource :search, only: :show
-      end
-      # only delivery json format
-      defaults format: :json do
-        namespace :v1 do
-          resource :health, only: :show
-          # show stating env
-          resource :staging, only: :show
-        end
-      end
-      defaults format: :text do
-        get "/robots.txt", to: "robots#show", as: :robot
       end
     end
   end
@@ -57,15 +51,18 @@ Rails.application.routes.draw do
           resource :apple, only: %i[new create], controller: "session_apples"
         end
       end
-      defaults format: :json do
         # Settings
         resource :preference, only: :show
         # For api
         namespace :v1 do
           resource :health, only: :show
           resource :staging, only: :show
+
+          #
+          namespace :beacon do
+            resources :emails, only: %i[show]
+          end
         end
-      end
       defaults format: :text do
         get "/robots.txt", to: "robots#show", as: :robot
       end
@@ -96,14 +93,16 @@ Rails.application.routes.draw do
         # TODO: Login or Logout
         resources :session # FIXME: scope out this resource
       end
-      # For api
-      defaults format: :json do
+        # For api
         namespace :v1 do
           resource :health, only: :show
           resource :term # edit 'term of use'
           resource :staging, only: :show
+          #
+          namespace :beacon do
+            resources :emails, only: %i[show]
+          end
         end
-      end
       #
       defaults format: :text do
         get "/robots.txt", to: "robots#show", as: :robot

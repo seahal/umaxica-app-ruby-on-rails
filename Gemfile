@@ -3,7 +3,7 @@ source "https://rubygems.org"
 ruby "3.4.2"
 
 # rack
-gem "rack", "~> 3.1", ">= 3.1.10"
+gem "rack"
 # type for Ruby language.
 gem "rbs"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
@@ -11,7 +11,7 @@ gem "rbs"
 gem "rails", github: "rails/rails", branch: "main"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 # Use PostgreSQL as the database for Active Record
-gem "pg", "~> 1.5", ">= 1.5.9"
+gem "pg"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
@@ -25,9 +25,11 @@ gem "redis-actionpack"
 gem "kredis"
 # For CORS
 gem "rack-cors"
+# To Avoid attacks from crackers
+gem "rack-attack"
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-gem "argon2", "~> 2.3.2"
-gem "bcrypt", "~> 3.1.7"
+gem "argon2"
+gem "bcrypt"
 # SHA3
 gem "sha3", "~> 2.0"
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -62,8 +64,6 @@ gem "stimulus-rails"
 gem "kamal", require: false
 # Add HTTP asset caching/compression and X-Sendfile acceleration to Puma [https://github.com/basecamp/thruster/]
 gem "thruster", require: false
-# To Avoid attacks from crackers
-gem "rack-attack", "~> 6.7"
 # To use tailwind css
 gem "tailwindcss-rails", "~> 4.0"
 # OpenTelemetry
