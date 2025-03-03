@@ -32,7 +32,7 @@ jobs:
         run: aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 841162677945.dkr.ecr.ap-northeast-1.amazonaws.com
       # Dockerイメージのビルド
       - name: Build Docker image
-        run: docker build -t docker.io/my-organization/my-app:${{ github.sha }} .
+        run: docker build -t docker.io/my-organization/my-app:${{ github.sha }} --build-arg COMMIT_HASH=${{ github.sha }} .
       # scanning with trivy
       # - name: Run Trivy vulnerability scanner
       #   uses: aquasecurity/trivy-action@0.28.0
@@ -44,6 +44,6 @@ jobs:
       #     vuln-type: 'os,library'
       #     severity: 'CRITICAL,HIGH'
       - name: Retag dockerimage
-        run: docker tag docker.io/my-organization/my-app:${{ github.sha }} 841162677945.dkr.ecr.ap-northeast-1.amazonaws.com/umaxica/jit:latest --build-arg COMMIT_HASH=${{ github.sha }}
+        run: docker tag docker.io/my-organization/my-app:${{ github.sha }} 841162677945.dkr.ecr.ap-northeast-1.amazonaws.com/umaxica/jit:latest
       - name: Push to Amazon ECR
         run: docker push 841162677945.dkr.ecr.ap-northeast-1.amazonaws.com/umaxica/jit:latest
