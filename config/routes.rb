@@ -14,6 +14,8 @@ Rails.application.routes.draw do
         resource :term, only: :show
         # show stating env
         resource :staging, only: :show
+        # show search pages
+        resource :search, only: :show
       end
       # only delivery json format
       defaults format: :json do
