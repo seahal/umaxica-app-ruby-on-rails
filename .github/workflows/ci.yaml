@@ -154,6 +154,9 @@ jobs:
         run: bin/rails db:create
       - name: Rails db:migrate
         run: bin/rails db:migrate
+      - name: Debug
+        uses: mxschmitt/action-tmate@v3
+        timeout-minutes: 15
       - name: Do tests without System Test
         run: bin/rails test
   teardown:
