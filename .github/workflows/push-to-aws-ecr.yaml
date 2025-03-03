@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - main
-      - develop # delete this line
+#      - develop # delete this line
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
