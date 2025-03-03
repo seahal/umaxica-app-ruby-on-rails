@@ -1840,8 +1840,6 @@ GEM
       activesupport (>= 5.0.0)
     jmespath (1.6.2)
     json (2.10.1)
-    jwt (2.10.1)
-      base64
     kamal (2.5.3)
       activesupport (>= 7.0)
       base64 (~> 0.2)
@@ -2288,12 +2286,6 @@ GEM
     turbo-rails (2.0.12)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
-    twilio-ruby (7.4.5)
-      benchmark
-      faraday (>= 0.9, < 3.0)
-      jwt (>= 1.5, < 3.0)
-      nokogiri (>= 1.6, < 2.0)
-      ostruct
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (3.1.4)
@@ -2376,7 +2368,6 @@ DEPENDENCIES
   tailwindcss-rails (~> 4.0)
   thruster
   turbo-rails
-  twilio-ruby (~> 7.4.3)
   tzinfo-data
   web-console
 

@@ -29,7 +29,7 @@ gem "rack-cors"
 gem "argon2", "~> 2.3.2"
 gem "bcrypt", "~> 3.1.7"
 # SHA3
-gem 'sha3', '~> 2.0'
+gem "sha3", "~> 2.0"
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[windows jruby]
 # Reduces boot times through caching; required sign_in config/boot.rb
@@ -47,8 +47,6 @@ gem "ostruct", "~> 0.6.1"
 gem "addressable", "~> 2.8", ">= 2.8.7"
 # Authentication
 gem "cancancan", "~> 3.6", ">= 3.6.1"
-# twilio
-gem "twilio-ruby", "~> 7.4.3"
 # FIXME: i am wondering that using aws's s3.
 gem "aws-sdk", "~> 3.0", ">= 3.0.1"
 gem "aws-sdk-s3", require: false
