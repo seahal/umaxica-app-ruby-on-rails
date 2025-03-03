@@ -10,7 +10,7 @@ module V1
       if ENV["STAGING"].blank? && Rails.env.production?
         render status: 500, json: { staging: true }
       else
-        render status: 200, json: { staging: false, id: ENV.fetch("STAGING", nil) || "" }
+        render status: 200, json: { staging: false, id: ENV.fetch("COMMIT_HASH", nil) || "" }
       end
     end
   end
