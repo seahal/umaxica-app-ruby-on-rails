@@ -8,6 +8,6 @@
         raise ActionController::RoutingError, "Page not found when run on production"
       end
 
-      @git_hash = ENV.fetch("STAGING", nil) || ""
+      @git_hash = ENV.fetch("COMMIT_HASH", nil) || ""
     end
   end

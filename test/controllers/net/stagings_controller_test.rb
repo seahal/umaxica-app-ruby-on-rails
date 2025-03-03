@@ -7,7 +7,7 @@ module Net
     test "should get show" do
       get net_staging_url
       assert_response :success
-      assert_select "p", "HASH => #{ENV['STAGING']}"
+      assert_select "p", "HASH =>#{ENV['COMMIT_HASH']}"
     end
   end
 end

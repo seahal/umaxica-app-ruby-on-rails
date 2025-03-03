@@ -1,7 +1,8 @@
 ARG RUBY_VERSION=3.4.2
 
 FROM ruby:$RUBY_VERSION-bookworm AS development
-FROM ruby:$RUBY_VERSION AS development
+ARG COMMIT_HASH
+ENV COMMIT_HASH=${COMMIT_HASH}
 ENV TZ=UTC
 ENV HOME=/ror
 #RUN groupadd -r lirantal && useradd -r -s /bin/false -g lirantal lirantal
@@ -23,6 +24,8 @@ ARG DOCKER_GID=2000
 ARG DOCKER_GROUP=g1
 ARG DOCKER_UID=2000
 ARG DOCKER_USER=u1
+ARG COMMIT_HASH
+ENV COMMIT_HASH=${COMMIT_HASH}
 RUN groupadd -g ${DOCKER_GID} ${DOCKER_GROUP}
 WORKDIR /ror
 COPY Gemfile Gemfile.lock /ror/
