@@ -46,9 +46,9 @@ Rails.application.routes.draw do
         # Sign In/Out, NEED WEB
         resource :session, only: %i[new destroy] do
           resource :email, only: %i[new create], controller: "session_emails"
-          resource :phone, only: %i[new create], controller: "session_phones"
           resource :google, only: %i[new create], controller: "session_googles"
           resource :apple, only: %i[new create], controller: "session_apples"
+          resource :token, only: %i[new create], controller: "session_token"
         end
       end
         # Settings

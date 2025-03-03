@@ -4,9 +4,14 @@ require "test_helper"
 
 module Net
   class SessionsControllerTest < ActionDispatch::IntegrationTest
-    # test 'should get new 2' do
-    #   get new_net_session_url
-    #   assert_response :success
-    # end
+    test "should get new 2" do
+      get new_net_session_url
+      assert_response :success
+      assert_select "a[href=?]", new_net_session_email_path
+      assert_select "a[href=?]", new_net_session_apple_path
+      assert_select "a[href=?]", new_net_session_google_path
+      assert_select "a[href=?]", new_net_session_token_path
+      assert_select "a[href=?]", net_root_path, count: 2
+    end
   end
 end
