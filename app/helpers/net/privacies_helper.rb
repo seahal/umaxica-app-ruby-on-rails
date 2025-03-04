@@ -1,0 +1,2 @@
+module Net::PrivaciesHelper
+end
