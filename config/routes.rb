@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  namespace :com do
+    get "contacts/new"
+  end
   # Corporate Page, www.jp.umaxica.com
   constraints host: ENV["API_CORPORATE_URL"] do
     scope module: :com, as: :com do
@@ -14,6 +17,12 @@ Rails.application.routes.draw do
       resource :search, only: :show
       # non-loggined settings
       resource :privacy, only: [ :show, :edit ]
+      resource :contact, only: [ :new, :create ]
+      namespace :contact do
+        resources :email, only: [ :update, :show ]
+        resources :telephone, only: [ :update, :show ]
+        resources :message, only: [ :update,  :create ]
+      end
       # ROBOTS
       get "/robots.txt", to: "robots#show", as: :robot, format: :text
       # api
