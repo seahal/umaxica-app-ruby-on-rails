@@ -1840,6 +1840,8 @@ GEM
       activesupport (>= 5.0.0)
     jmespath (1.6.2)
     json (2.10.1)
+    jwt (3.0.0.beta1)
+      base64
     kamal (2.5.3)
       activesupport (>= 7.0)
       base64 (~> 0.2)
@@ -2161,7 +2163,7 @@ GEM
     puma (6.6.0)
       nio4r (~> 2.0)
     racc (1.8.1)
-    rack (3.1.10)
+    rack (3.1.11)
     rack-attack (6.7.0)
       rack (>= 1.0, < 4)
     rack-cors (2.0.2)
@@ -2211,7 +2213,7 @@ GEM
     reline (0.6.0)
       io-console (~> 0.5)
     rexml (3.4.1)
-    rubocop (1.73.1)
+    rubocop (1.73.2)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.1.0)
@@ -2337,6 +2339,7 @@ DEPENDENCIES
   image_processing
   importmap-rails
   jbuilder
+  jwt (= 3.0.0.beta1)
   kamal
   karafka (~> 2.4, >= 2.4.17)
   kredis
