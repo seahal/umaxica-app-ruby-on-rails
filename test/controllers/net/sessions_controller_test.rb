@@ -10,7 +10,8 @@ module Net
       assert_select "a[href=?]", new_net_session_email_path
       assert_select "a[href=?]", new_net_session_apple_path
       assert_select "a[href=?]", new_net_session_google_path
-      assert_select "a[href=?]", new_net_session_token_path
+      assert_select "a[href=?]", new_net_session_passkey_path
+      assert_select "a[href=?]", new_net_session_password_path
       assert_select "a[href=?]", net_root_path, count: 2
     end
   end

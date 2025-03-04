@@ -1,0 +1,2 @@
+module Org::PrivaciesHelper
+end

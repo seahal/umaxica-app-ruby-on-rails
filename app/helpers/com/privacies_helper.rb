@@ -1,0 +1,2 @@
+module Com::PrivaciesHelper
+end
