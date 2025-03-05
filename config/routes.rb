@@ -45,6 +45,12 @@ Rails.application.routes.draw do
         resource :staging, only: :show
         # non-loggined settings
         resource :privacy, only: [ :show, :edit ]
+        # contact page
+        namespace :contact do
+          resources :email, only: [ :update, :show ]
+          resources :telephone, only: [ :update, :show ]
+          resources :message, only: [ :update,  :create ]
+        end
         # Sign up pages
         resource :registration, only: :new
         namespace :registration do
@@ -94,6 +100,12 @@ Rails.application.routes.draw do
         resource :staging, only: :show
         # non-loggined settings
         resource :privacy, only: [ :show, :edit ]
+        # contact page
+        namespace :contact do
+          resources :email, only: [ :update, :show ]
+          resources :telephone, only: [ :update, :show ]
+          resources :message, only: [ :update,  :create ]
+        end
         # TODO: Owner's lounge
         resource :owner, only: :show
         # Sign up pages

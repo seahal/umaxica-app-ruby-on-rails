@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails.git
-  revision: cad21967407ba676185b2244921d4462fbe78d55
+  revision: 348f9b1803aec24587aeff0440f55a9380b1e72c
   branch: main
   specs:
     actioncable (8.1.0.alpha)
@@ -2206,7 +2206,7 @@ GEM
       actionpack (>= 5)
       redis-rack (>= 2.1.0, < 4)
       redis-store (>= 1.1.0, < 2)
-    redis-client (0.23.2)
+    redis-client (0.24.0)
       connection_pool
     redis-rack (3.0.0)
       rack-session (>= 0.2.0)

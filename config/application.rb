@@ -26,7 +26,13 @@ module Learn
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
-    # Added by user
+    ### Added by user
+
+    # CORS
     config.middleware.use Rack::Attack
+
+    # USE UTC
+    config.time_zone ='UTC'
+    config.active_record.default_timezone = :utc
   end
 end
