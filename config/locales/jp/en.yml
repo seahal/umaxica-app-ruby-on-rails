@@ -1,5 +1,6 @@
 ---
 en:
+  hello: "Hello world 2"
   activerecord:
     errors:
       messages:

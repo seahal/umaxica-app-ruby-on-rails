@@ -72,6 +72,8 @@ gem "opentelemetry-exporter-otlp"
 gem "opentelemetry-instrumentation-all"
 # sitemap
 gem "sitemap_generator"
+#
+gem "jwt", "3.0.0.beta1"
 
 
 group :development, :test do
