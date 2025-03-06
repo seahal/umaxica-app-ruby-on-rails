@@ -5,10 +5,22 @@ module Common
 
   # set url params
   def default_url_options
-    { lang: I18n.locale, tz: "jst" }
+    tz = params["tz"] == "utc" ? "utc" : ""
+    lang = params["lang"] == "en" ? "en" : ""
+
+    if tz == "utc" && lang == "en"
+      { tz: "utc", lang: "en" }
+    elsif tz == "utc"
+      { tz: "utc" }
+    elsif lang == "en"
+      { lang: "en" }
+    else
+      {}
+    end
   end
 
   private
+
   # generate uuid
   def gen_original_uuid
     SecureRandom.uuid
