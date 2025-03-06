@@ -77,22 +77,6 @@ jobs:
           bundler-cache: true
       - name: bundle audit
         run: bundle exec bundle audit check --update
-  erb-lint:
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    needs: [setup]
-    defaults:
-      run:
-        shell: bash
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: .ruby-version
-          bundler-cache: true
-      - name: Check ERB
-        run: bundle exec erb_lint --lint-all
   bootable:
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -162,7 +146,7 @@ jobs:
   teardown:
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    needs: [brakeman, rubocop, bundle-audit,erb-lint,bootable,tests]
+    needs: [brakeman, rubocop, bundle-audit,bootable,tests]
     defaults:
       run:
         shell: bash

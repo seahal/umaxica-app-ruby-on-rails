@@ -10,6 +10,11 @@
     <li><%= link_to 'privacy', com_privacy_path %></li>
     <li><%= link_to 'contact', new_com_contact_path %></li>
   </ul>
+  <ul>
+    <li>現在の言語: <%= I18n.locale %></li>
+    <li>TimeZone: <%= params[:tz].to_s.downcase == 'utc' ? "utc" : 'jst'  %></li>
+    <li><%= I18n.t "hello" %></li>
+    <li><%= Time.now.in_time_zone("Tokyo") %></li>
+    <li><%= to_localetime Time.now, 'jst' %></li>
+  </ul>
 </div>
-
-<%= I18n.t "hello" %>
