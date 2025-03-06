@@ -30,6 +30,16 @@ module Com
         assert_select "a[href=?]", "/?lang=en"
       end
 
+      test "check default params(En)" do
+        get com_health_url, params: { lang: "En" }
+        assert_select "a[href=?]", "/?lang=en"
+      end
+
+      test "check default params(EN)" do
+        get com_health_url, params: { lang: "EN" }
+        assert_select "a[href=?]", "/?lang=en"
+      end
+
       test "check default params(kr)" do
         get com_health_url, params: { lang: "kr" }
         assert_select "a[href=?]", "/"
@@ -37,6 +47,14 @@ module Com
 
       test "check default params(utc)" do
         get com_health_url, params: { tz: "utc" }
+        assert_select "a[href=?]", "/?tz=utc"
+      end
+      test "check default params(Utc)" do
+        get com_health_url, params: { tz: "Utc" }
+        assert_select "a[href=?]", "/?tz=utc"
+      end
+      test "check default params(UTC)" do
+        get com_health_url, params: { tz: "UTC" }
         assert_select "a[href=?]", "/?tz=utc"
       end
 

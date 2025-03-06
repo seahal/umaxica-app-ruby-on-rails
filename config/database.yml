@@ -24,12 +24,12 @@ development:
     replica: true
     database: development_auth_db
     port: <%= File.exist?('/.dockerenv') ? 5432 : 5433 %> # FIXME: change replica
-    host: <%= File.exist?('/.dockerenv') ? ENV["POSTGRESQL_AUTH_PUB"] : 'localhost' %>
+    host: <%= File.exist?('/.dockerenv') ? ENV["POSTGRESQL_AUTH_PUB"] : 'localhost' %> # FIXME: change to use replica
   docs:
     <<: *default
     database: development_docs_db
-    port: <%= File.exist?('/.dockerenv') ? 5432 : 5433 %> # FIXME: change to use replica
-    host: <%= File.exist?('/.dockerenv') ? ENV["POSTGRESQL_CORE_PUB"] : 'localhost' %> # FIXME: change to use replica
+    port: <%= File.exist?('/.dockerenv') ? 5432 : 5433 %>
+    host: <%= File.exist?('/.dockerenv') ? ENV["POSTGRESQL_CORE_PUB"] : 'localhost' %>
   docs_replica:
     <<: *default
     replica: true
@@ -39,9 +39,20 @@ development:
   core:
     <<: *default
     database: development_core_db
-    port: <%= File.exist?('/.dockerenv') ? 5432 : 5433 %> # FIXME: change to use replica
+    port: <%= File.exist?('/.dockerenv') ? 5432 : 5433 %>
     host: <%= File.exist?('/.dockerenv') ? ENV["POSTGRESQL_CORE_PUB"] : 'localhost' %> # FIXME: change to use replica
   core_replica:
+    <<: *default
+    replica: true
+    database: development_core_db
+    port: <%= File.exist?('/.dockerenv') ? 5432 : 5433 %> # FIXME: change to use replica
+    host: <%= File.exist?('/.dockerenv') ? ENV["POSTGRESQL_CORE_PUB"] : 'localhost' %>  # FIXME: change to use replica
+  message:
+    <<: *default
+    database: development_core_db
+    port: <%= File.exist?('/.dockerenv') ? 5432 : 5433 %>
+    host: <%= File.exist?('/.dockerenv') ? ENV["POSTGRESQL_CORE_PUB"] : 'localhost' %> # FIXME: change to use replica
+  message_replica:
     <<: *default
     replica: true
     database: development_core_db
@@ -81,6 +92,17 @@ test:
     port: <%= File.exist?('/.dockerenv') ? 5432 : 5433 %>
     host: <%= File.exist?('/.dockerenv') ? ENV["POSTGRESQL_CORE_PUB"] : 'localhost' %>
   core_replica:
+    <<: *default
+    replica: true
+    database: test_core_db
+    port: <%= File.exist?('/.dockerenv') ? 5432 : 5433 %>
+    host: <%= File.exist?('/.dockerenv') ? ENV["POSTGRESQL_CORE_SUB"] : 'localhost' %>
+  message:
+    <<: *default
+    database: test_core_db
+    port: <%= File.exist?('/.dockerenv') ? 5432 : 5433 %>
+    host: <%= File.exist?('/.dockerenv') ? ENV["POSTGRESQL_CORE_PUB"] : 'localhost' %>
+  message_replica:
     <<: *default
     replica: true
     database: test_core_db

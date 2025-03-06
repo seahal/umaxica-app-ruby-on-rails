@@ -16,7 +16,7 @@ Things you may want to cover:
     - Edit `/etc/hosts` files to separate .com or .net.
     - ```
       # See hosts(5) for details.
-	  127.0.0.1   com.jit.localdomain net.jit.localdomain org.jit.localdomain
+	  127.0.0.1   com.www.localdomain net.www.localdomain org.www.localdomain asset.com.www.localdomain asset.net.www.localdomain asset.www.org.localdomain
 	  ```
     - `com.jit.localdomain` is for jit.umaxica.com, `net.jit.localdomain` is for jit.umaxica.net and `org.jit.localdomain` is for jit.umaxica.org .
 * Database creation
