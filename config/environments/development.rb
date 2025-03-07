@@ -98,9 +98,9 @@ Rails.application.configure do
   config.hosts << "com.www.localdomain"
   config.hosts << "net.www.localdomain"
   config.hosts << "org.www.localdomain"
-  config.hosts << "com.api.localdomain:3333"
-  config.hosts << "net.api.localdomain:3333"
-  config.hosts << "org.api.localdomain:3333"
+  config.hosts << "com.api.localdomain"
+  config.hosts << "net.api.localdomain"
+  config.hosts << "org.api.localdomain"
 
   ## file watcher
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
