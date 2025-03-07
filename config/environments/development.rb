@@ -97,6 +97,7 @@ Rails.application.configure do
   config.hosts << "com.www.localdomain"
   config.hosts << "net.www.localdomain"
   config.hosts << "org.www.localdomain"
+  config.hosts << "dev.www.localdomain"
 
   ## file watcher
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
