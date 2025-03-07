@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  # Corporate Page, www.jp.umaxica.com
-  draw(:com)
-  # Service page, www.jp.umaxica.net
-  draw(:net)
-  # Staff page, www.jp.umaxica.org
-  draw(:org)
-  #
-  draw :dev unless Rails.env.production?
+  namespace :dev do
+    get "root/show"
+  end
+  # Pages for dev pages.
+  draw :dev  unless Rails.env.production?
+  # for pages which show html
+  draw :www
+  # api endpoint url
+  draw :api
 end
