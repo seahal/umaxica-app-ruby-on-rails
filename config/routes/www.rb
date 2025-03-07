@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   scope module: :www, as: :www do
     constraints host: ENV["WWW_CORPORATE_URL"] do
       scope module: :com, as: :com do
-        # root to: "roots#index"
-        # TODO: redirect to edge
+        #
+        root to: redirect("#{ENV['EDGE_CORPORATE_URL']}")
         # health check for html
         resource :health, only: :show
         # show latest 'term of use'
@@ -23,13 +23,13 @@ Rails.application.routes.draw do
         # ROBOTS
         resources :robots, only: :index, format: :txt
         # Security
-        resource :security, only: :show, format: [ :txt, :html ]
+        get "/security(.:format)", to: redirect("#{ENV['EDGE_CORPORATE_URL']}/security.html"), as: :security
       end
 
       constraints host: ENV["WWW_SERVICE_URL"] do
         scope module: :net, as: :net do
-          # root page
-          # TODO: redirect to edge
+          #
+          root to: redirect("#{ENV['EDGE_CORPORATE_URL']}")
           # root to: "roots#index"
           resource :health, only: :show # health check for html
           # show latest 'term of use'
@@ -68,7 +68,7 @@ Rails.application.routes.draw do
           # ROBOTS
           resources :robots, only: :index, format: :txt
           # Security
-          resource :security, only: :show, format: [ :txt, :html ]
+          get "/security(.:format)", to: redirect("#{ENV['EDGE_SERVICE_URL']}/security.html"), as: :security
         end
       end
     end
@@ -78,7 +78,7 @@ Rails.application.routes.draw do
       scope module: :org, as: :org do
         # Homepage
         # ToDo: redirect
-        # root to: "roots#index"
+        root to: redirect("#{ENV['EDGE_STAFF_URL']}")
         # health check for html
         resource :health, only: :show
         # show 'term of use'
@@ -110,7 +110,7 @@ Rails.application.routes.draw do
         # ROBOTS
         resources :robots, only: :index, format: :txt
         # Security
-        resource :security, only: :show, format: [ :txt, :html ]
+        get "/security(.:format)", to: redirect("#{ENV['EDGE_STAFF_URL']}/security.html"), as: :security
       end
     end
   end
