@@ -21,14 +21,16 @@ Rails.application.routes.draw do
           resources :message, only: [ :update, :create ]
         end
         # ROBOTS
-        get "/robots", to: "robots#show", as: :robot, format: :text
+        resources :robots, only: :index, format: :txt
+        # Security
+        resource :security, only: :show, format: [ :txt, :html ]
       end
 
       constraints host: ENV["WWW_SERVICE_URL"] do
         scope module: :net, as: :net do
           # root page
           # TODO: redirect to edge
-          root to: "roots#index"
+          # root to: "roots#index"
           resource :health, only: :show # health check for html
           # show latest 'term of use'
           resource :term, only: :show
@@ -49,23 +51,25 @@ Rails.application.routes.draw do
             resource :google, only: %i[new create]
             resource :apple, only: %i[new create]
           end
+          # Withdrawal
+          resource :withdrawal, only: %i[edit destroy] # TODO: Create or Delete membership
+          # Sign In/Out, NEED WEB
+          resource :session, only: %i[new destroy]
+          # todo: rewrite namespace
+          namespace :session do
+            resource :email, only: %i[new create]
+            resource :google, only: %i[new create]
+            resource :apple, only: %i[new create]
+            resource :passkey, only: %i[new create]
+            resource :password, only: %i[new create]
+          end
+          # Settings
+          resource :preference, only: :show
+          # ROBOTS
+          resources :robots, only: :index, format: :txt
+          # Security
+          resource :security, only: :show, format: [ :txt, :html ]
         end
-        # Withdrawal
-        resource :withdrawal, only: %i[edit destroy] # TODO: Create or Delete membership
-        # Sign In/Out, NEED WEB
-        resource :session, only: %i[new destroy]
-        # todo: rewrite namespace
-        namespace :session do
-          resource :email, only: %i[new create]
-          resource :google, only: %i[new create]
-          resource :apple, only: %i[new create]
-          resource :passkey, only: %i[new create]
-          resource :password, only: %i[new create]
-        end
-        # Settings
-        resource :preference, only: :show
-        # robots
-        get "/robots.txt", to: "robots#show", as: :robot, format: :text
       end
     end
 
@@ -74,7 +78,7 @@ Rails.application.routes.draw do
       scope module: :org, as: :org do
         # Homepage
         # ToDo: redirect
-        root to: "roots#index"
+        # root to: "roots#index"
         # health check for html
         resource :health, only: :show
         # show 'term of use'
@@ -103,8 +107,10 @@ Rails.application.routes.draw do
         resource :session, only: :new, shallow: true do
           resource :email, only: %i[new create]
         end
-        #
-        get "/robots.txt", to: "robots#show", as: :robot, format: :text
+        # ROBOTS
+        resources :robots, only: :index, format: :txt
+        # Security
+        resource :security, only: :show, format: [ :txt, :html ]
       end
     end
   end

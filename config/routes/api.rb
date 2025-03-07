@@ -7,7 +7,9 @@ Rails.application.routes.draw do
           resource :staging, only: :show
         end
         # ROBOTS
-        get "/robots.txt", to: "robots#show", as: :robot, format: :text
+        resources :robots, only: :index, format: :txt
+        # Security
+        resource :security, only: :show, format: [ :txt, :html ]
       end
     end
 
@@ -21,8 +23,10 @@ Rails.application.routes.draw do
             resources :emails, only: %i[show]
           end
         end
-        # for robots
-        get "/robots.txt", to: "robots#show", as: :robot, format: :text
+        # ROBOTS
+        resources :robots, only: :index, format: :txt
+        # Security
+        resource :security, only: :show, format: [ :txt, :html ]
       end
     end
 
@@ -35,7 +39,9 @@ Rails.application.routes.draw do
           resource :staging, only: :show
         end
         # robots
-        get "/robots.txt", to: "robots#show", as: :robot, format: :text
+        resources :robots, only: :index, format: :txt
+        # Security
+        resource :security, only: :show, format: [ :txt, :html ]
       end
     end
   end

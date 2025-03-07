@@ -2,7 +2,7 @@
 
 
 module Www
-  module Dev
+  module Org
     class ApplicationController < ActionController::Base
       allow_browser versions: :modern
     end
