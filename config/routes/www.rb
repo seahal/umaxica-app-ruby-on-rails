@@ -22,6 +22,8 @@ Rails.application.routes.draw do
         end
         # ROBOTS
         resources :robots, only: :index, format: :txt
+        # sitemap
+        resource :sitemap, only: :show, format: :xml
         # Security
         get "/security(.:format)", to: redirect("#{ENV['EDGE_CORPORATE_URL']}/security.html"), as: :security
       end
@@ -67,6 +69,8 @@ Rails.application.routes.draw do
           resource :preference, only: :show
           # ROBOTS
           resources :robots, only: :index, format: :txt
+          # sitemap
+          resource :sitemap, only: :show, format: :xml
           # Security
           get "/security(.:format)", to: redirect("#{ENV['EDGE_SERVICE_URL']}/security.html"), as: :security
         end
@@ -108,6 +112,8 @@ Rails.application.routes.draw do
         end
         # ROBOTS
         resources :robots, only: :index, format: :txt
+        # sitemap
+        resource :sitemap, only: :show, format: :xml
         # Security
         get "/security(.:format)", to: redirect("#{ENV['EDGE_STAFF_URL']}/security.html"), as: :security
       end
