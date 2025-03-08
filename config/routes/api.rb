@@ -13,7 +13,7 @@ Rails.application.routes.draw do
         # ROBOTS
         resources :robots, only: :index, format: :txt
         # Security
-        get "/security(.:format)", to: redirect("#{ENV['EDGE_CORPORATE_URL']}/security.html"), as: :security
+        get "/security(.:format)", to: redirect("https://#{ENV['EDGE_CORPORATE_URL']}/security.html"), as: :security
       end
     end
 
